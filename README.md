@@ -3,4 +3,10 @@ How to download and access project:
 2. Open unity. Detect the project folder.
 3. You should see an empty scene and an empty hierarchy. Go to scenes folder and open SampleScene.unity. This should populate both windows.
 
-   
+Update local project:
+1. git pull
+
+Commit changes:
+1. git add .
+2. (optional) git status
+3. git push -u origin main   (or other branches)
