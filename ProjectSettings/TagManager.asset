@@ -44,8 +44,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Spaceship
+  - name: Skillshot 1
+    uniqueID: 3378426941
+    locked: 0
+  - name: Skillshot 2
+    uniqueID: 3135951165
+    locked: 0
+  - name: enemy
+    uniqueID: 1783268601
+    locked: 0
+  - name: player
     uniqueID: 622219037
+    locked: 0
+  - name: UI
+    uniqueID: 3804305411
     locked: 0
   m_RenderingLayers:
   - Default

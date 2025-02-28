@@ -24,16 +24,16 @@ public class enemyScript : MonoBehaviour
         Destroy(gameObject, 3);
     }
 
-    void OnGUI()
-    {
-        GUI.skin = theSkin;
-        GUI.Label(new Rect(200, 0, 400, 400), "Score: " + score + "\nLife: " + life);
+    //void OnGUI()
+    //{
+    //    GUI.skin = theSkin;
+    //    GUI.Label(new Rect(200, 0, 400, 400), "Score: " + score + "\nLife: " + life);
 
-        if (life <= 0) {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 400, 400), "Game Over!");
-            Time.timeScale = 0.0F;
-        }
-    }
+    //    if (life <= 0) {
+    //        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 400, 400), "Game Over!");
+    //        Time.timeScale = 0.0F;
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
