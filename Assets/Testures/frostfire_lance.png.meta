@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frostfire_lance_0: 3606599741834330515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
