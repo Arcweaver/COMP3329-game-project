@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthDisplay : MonoBehaviour
 {
-    public PlayerStat playerHealth; 
+    public PlayerController playerHealth; 
     public Text healthText;
     public Image healthBar;
 

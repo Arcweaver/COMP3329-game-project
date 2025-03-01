@@ -14,28 +14,6 @@ public class PlayerStat : MonoBehaviour
         currentHealth = maxHealth; 
     }   
         
-    //private float damageTimer;
-    //public float damageInterval = 2f;
-    //private void Update()
-    //{
-        
-    //    damageTimer += Time.deltaTime;
-    //    if (damageTimer >= damageInterval)
-    //    {
-    //        int coin = Random.Range(0, 2);
-    //        if (coin == 0)
-    //        {
-    //            TakeDamage(Random.Range(5, 15));
-    //        }
-    //        else
-    //        {
-    //            Heal(Random.Range(5, 15));
-    //        }
-            
-    //        damageTimer = 0; // Reset the timer
-    //    }
-    //}
-
 
     public void TakeDamage(int damage)
     {

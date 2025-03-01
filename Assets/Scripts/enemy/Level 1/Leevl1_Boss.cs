@@ -17,8 +17,8 @@ public class Level1_Boss : BossTemplate
     {
         skill1Timer = skill1Cooldown;
         skill2Timer = skill2Cooldown;
-        bossMaxHp = 4000;
-        bossCurrentHp = 4000;
+        maxHp = 4000;
+        currentHp = 4000;
     }
    
 

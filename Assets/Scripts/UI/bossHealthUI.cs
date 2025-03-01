@@ -15,7 +15,7 @@ public class BossHealthDisplay : MonoBehaviour
     private void UpdateHealthDisplay()
     {
         //healthText.text = $"Health: {bossHealth.bossCurrentHp}";
-        float fillAmount = (float)bossHealth.bossCurrentHp / bossHealth.bossMaxHp;
+        float fillAmount = (float)bossHealth.currentHp / bossHealth.maxHp;
         healthBar.fillAmount = fillAmount;
     }
 }
