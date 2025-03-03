@@ -8,7 +8,9 @@ public class Skill : MonoBehaviour
     public int id;
     public string skillName;
     public string description;
+    public string iconPath = "???";
     public Sprite icon; // skill icon
+    public int staminaCost = 0;
 
     // Affix properties
     public int affix = 0; // One of the three affixes. 0 means no affix.
@@ -34,6 +36,8 @@ public class Skill : MonoBehaviour
     {
         //init the prefabs
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
+        //init the icon
+        //icon = Resources.Load<Sprite>(iconPath);
         //timer
         cooldownTimer = 0;
         globalCooldownTimer = 0;
@@ -50,6 +54,9 @@ public class Skill : MonoBehaviour
     {
         if (CanUseSkill())
         {
+            //use stamina
+            //implementation on hold: still deciding
+
             // Generate skillshot if applicable
             if (skillshotPrefab != null)
             {
@@ -69,10 +76,15 @@ public class Skill : MonoBehaviour
             //also trigger other skill's gcd
             //userUnit.triggerGCD();
 
-            if (skillshotPrefab == null)
-            {
-                Debug.Log($"Failed to load prefeb for {skillName}!");
-            }
+            // null logging
+            //if (skillshotPrefab == null)
+            //{
+            //    Debug.Log($"Failed to load prefeb for {skillName}!");
+            //}
+            //if (statModifier == null)
+            //{
+            //    Debug.Log($"Failed to load the stat modifier for {skillName}!");
+            //}
         }
         else
         {
@@ -114,8 +126,14 @@ public class Skill : MonoBehaviour
         // Logic for applying the stat modifier
         if (statModifier != null)
         {
+            statModifier.StartModifier();
             userUnit.AddModifier(statModifier);
         }
+    }
+
+    public void changeAffix(int newAffix)
+    {
+        if (newAffix >=0 &&  newAffix <= 3) affix = newAffix;
     }
 }
 

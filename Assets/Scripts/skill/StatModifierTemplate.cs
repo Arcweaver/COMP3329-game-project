@@ -7,7 +7,13 @@ public class StatModifier
     //public int healthModifier;
     //public float speedModifier;
     public float duration = 0; // Duration for which the modifier is effective
-    private float timer = 0; // Timer to track expiration
+    public float timer = 0; // Timer to track expiration
+    public int affix = 0;
+
+    public virtual void StartModifier()
+    {
+        timer = duration;
+    }
 
     //monitors the flow of application and expiration of the modifier
     //this should be called in the update modifier method in the unit, which should have been handled in the template

@@ -8,16 +8,22 @@ public class PlayerController : UnitTemplate
 {
     private Vector2 moveInput; 
     private SpriteRenderer spriteRenderer;
-    private Skill skill1;
+    private Skill skill1, skill2;
 
     void Start()
     {
+        //default stat modification here
+
+        //sprite
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
 
         //assign the selected skills
-        GameObject skillObject = new GameObject("FireballSkill");
-        skill1 = skillObject.AddComponent<FrostfireLanceSkill>();
+        GameObject skill1Object = new GameObject("Skill1");
+        skill1 = skill1Object.AddComponent<FrostfireLanceSkill>();
+
+        GameObject skill2Object = new GameObject("Skill1");
+        skill2 = skill2Object.AddComponent<QuicksilverSkill>();
     }
 
     void Update()
@@ -57,6 +63,8 @@ public class PlayerController : UnitTemplate
                 // Calculate the angle based on the movement direction
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+                //Debug.Log(modifiedStats.moveSpeed);
             }
         }
     }
@@ -69,7 +77,7 @@ public class PlayerController : UnitTemplate
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("Casting Skill 2");
+            skill2.UseSkill(transform.position, GetDirectionToMouse(), this);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {

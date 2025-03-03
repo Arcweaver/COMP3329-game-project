@@ -2,41 +2,40 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class FrostfireLanceSkill : Skill
+public class QuicksilverSkill : Skill
 {
     // Skill properties
     void Start()
     {
         //skill description
-        id = 1;
-        skillName = "Frostfire Lance";
-        description = "Conjure and fire a frostfire lance, dealing 135 damage to enemies in its path.";
+        id = 2;
+        skillName = "Quicksilver";
+        description = "Increase movement speed by 50% for 5 seconds.";
 
         //affix description
-        affix1Name = "Splitting Lances";
-        affix1Description = "Also fire 2 lesser lances to the sides, dealing 60 damage";
-        affix2Name = "Extreme Temperatures";
-        affix2Description = " Also cause a freezeburn, dealing 30 damage after 1 second.";
-        affix3Name = "Paradox";
-        affix3Description = " Firing it to your right deals 20 more damage. Firing to your left reduces its cooldown by 1.";
+        affix1Name = "Concentrated Sprint";
+        affix1Description = "Movement speed bonus increased to 100%. Ends upon using weapon attacks or other skills.";
+        affix2Name = "Prolonged Sprint";
+        affix2Description = "No longer has a duration. Cost 5 more stamina per second active. Reactivate to cancel the effect.";
+        affix3Name = "Synchronization";
+        affix3Description = "Continue moving for at least 2 seconds during this effect will reduce the cooldown of all abilities by 2 seconds. Stamina cost increased to 20.";
 
         //load icon
         //iconPath = "xxx"
         //icon = Resources.Load<Sprite>(iconPath);
 
-        //load prefab
-        skillshotPrefabPath = "Prefabs/frostfireLancePrefab";
-        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
+        //load stat modifier
+        statModifier = new QuicksilverModifier(affix);
 
         //cooldown
-        cooldown = 6f;
+        cooldown = 10f;
 
         //timers
         cooldownTimer = 0;
         globalCooldownTimer = 0;
-}
+    }
 
-   
+
     //to fire different missiles, override this and also declare another skillshot
     //protected override void GenerateSkillshot(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     //{
@@ -57,5 +56,4 @@ public class FrostfireLanceSkill : Skill
     //    }
     //}
 }
-
 

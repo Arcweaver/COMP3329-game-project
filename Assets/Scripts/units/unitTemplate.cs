@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class UnitTemplate : MonoBehaviour
 {
+    //default values
     public float moveSpeed = 125f; 
     public int maxHealth = 100;
     public int currentHealth;
@@ -14,8 +15,8 @@ public class UnitTemplate : MonoBehaviour
     public float criticalModifier = 2f;
     public float damageTakenModifier = 1f;
 
-    public List<StatModifier> activeModifiers = new List<StatModifier>();
-    public UnitStat modifiedStats = new UnitStat();
+    public List<StatModifier> activeModifiers = new();
+    public UnitStat modifiedStats = new();
 
     void Start()
     {
@@ -62,12 +63,11 @@ public class UnitTemplate : MonoBehaviour
    
     public UnitStat GetModifiedStats()
     {
-        UnitStat s = new UnitStat();
-        s.CopyStat(this);
+        modifiedStats.CopyStat(this);
         for (int i = 0; i < activeModifiers.Count; i++)
         {
             StatModifier modifier = activeModifiers[i];
-            modifier.ApplyStatChange(s);
+            modifier.ApplyStatChange(modifiedStats);
 
             //the modifier should remove itself in UpdateModifier
             if (modifier.IsExpired())
@@ -76,7 +76,7 @@ public class UnitTemplate : MonoBehaviour
                 RemoveModifier(modifier);
             }
         }
-        return s;
+        return modifiedStats;
     }
 
 
@@ -103,11 +103,13 @@ public class UnitTemplate : MonoBehaviour
     public void AddModifier(StatModifier modifier)
     {
         activeModifiers.Add(modifier);
+        Debug.Log(activeModifiers.Count);
     }
 
     public void RemoveModifier(StatModifier modifier)
     {
         activeModifiers.Remove(modifier);
+        Debug.Log(activeModifiers.Count);
     }
 
     

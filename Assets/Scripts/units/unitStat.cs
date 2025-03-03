@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//acts mainly as a carrier class
 public class UnitStat
 {
     public float moveSpeed = 125f;
@@ -9,6 +10,9 @@ public class UnitStat
     public float criticalModifier = 2f;
     public float damageTakenModifier = 1f;
 
+    //you may introduce more variable here if needed
+
+    //copy the important, universal stat
     public void CopyStat(UnitTemplate u)
     {
         this.moveSpeed = u.moveSpeed;
