@@ -4,19 +4,20 @@ using UnityEngine;
 
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : UnitTemplate
 {
-    public float moveSpeed = 125f; 
     private Vector2 moveInput; 
     private SpriteRenderer spriteRenderer;
-    public int maxHealth = 100;
-    private int currentHealth;
-    public int CurrentHealth => currentHealth;
+    private Skill skill1;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        //assign the selected skills
+        GameObject skillObject = new GameObject("FireballSkill");
+        skill1 = skillObject.AddComponent<FrostfireLanceSkill>();
     }
 
     void Update()
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
         // Get movement input
         moveInput.x = Input.GetAxis("Horizontal"); // x dir movement
         moveInput.y = Input.GetAxis("Vertical");   // y dir movement
+
+        //modifier update
+        CallOnUpdate();
 
         // Move the character
         MoveCharacter(moveInput);
@@ -40,14 +44,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             // Move without changing direction
-            Vector2 newPosition = (Vector2)transform.position + direction * moveSpeed * Time.deltaTime;
+            Vector2 newPosition = (Vector2)transform.position + direction * modifiedStats.moveSpeed * Time.deltaTime;
             transform.position = newPosition;
         }
         else
         {
             if (direction != Vector2.zero)
             {
-                Vector2 newPosition = (Vector2)transform.position + direction * moveSpeed * Time.deltaTime;
+                Vector2 newPosition = (Vector2)transform.position + direction * modifiedStats.moveSpeed * Time.deltaTime;
                 transform.position = newPosition;
 
                 // Calculate the angle based on the movement direction
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("Casting Skill 1");
+            skill1.UseSkill(transform.position, GetDirectionToMouse(), this);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -85,18 +89,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public Vector3 GetDirectionToMouse()
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log($"Current Health: {currentHealth}");
-    }
+        // Get the mouse position in screen coordinates
+        Vector3 mousePosition = Input.mousePosition;
 
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-    public void Heal(int amount)
-    {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log($"Current Health: {currentHealth}");
+        // Set the z coordinate to match the player's z position (if needed)
+        mousePosition.z = transform.position.z;
+
+        // Calculate the direction from the player to the mouse
+        Vector3 direction = (mousePosition - transform.position).normalized;
+
+        //Debug.Log($"Mouse Position: {mousePosition}, Player Position: {transform.position}, Direction: {direction}");
+
+        return direction; // Return the normalized direction vector
     }
 }

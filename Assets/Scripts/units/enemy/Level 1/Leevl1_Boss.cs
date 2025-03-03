@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Level1_Boss : BossTemplate
 {
     //additional stats
+    public int defaultMaxHealth = 4000;
+    public int defaultMovespeed = 100;
     public float standstillTimer = 0;
 
     //temp skill
@@ -15,10 +17,12 @@ public class Level1_Boss : BossTemplate
 
     private void Start()
     {
+        maxHealth = defaultMaxHealth;
+        currentHealth = maxHealth;
+        moveSpeed = defaultMovespeed;
+
         skill1Timer = skill1Cooldown;
         skill2Timer = skill2Cooldown;
-        maxHp = 4000;
-        currentHp = 4000;
     }
    
 
@@ -59,7 +63,7 @@ public class Level1_Boss : BossTemplate
     private void UseSkill1()
     {
         // Stop moving and perform Skill 1
-        Debug.Log("Using Skill 1!");
+        //Debug.Log("Using Skill 1!");
         // Implement skill effect here
         standstillTimer = 2;
     }
@@ -67,7 +71,7 @@ public class Level1_Boss : BossTemplate
     private void UseSkill2()
     {
         // Perform Skill 2 while moving
-        Debug.Log("Using Skill 2!");
+        //Debug.Log("Using Skill 2!");
 
         //do nothing
     }

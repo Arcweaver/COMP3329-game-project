@@ -2,61 +2,58 @@ using UnityEngine;
 
 public class StatModifier
 {
-    public int healthModifier;
-    public float speedModifier;
+    //declare variables to help with stat changes
+    //eg.
+    //public int healthModifier;
+    //public float speedModifier;
     public float duration = 0; // Duration for which the modifier is effective
     private float timer = 0; // Timer to track expiration
 
-
-    // should have make player and enemy of the same parent :(
-    // too lazy to fix it. :P
-    public virtual void UpdateModifier(PlayerController owner)
+    //monitors the flow of application and expiration of the modifier
+    //this should be called in the update modifier method in the unit, which should have been handled in the template
+    public void UpdateModifier(UnitTemplate unit, UnitStat stat)
     {
         // Decrement the timer
         timer -= Time.deltaTime;
 
         // Apply stat modifiers not involving damage to the owner
-        //ApplyStatChange(owner);
+        ApplyStatChange(stat);
 
 
         //if it is a damage over time, declare it here
-        //owner.TakeDamage(1);
+        ApplyChangeOnUpdate(unit, stat);
 
         // Check if the duration has expired
-        if (timer <= 0)
+        if (IsExpired())
         {
-            // Remove modifier from the owner
-            owner.RemoveModifier(this);
+            ApplyExpirationChange(unit);
         }
     }
 
-    public virtual void UpdateModifier(EnemyTemplate owner)
+   
+    //declare stat change here
+    public virtual void ApplyStatChange(UnitStat stat)
     {
-        // Decrement the timer
-        timer -= Time.deltaTime;
-
-        // Apply the modifiers to the owner
-        //ApplyStatChange(owner);
-
-
-        //if it is a damage over time, declare it here
-        //owner.TakeDamage(1);
-
-        // Check if the duration has expired
-        if (timer <= 0)
-        {
-            // Remove modifier from the owner
-            owner.RemoveModifier(this);
-        }
+        //stat.moveSpeed += speedModifier;
     }
 
-    public virtual void ApplyStatChange(PlayerController owner)
+    //changes that only happen on update 
+    //eg. damage over time
+    //should not apply timer expiration here
+    public virtual void ApplyChangeOnUpdate(UnitTemplate unit, UnitStat stat)
     {
-
+        //unit.TakeDamage(1);
     }
-
-    public bool IsExpired()
+    
+    //check expiration condition
+    public virtual bool IsExpired()
     {
         return timer <= 0;
+    }
+
+    //changes on expiration excluding removal of modifier
+    public virtual void ApplyExpirationChange(UnitTemplate unit)
+    {
+        
     }
 }
