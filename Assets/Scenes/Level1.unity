@@ -895,7 +895,7 @@ MonoBehaviour:
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
-  modifiedStats: {fileID: 0}
+  damageTakenModifier: 1
   player: {fileID: 2000817141}
   statModifier: []
   defaultMaxHealth: 4000
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
-  modifiedStats: {fileID: 0}
+  damageTakenModifier: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
