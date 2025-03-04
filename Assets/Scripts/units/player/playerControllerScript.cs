@@ -47,24 +47,26 @@ public class PlayerController : UnitTemplate
 
     private void MoveCharacter(Vector2 direction)
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            // Move without changing direction
-            Vector2 newPosition = (Vector2)transform.position + direction * modifiedStats.moveSpeed * Time.deltaTime;
-            transform.position = newPosition;
-        }
-        else
-        {
-            if (direction != Vector2.zero)
+        if (modifiedStats.moveSpeed != 0){
+            if (Input.GetKey(KeyCode.Space))
             {
+                // Move without changing direction
                 Vector2 newPosition = (Vector2)transform.position + direction * modifiedStats.moveSpeed * Time.deltaTime;
                 transform.position = newPosition;
-
-                // Calculate the angle based on the movement direction
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-                //Debug.Log(modifiedStats.moveSpeed);
+            }
+            else
+            {
+                if (direction != Vector2.zero)
+                {
+                    Vector2 newPosition = (Vector2)transform.position + direction * modifiedStats.moveSpeed * Time.deltaTime;
+                    transform.position = newPosition;
+    
+                    // Calculate the angle based on the movement direction
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                    transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    
+                    //Debug.Log(modifiedStats.moveSpeed);
+                }
             }
         }
     }
