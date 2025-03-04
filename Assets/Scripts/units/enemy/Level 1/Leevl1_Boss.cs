@@ -7,9 +7,9 @@ public class Level1_Boss : BossTemplate
     //additional stats
     public int defaultMaxHealth = 4000;
     public int defaultMovespeed = 100;
-    public float standstillTimer = 0;
 
     //temp skill
+    public float standstillTimer = 0;
     public float skill1Cooldown = 5f; // Cooldown for Skill 1
     public float skill2Cooldown = 3f; // Cooldown for Skill 2
     private float skill1Timer;
