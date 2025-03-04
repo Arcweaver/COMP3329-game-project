@@ -6,7 +6,7 @@ public class EnemyTemplate : UnitTemplate
 {
     //stats
     public Transform player; // player location
-    public List<GameObject> statModifier; //store stat modifiers
+    //public List<GameObject> statModifier; //store stat modifiers
 
 
     void Update()
@@ -23,15 +23,17 @@ public class EnemyTemplate : UnitTemplate
 
     public void MoveTowardsPlayer()
     {
-        if (player != null)
-        {
-            Vector3 direction = (player.position - transform.position).normalized;
-            //Debug.Log($"Moving towards player at position: {player.position}");
-            transform.position += modifiedStats.moveSpeed * Time.deltaTime * direction;
-        }
-        else
-        {
-            Debug.LogWarning("Player reference is null!");
+        if (modifiedStats.moveSpeed != 0){
+            if (player != null)
+            {
+                Vector3 direction = (player.position - transform.position).normalized;
+                //Debug.Log($"Moving towards player at position: {player.position}");
+                transform.position += modifiedStats.moveSpeed * Time.deltaTime * direction;
+            }
+            else
+            {
+                Debug.LogWarning("Player reference is null!");
+            }
         }
     }
 
