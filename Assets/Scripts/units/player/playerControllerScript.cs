@@ -8,7 +8,7 @@ public class PlayerController : UnitTemplate
 {
     private Vector2 moveInput; 
     private SpriteRenderer spriteRenderer;
-    private Skill skill1, skill2, skill3, skill4;
+    private Skill skill1, skill2;
 
     void Start()
     {
@@ -24,12 +24,6 @@ public class PlayerController : UnitTemplate
 
         GameObject skill2Object = new GameObject("Skill2");
         skill2 = skill2Object.AddComponent<QuicksilverSkill>();
-
-        GameObject skill3Object = new GameObject("Skill3");
-        skill3 = skill3Object.AddComponent<QuicksilverSkill>();
-
-        GameObject skill4Object = new GameObject("Skill4");
-        skill4 = skill4Object.AddComponent<QuicksilverSkill>();
     }
 
     void Update()

@@ -1745,12 +1745,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1837824653}
         m_TargetAssemblyTypeName: CustomizationUI, Assembly-CSharp
-        m_MethodName: SetSelected
-        m_Mode: 5
+        m_MethodName: SetSkillSetIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: skill4
           m_BoolArgument: 0
@@ -2899,12 +2899,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1837824653}
         m_TargetAssemblyTypeName: CustomizationUI, Assembly-CSharp
-        m_MethodName: SetSelected
-        m_Mode: 5
+        m_MethodName: SetSkillSetIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: skill2
           m_BoolArgument: 0
@@ -3296,8 +3296,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1837824653}
         m_TargetAssemblyTypeName: CustomizationUI, Assembly-CSharp
-        m_MethodName: SetSelected
-        m_Mode: 5
+        m_MethodName: SetSkillSetIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3686,12 +3686,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1837824653}
         m_TargetAssemblyTypeName: CustomizationUI, Assembly-CSharp
-        m_MethodName: SetSelected
-        m_Mode: 5
+        m_MethodName: SetSkillSetIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: skill1
           m_BoolArgument: 0
@@ -3865,10 +3865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73025af32b13c748a55c93182a9d390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillMenuItemPrefab: {fileID: 8377962127059075103, guid: 74878f4869c2d37428843181af5b6be8, type: 3}
+  skillSet: {fileID: 1635395782}
   skillMenu: {fileID: 261778241}
-  selected: 
-  skills: []
+  skillMenuItemPrefab: {fileID: 8377962127059075103, guid: 74878f4869c2d37428843181af5b6be8, type: 3}
+  skillSetIndex: 0
 --- !u!1 &1874932703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,12 +3966,12 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1837824653}
         m_TargetAssemblyTypeName: CustomizationUI, Assembly-CSharp
-        m_MethodName: SetSelected
-        m_Mode: 5
+        m_MethodName: SetSkillSetIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: skill3
           m_BoolArgument: 0
