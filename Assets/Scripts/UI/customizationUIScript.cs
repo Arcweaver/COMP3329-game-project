@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CustomizationUI : MonoBehaviour
@@ -12,12 +13,14 @@ public class CustomizationUI : MonoBehaviour
     public int skillSetIndex;
     public struct SkillProp
     {
-        public SkillProp(string skillName, string description, Sprite icon)
+        public SkillProp(int id, string skillName, string description, Sprite icon)
         {
+            this.id = id;
             this.skillName = skillName;
             this.description = description;
             this.icon = icon;
         }
+        public int id;
         public string skillName;
         public string description;
         public Sprite icon; 
@@ -27,12 +30,11 @@ public class CustomizationUI : MonoBehaviour
 
     void Start()
     {
-        HideSkillMenu();
         skillSetIndex = -1;
         skills = new List<SkillProp>
         {
-            new("test1", "This is a test 1", null),
-            new("test2", "This is a test 2", null)
+            new(0, "test1", "This is a test 1", null),
+            new(1, "test2", "This is a test 2", null),
         };
         selectedSkills = new List<SkillProp>
         {
@@ -42,6 +44,8 @@ public class CustomizationUI : MonoBehaviour
             new(),
             new(),
         };
+        ShowSkillSet();
+        HideSkillMenu();
     }
     public void SetSkillSetIndex(int skillSetIndex)
     {
@@ -58,24 +62,34 @@ public class CustomizationUI : MonoBehaviour
     public void ShowSkills()
     {
         foreach (Transform child in skillMenu.transform) Destroy(child.gameObject);
-        for (int i = 0; i < skills.Count; i++)
+        foreach (SkillProp skill in skills)
         {
-            SkillProp skill = skills[i];
-            GameObject skillMenuItem = Instantiate(skillMenuItemPrefab, skillMenu.transform);
-            skillMenuItem.transform.SetSiblingIndex(i);
-            skillMenuItem.GetComponent<Image>().sprite = skill.icon;
-            skillMenuItem.GetComponentInChildren<TMP_Text>().text = skill.skillName;
+            GameObject skillMenuItemObject = Instantiate(skillMenuItemPrefab, skillMenu.transform);
+            SkillMenuItem skillMenuItem = skillMenuItemObject.GetComponent<SkillMenuItem>();
+            skillMenuItem.skill = skill;
+            skillMenuItem.SetIcon();
             skillMenuItem.GetComponent<Button>().onClick.AddListener(() => {
-                SetSkill(skillMenuItem);
+                SetSkill(skillMenuItemObject);
             });
-            skillMenuItem.transform.SetParent(skillMenu.transform);
         }
     }
-    public void SetSkill(GameObject currentSkillMenuItem)
+    public void SetSkill(GameObject skillMenuItemObject)
     {
-       selectedSkills[skillSetIndex] = skills[currentSkillMenuItem.transform.GetSiblingIndex()];
-       GameObject selectedSkill = skillSet.transform.GetChild(skillSetIndex).gameObject;
-       Debug.Log(selectedSkill);
-       selectedSkill.GetComponentInChildren<TMP_Text>().text = selectedSkills[skillSetIndex].skillName;
+        SkillProp skillToSet = skillMenuItemObject.GetComponent<SkillMenuItem>().skill;
+        for (int i = 0; i < selectedSkills.Count; i++)
+        {
+            if (selectedSkills[i].id == skillToSet.id)
+                selectedSkills[i] = new();
+        }
+        selectedSkills[skillSetIndex] = skillToSet;
+        ShowSkillSet();
+    }
+    private void ShowSkillSet()
+    {
+        for (int i = 0; i < skillSet.transform.childCount; i++)
+        {
+            GameObject skillSlot = skillSet.transform.GetChild(i).gameObject;
+            skillSlot.GetComponentInChildren<TMP_Text>().text = selectedSkills[i].skillName;
+        }
     }
 }
