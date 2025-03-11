@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class SkillMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject tooltipPrefab;
-    public GameObject tooltip;
+    public Tooltip tooltip;
     public CustomizationUI.SkillProp skill;
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -25,15 +24,12 @@ public class SkillMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     private void ShowTooltip()
     {
-        tooltip = Instantiate(tooltipPrefab, transform).transform.GetChild(0).gameObject;
-        TMP_Text tooTipSkillName = tooltip.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        TMP_Text tooTipDescription = tooltip.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
-        tooTipSkillName.text = skill.skillName;
-        tooTipDescription.text = skill.description;
-
+        tooltip.Show();
+        tooltip.SetHeader(skill.skillName);
+        tooltip.SetDescription(skill.description);
     }
     private void HideTooltip()
     {
-        Destroy(tooltip);
+        tooltip.Hide();
     }
 }

@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CustomizationUI : MonoBehaviour
 {
+    public GameObject tooltip;
     public GameObject skillSet;
     public GameObject skillMenu;
     public GameObject skillMenuItemPrefab;
@@ -28,13 +27,20 @@ public class CustomizationUI : MonoBehaviour
     public List<SkillProp> skills;
     public List<SkillProp> selectedSkills;
 
-    void Start()
+    void Awake()
     {
         skillSetIndex = -1;
         skills = new List<SkillProp>
         {
             new(0, "test1", "This is a test 1", null),
             new(1, "test2", "This is a test 2", null),
+            new(2, "test2", "This is a test 2", null),
+            new(3, "test3", "This is a test 3", null),
+            new(4, "test4", "This is a test 4", null),
+            new(5, "test5", "This is a test 5", null),
+            new(6, "test6", "This is a test 6", null),
+            new(7, "test7", "This is a test 7", null),
+            new(8, "test8", "This is a test 8", null),
         };
         selectedSkills = new List<SkillProp>
         {
@@ -67,6 +73,7 @@ public class CustomizationUI : MonoBehaviour
             GameObject skillMenuItemObject = Instantiate(skillMenuItemPrefab, skillMenu.transform);
             SkillMenuItem skillMenuItem = skillMenuItemObject.GetComponent<SkillMenuItem>();
             skillMenuItem.skill = skill;
+            skillMenuItem.tooltip = tooltip.GetComponent<Tooltip>();
             skillMenuItem.SetIcon();
             skillMenuItem.GetComponent<Button>().onClick.AddListener(() => {
                 SetSkill(skillMenuItemObject);
