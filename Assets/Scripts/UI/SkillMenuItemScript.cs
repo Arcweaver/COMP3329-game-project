@@ -25,11 +25,12 @@ public class SkillMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     private void ShowTooltip()
     {
-        tooltip = Instantiate(tooltipPrefab, transform);
+        tooltip = Instantiate(tooltipPrefab, transform).transform.GetChild(0).gameObject;
         TMP_Text tooTipSkillName = tooltip.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         TMP_Text tooTipDescription = tooltip.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
         tooTipSkillName.text = skill.skillName;
         tooTipDescription.text = skill.description;
+
     }
     private void HideTooltip()
     {
