@@ -897,12 +897,8 @@ MonoBehaviour:
   criticalModifier: 2
   damageTakenModifier: 1
   player: {fileID: 2000817141}
-  statModifier: []
   defaultMaxHealth: 4000
   defaultMovespeed: 100
-  standstillTimer: 0
-  skill1Cooldown: 5
-  skill2Cooldown: 3
 --- !u!1 &1731515871
 GameObject:
   m_ObjectHideFlags: 0
