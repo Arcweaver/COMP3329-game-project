@@ -22,7 +22,7 @@ public class PlayerController : UnitTemplate
         GameObject skill1Object = new GameObject("Skill1");
         skill1 = skill1Object.AddComponent<FrostfireLanceSkill>();
 
-        GameObject skill2Object = new GameObject("Skill1");
+        GameObject skill2Object = new GameObject("Skill2");
         skill2 = skill2Object.AddComponent<QuicksilverSkill>();
     }
 
