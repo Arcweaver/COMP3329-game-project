@@ -14,7 +14,7 @@ public class FrostfireLanceSkillshot : Skillshot
 
 
 
-    protected override void SkillEffect(EnemyTemplate enemy)
+    protected override void SkillEffect(UnitTemplate enemy)
     {
         //get the unit stats to do crit modification/damage amp magic  :)
         //UnitStat sourceStat = unit.GetModifiedStats();

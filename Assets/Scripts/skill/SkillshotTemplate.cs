@@ -27,7 +27,7 @@ public class Skillshot : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    protected virtual void SkillEffect(EnemyTemplate enemy)
+    protected virtual void SkillEffect(UnitTemplate enemy)
     {
         enemy.TakeDamage(1);
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), 1);
@@ -39,7 +39,7 @@ public class Skillshot : MonoBehaviour
         // Example of how you might use the affix during collision
         if (collidedObject.CompareTag(opponentTag))
         {
-            EnemyTemplate enemy = collidedObject.GetComponent<EnemyTemplate>();
+            UnitTemplate enemy = collidedObject.GetComponent<UnitTemplate>();
             // collision/damange logic
             if (enemy != null)
             {

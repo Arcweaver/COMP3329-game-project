@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class PlayerController : UnitTemplate
 {
     private Vector2 moveInput; 
     private SpriteRenderer spriteRenderer;
-    private Skill skill1, skill2;
+    private Skill skill1, skill2, skill3, skill4;
+    private Skill weaponAttack;
 
     void Start()
     {
@@ -18,12 +20,13 @@ public class PlayerController : UnitTemplate
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
 
-        //assign the selected skills
-        GameObject skill1Object = new GameObject("Skill1");
-        skill1 = skill1Object.AddComponent<FrostfireLanceSkill>();
-
-        GameObject skill2Object = new GameObject("Skill2");
-        skill2 = skill2Object.AddComponent<QuicksilverSkill>();
+        //assign the selected skills and weapons (need manager to replace this)
+        GameObject skillObject = new GameObject("playerSkill");  //dummy object
+        skill1 = skillObject.AddComponent<FrostfireLanceSkill>();
+        skill2 = skillObject.AddComponent<QuicksilverSkill>();
+        skill3 = skillObject.AddComponent<FrostfireLanceSkill>();
+        skill4 = skillObject.AddComponent<QuicksilverSkill>();
+        weaponAttack = skillObject.AddComponent<FrostfireLanceSkill>();
     }
 
     void Update()
@@ -76,18 +79,22 @@ public class PlayerController : UnitTemplate
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             skill1.UseSkill(transform.position, GetDirectionToMouse(), this);
+            TriggerSkillGCD();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             skill2.UseSkill(transform.position, GetDirectionToMouse(), this);
+            TriggerSkillGCD();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Debug.Log("Casting Skill 3");
+            skill3.UseSkill(transform.position, GetDirectionToMouse(), this);
+            TriggerSkillGCD();
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Debug.Log("Casting Skill 4");
+            skill4.UseSkill(transform.position, GetDirectionToMouse(), this);
+            TriggerSkillGCD();
         }
     }
 
@@ -95,7 +102,7 @@ public class PlayerController : UnitTemplate
     {
         if (Input.GetMouseButtonDown(0)) // Left mouse button
         {
-            Debug.Log("Performing Basic Attack");
+            weaponAttack.UseSkill(transform.position, GetDirectionToMouse(), this);
         }
     }
 
@@ -115,5 +122,13 @@ public class PlayerController : UnitTemplate
         //Debug.Log($"Mouse Position: {mousePosition}, Player Position: {transform.position}, Direction: {direction}");
 
         return direction; // Return the normalized direction vector
+    }
+
+    public void TriggerSkillGCD()
+    {
+        skill1.TriggerGCD();
+        skill2.TriggerGCD();
+        skill3.TriggerGCD();
+        skill4.TriggerGCD();
     }
 }

@@ -103,13 +103,13 @@ public class UnitTemplate : MonoBehaviour
     public void AddModifier(StatModifier modifier)
     {
         activeModifiers.Add(modifier);
-        Debug.Log(activeModifiers.Count);
+        //Debug.Log(activeModifiers.Count);
     }
 
     public void RemoveModifier(StatModifier modifier)
     {
         activeModifiers.Remove(modifier);
-        Debug.Log(activeModifiers.Count);
+        //Debug.Log(activeModifiers.Count);
     }
 
     

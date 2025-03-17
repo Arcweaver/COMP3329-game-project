@@ -92,7 +92,7 @@ public class Skill : MonoBehaviour
         }
     }
 
-    public void TriggerGCD(Vector3 position, Vector3 direction)
+    public void TriggerGCD()
     {
         if (CanUseSkill() || Mathf.Max(globalCooldownTimer, cooldownTimer) <= globalCooldown)
         {
@@ -101,7 +101,7 @@ public class Skill : MonoBehaviour
         }
         else
         {
-            Debug.Log($"{skillName} is on cooldown or during global cooldown.");
+            Debug.Log($"{skillName} is already on cooldown/global cooldown.");
         }
     }
 

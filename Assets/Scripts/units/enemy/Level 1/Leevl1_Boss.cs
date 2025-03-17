@@ -1,19 +1,17 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class Level1_Boss : BossTemplate
 {
     //additional stats
     public int defaultMaxHealth = 4000;
-    public int defaultMovespeed = 100;
-    public float standstillTimer = 0;
+    public int defaultMovespeed = 70;
 
-    //temp skill
-    public float skill1Cooldown = 5f; // Cooldown for Skill 1
-    public float skill2Cooldown = 3f; // Cooldown for Skill 2
-    private float skill1Timer;
-    private float skill2Timer;
+    //skills
+    private Skill skill_RockBeam, skill_Bullet;
+
 
     private void Start()
     {
@@ -21,58 +19,43 @@ public class Level1_Boss : BossTemplate
         currentHealth = maxHealth;
         moveSpeed = defaultMovespeed;
 
-        skill1Timer = skill1Cooldown;
-        skill2Timer = skill2Cooldown;
+        //set the skills
+        GameObject skill1Object = new GameObject("_skill");
+        skill_RockBeam = skill1Object.AddComponent<Lvl1_Boss_Skill1>();
+        skill_Bullet = skill1Object.AddComponent<Lvl1_Boss_Skill2>();
+
+        
+        //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
+        //AddModifier(yourModifier);
+
     }
    
-
+    //boss actions
     public override void HandleSkills()
     {
-        // Update cooldown timers
-        skill1Timer -= Time.deltaTime;
-        skill2Timer -= Time.deltaTime;
-        standstillTimer -= Time.deltaTime;
-
         // Use Skill 1 if cooldown is over
-        if (skill1Timer <= 0)
+        if (skill_RockBeam.cooldownTimer <= 0 && CanUseOtherSkill())
         {
-            UseSkill1();
-            skill1Timer = skill1Cooldown;
-            return;
+            skill_RockBeam.UseSkill(transform.position, (player.position - transform.position).normalized, this);
         }
 
         // Use Skill 2 if cooldown is over
-        else if (skill2Timer <= 0)
+        else if (skill_Bullet.cooldownTimer <= 0 && CanUseOtherSkill())
         {
-            UseSkill2();
-            skill2Timer = skill2Cooldown;
+            skill_Bullet.UseSkill(transform.position, (player.position - transform.position).normalized, this);
         }
 
-        //move if standstill is over
-        if (standstillTimer <= 0)
-        {
-            MoveTowardsPlayer();
-        }
+        //move towards player if no skill to use
+        MoveTowardsPlayer();
         
     }
 
 
 
-
-    //temp skills
-    private void UseSkill1()
+    //put all the global cooldown check here
+    private Boolean CanUseOtherSkill()
     {
-        // Stop moving and perform Skill 1
-        //Debug.Log("Using Skill 1!");
-        // Implement skill effect here
-        standstillTimer = 2;
+        return skill_RockBeam.globalCooldownTimer <= 0 && skill_Bullet.globalCooldownTimer <= 0;
     }
 
-    private void UseSkill2()
-    {
-        // Perform Skill 2 while moving
-        //Debug.Log("Using Skill 2!");
-
-        //do nothing
-    }
 }
