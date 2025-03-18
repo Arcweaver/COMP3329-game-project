@@ -52,10 +52,10 @@ public class Skill : MonoBehaviour
     // Method to use the skill
     public virtual void UseSkill(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     {
-        if (CanUseSkill())
+        if (CanUseSkill() && userUnit.stamina >= staminaCost)
         {
             //use stamina
-            //implementation on hold: still deciding
+            userUnit.stamina -= staminaCost
 
             // Generate skillshot if applicable
             if (skillshotPrefab != null)
