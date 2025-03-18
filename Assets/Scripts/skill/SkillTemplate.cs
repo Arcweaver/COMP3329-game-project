@@ -10,7 +10,7 @@ public class Skill : MonoBehaviour
     public string description;
     public string iconPath = "???";
     public Sprite icon; // skill icon
-    public int staminaCost = 0;
+    public float staminaCost = 0f;
 
     // Affix properties
     public int affix = 0; // One of the three affixes. 0 means no affix.
