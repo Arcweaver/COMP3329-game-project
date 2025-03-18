@@ -116,7 +116,7 @@ public class Skill : MonoBehaviour
         Skillshot skillshotComponent = skillshot.GetComponent<Skillshot>();
         if (skillshotComponent != null)
         {
-            skillshotComponent.Initialize(direction, affix, userUnit);
+            skillshotComponent.Initialize(direction, affix, this, userUnit);
         }
     }
 
