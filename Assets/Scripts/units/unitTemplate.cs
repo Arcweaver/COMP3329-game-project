@@ -14,6 +14,13 @@ public class UnitTemplate : MonoBehaviour
     public float criticalChance = 0.2f; //0~1
     public float criticalModifier = 2f;
     public float damageTakenModifier = 1f;
+    private float _stamina = 100;
+    public float stamina
+    {
+        get { return _stamina; }
+        set {_stamina = Mathf.Min(value, 100);}
+    }
+    public float staminaRegenRate = 1.5f; //per second
 
     public List<StatModifier> activeModifiers = new();
     public UnitStat modifiedStats = new();
@@ -33,6 +40,7 @@ public class UnitTemplate : MonoBehaviour
     {
         modifiedStats.CopyStat(this);
         UpdateModifiers(this);
+        stamina += staminaRegenRate*Time.deltaTime;
     }
 
     public virtual void TakeDamage(int damage)
