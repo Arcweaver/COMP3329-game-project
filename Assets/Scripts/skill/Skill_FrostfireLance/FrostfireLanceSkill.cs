@@ -28,8 +28,9 @@ public class FrostfireLanceSkill : Skill
         skillshotPrefabPath = "Prefabs/frostfireLancePrefab";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
 
-        //cooldown
+        //cooldown and stamina
         cooldown = 6f;
+        staminaCost = 20f;
 
         //timers
         cooldownTimer = 0;
