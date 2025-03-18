@@ -8,14 +8,16 @@ public class Skillshot : MonoBehaviour
     public int affix = 0;
     public UnitTemplate unit;
     public string opponentTag = "Enemy";
+    public SkillTemplate sourceSkill;
 
     
 
-    public virtual void Initialize(Vector3 dir, int affixValue, UnitTemplate userUnit)
+    public virtual void Initialize(Vector3 dir, int affixValue, SkillTemplate skill, UnitTemplate userUnit)
     {
         unit = userUnit;
         direction = dir.normalized;
         affix = affixValue;
+        sourceSkill = skill;
         Destroy(gameObject, 5f); // Destroy skillshot after 5 seconds if it doesn't hit anything
     }
 
