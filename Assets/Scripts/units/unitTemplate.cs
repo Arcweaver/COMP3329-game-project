@@ -87,6 +87,12 @@ public class UnitTemplate : MonoBehaviour
         return modifiedStats;
     }
 
+    //call only on update/modifier update
+    public void forcedMovement(Vector2 dir, float customSpeed){
+        Vector2 newPosition = (Vector2)transform.position + dir * customSpeed * Time.deltaTime;
+        transform.position = newPosition;
+    }
+
 
     //call in update
     //puts stat modifications into a temp nit s
