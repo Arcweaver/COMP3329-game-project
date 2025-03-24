@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class Skill : MonoBehaviour
+public class Skill
 {
     // Skill properties
     public int id;
@@ -28,22 +28,24 @@ public class Skill : MonoBehaviour
 
     // Cooldown properties
     public float cooldown = 3f; // Skill cooldown duration
-    public float cooldownTimer;
+    public float cooldownTimer = 0;
     public float globalCooldown = 0.5f; // Global cooldown for all skills
-    public float globalCooldownTimer; 
+    public float globalCooldownTimer = 0; 
 
-    void Start()
+    public virtual void Init()
     {
         //init the prefabs
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
+
         //init the icon
         //icon = Resources.Load<Sprite>(iconPath);
+
         //timer
         cooldownTimer = 0;
         globalCooldownTimer = 0;
     }
 
-    void Update()
+    public void UpdateCooldown()
     {
         cooldownTimer -= Time.deltaTime;
         globalCooldownTimer -= Time.deltaTime;

@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class QuicksilverSkill : Skill
 {
     // Skill properties
-    void Start()
+    public override void Init()
     {
         //skill description
         id = 2;

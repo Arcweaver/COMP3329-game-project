@@ -21,12 +21,18 @@ public class PlayerController : UnitTemplate
         currentHealth = maxHealth;
 
         //assign the selected skills and weapons (need manager to replace this)
-        GameObject skillObject = new GameObject("playerSkill");  //dummy object
-        skill1 = skillObject.AddComponent<FrostfireLanceSkill>();
-        skill2 = skillObject.AddComponent<QuicksilverSkill>();
-        skill3 = skillObject.AddComponent<FrostfireLanceSkill>();
-        skill4 = skillObject.AddComponent<QuicksilverSkill>();
-        weaponAttack = skillObject.AddComponent<FrostfireLanceSkill>();
+        skill1 = new FrostfireLanceSkill();
+        skill2 = new QuicksilverSkill();
+        skill3 = new FrostfireLanceSkill();
+        skill4 = new QuicksilverSkill();
+        weaponAttack = new FrostfireLanceSkill();
+
+        // Init skills
+        skill1.Init();
+        skill2.Init();
+        skill3.Init();
+        skill4.Init();
+        weaponAttack.Init();
     }
 
     void Update()
@@ -46,6 +52,13 @@ public class PlayerController : UnitTemplate
 
         // Check for basic attack
         CheckBasicAttack();
+
+        // Update skills
+        skill1.UpdateCooldown();
+        skill2.UpdateCooldown();
+        skill3.UpdateCooldown();
+        skill4.UpdateCooldown();
+        weaponAttack.UpdateCooldown();
     }
 
     private void MoveCharacter(Vector2 direction)
