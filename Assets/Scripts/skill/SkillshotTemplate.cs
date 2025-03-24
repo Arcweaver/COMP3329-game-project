@@ -8,11 +8,11 @@ public class Skillshot : MonoBehaviour
     public int affix = 0;
     public UnitTemplate unit;
     public string opponentTag = "Enemy";
-    public SkillTemplate sourceSkill;
+    public Skill sourceSkill;
 
     
 
-    public virtual void Initialize(Vector3 dir, int affixValue, SkillTemplate skill, UnitTemplate userUnit)
+    public virtual void Initialize(Vector3 dir, int affixValue, Skill skill, UnitTemplate userUnit)
     {
         unit = userUnit;
         direction = dir.normalized;

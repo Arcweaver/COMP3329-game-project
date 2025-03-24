@@ -55,7 +55,7 @@ public class Skill : MonoBehaviour
         if (CanUseSkill() && userUnit.stamina >= staminaCost)
         {
             //use stamina
-            userUnit.stamina -= staminaCost
+            userUnit.stamina -= staminaCost;
 
             // Generate skillshot if applicable
             if (skillshotPrefab != null)
