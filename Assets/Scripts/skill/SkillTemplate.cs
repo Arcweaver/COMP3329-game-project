@@ -22,7 +22,7 @@ public class Skill
     public string affix3Description;
 
     //generated objects
-    public string skillshotPrefabPath = "Prefabs/frostfireLancePrefab";
+    public string skillshotPrefabPath;
     public GameObject skillshotPrefab; // The skillshot prefab
     public StatModifier statModifier; // The stat modifier to apply
 
@@ -32,7 +32,7 @@ public class Skill
     public float globalCooldown = 0.5f; // Global cooldown for all skills
     public float globalCooldownTimer = 0; 
 
-    public virtual void Init()
+    public Skill()
     {
         //init the prefabs
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SkillMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Tooltip tooltip;
-    public CustomizationUI.SkillProp skill;
+    public Skill skill;
 
     public void OnPointerEnter(PointerEventData eventData)
     {

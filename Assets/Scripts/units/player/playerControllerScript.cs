@@ -21,18 +21,11 @@ public class PlayerController : UnitTemplate
         currentHealth = maxHealth;
 
         //assign the selected skills and weapons (need manager to replace this)
-        skill1 = new FrostfireLanceSkill();
-        skill2 = new QuicksilverSkill();
-        skill3 = new FrostfireLanceSkill();
-        skill4 = new QuicksilverSkill();
+        skill1 = StaticData.selectedSkills[0];
+        skill2 = StaticData.selectedSkills[1];
+        skill3 = StaticData.selectedSkills[2];
+        skill4 = StaticData.selectedSkills[3];
         weaponAttack = new FrostfireLanceSkill();
-
-        // Init skills
-        skill1.Init();
-        skill2.Init();
-        skill3.Init();
-        skill4.Init();
-        weaponAttack.Init();
     }
 
     void Update()

@@ -23,10 +23,6 @@ public class Level1_Boss : BossTemplate
         skill_RockBeam = new Lvl1_Boss_Skill1();
         skill_Bullet = new Lvl1_Boss_Skill2();
 
-        // Init boss skills
-        skill_RockBeam.Init();
-        skill_Bullet.Init();
-
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
 

@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class FrostfireLanceSkill : Skill
 {
     // Skill properties
-    public override void Init()
+    public FrostfireLanceSkill()
     {
         //skill description
         id = 1;

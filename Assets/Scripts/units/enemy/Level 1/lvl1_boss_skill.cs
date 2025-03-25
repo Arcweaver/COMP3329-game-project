@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Lvl1_Boss_Skill1 : Skill
 {
     // Skill properties
-    public override void Init()
+    public Lvl1_Boss_Skill1()
     {
         //skill description
         skillName = "lvl 1 boss Lazer";
@@ -33,7 +33,7 @@ public class Lvl1_Boss_Skill1 : Skill
 public class Lvl1_Boss_Skill2 : Skill
 {
     // Skill properties
-    public override void Init()
+    public Lvl1_Boss_Skill2()
     {
         //skill description
         skillName = "lvl 1 boss bullet";
