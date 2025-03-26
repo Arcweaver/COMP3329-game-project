@@ -21,8 +21,8 @@ public class FrostfireLanceSkill : Skill
         affix3Description = " Firing it to your right deals 20 more damage. Firing to your left reduces its cooldown by 1.";
 
         //load icon
-        //iconPath = "xxx"
-        //icon = Resources.Load<Sprite>(iconPath);
+        iconPath = "Icon/HolyJudgement";
+        icon = Resources.Load<Sprite>(iconPath);
 
         //load prefab
         skillshotPrefabPath = "Prefabs/frostfireLancePrefab";

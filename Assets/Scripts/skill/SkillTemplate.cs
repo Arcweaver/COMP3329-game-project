@@ -37,9 +37,6 @@ public class Skill
         //init the prefabs
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
 
-        //init the icon
-        //icon = Resources.Load<Sprite>(iconPath);
-
         //timer
         cooldownTimer = 0;
         globalCooldownTimer = 0;

@@ -82,7 +82,7 @@ public class CustomizationUI : MonoBehaviour
         for (int i = 0; i < skillSet.transform.childCount; i++)
         {
             GameObject skillSlot = skillSet.transform.GetChild(i).gameObject;
-            skillSlot.GetComponentInChildren<TMP_Text>().text = selectedSkills[i].skillName;
+            skillSlot.GetComponent<Image>().sprite = selectedSkills[i].icon;
         }
     }
 }
