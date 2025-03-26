@@ -22,6 +22,7 @@ public class SkillMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void SetIcon()
     {
         gameObject.GetComponent<Image>().sprite = skill.icon;
+        gameObject.GetComponentInChildren<TMP_Text>().text = "";
     }
 
     // Show the tooltip with info of the skill
