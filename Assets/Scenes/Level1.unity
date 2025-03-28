@@ -896,6 +896,7 @@ MonoBehaviour:
   criticalChance: 0.2
   criticalModifier: 2
   damageTakenModifier: 1
+  staminaRegenRate: 1.5
   player: {fileID: 2000817141}
   defaultMaxHealth: 4000
   defaultMovespeed: 100
@@ -1350,6 +1351,7 @@ GameObject:
   - component: {fileID: 2000817139}
   - component: {fileID: 2000817142}
   - component: {fileID: 2000817143}
+  - component: {fileID: 2000817144}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -1428,7 +1430,7 @@ SpriteRenderer:
   m_SortingLayerID: 622219037
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7691294901476699688, guid: 141df3fafd10b834b812e36fe1b23ff6, type: 3}
+  m_Sprite: {fileID: 4334783836991956000, guid: 961157da4f651be4caf1f982d6ac8d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1449,7 +1451,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0292, y: -225.7222, z: 0}
-  m_LocalScale: {x: 55, y: 55, z: 1}
+  m_LocalScale: {x: 150, y: 150, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1492,7 +1494,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.03, y: 0.84}
+    oldSize: {x: 0.3125, y: 0.47916666}
     newSize: {x: 1.03, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1518,6 +1520,29 @@ MonoBehaviour:
   criticalChance: 0.2
   criticalModifier: 2
   damageTakenModifier: 1
+  staminaRegenRate: 1.5
+--- !u!95 &2000817144
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000817137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab33c6f0cee72f44090dff4f8428768e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

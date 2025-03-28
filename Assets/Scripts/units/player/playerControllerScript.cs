@@ -11,6 +11,7 @@ public class PlayerController : UnitTemplate
     private SpriteRenderer spriteRenderer;
     private Skill skill1, skill2, skill3, skill4;
     private Skill weaponAttack;
+    private Animator animator;
 
     void Start()
     {
@@ -26,6 +27,9 @@ public class PlayerController : UnitTemplate
         skill3 = StaticData.selectedSkills[2];
         skill4 = StaticData.selectedSkills[3];
         weaponAttack = new FrostfireLanceSkill();
+
+        // Get animator
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -71,11 +75,24 @@ public class PlayerController : UnitTemplate
                     transform.position = newPosition;
     
                     // Calculate the angle based on the movement direction
-                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                    transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                    //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     
-                    //Debug.Log(modifiedStats.moveSpeed);
+                    // Walk animation
+                    animator.SetBool("isWalking", true);
+                    animator.SetFloat("InputX", direction.x);
+                    animator.SetFloat("InputY", direction.y);
+                    animator.SetFloat("LastInputX", direction.x);
+                    animator.SetFloat("LastInputY", direction.y);
+                    if(direction.x > 0)
+                    {
+                        transform.localScale = new Vector2(150f, 150f);
+                    } else if(direction.x < 0)
+                    {
+                        transform.localScale = new Vector2(-150f, 150f);
+                    }
                 }
+                else animator.SetBool("isWalking", false);
             }
         }
     }
