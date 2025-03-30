@@ -18,7 +18,7 @@ public class Skillshot : MonoBehaviour
         direction = dir.normalized;
         affix = affixValue;
         sourceSkill = skill;
-        Destroy(gameObject, 5f); // Destroy skillshot after 5 seconds if it doesn't hit anything
+        //Destroy(gameObject, 5f); // Destroy skillshot after 5 seconds if it doesn't hit anything
     }
 
     void Update()

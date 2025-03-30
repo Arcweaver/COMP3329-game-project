@@ -20,5 +20,6 @@ public class UnitStat
         this.currentHealth = u.currentHealth;
         this.criticalChance = u.criticalChance;
         this.criticalModifier = u.criticalModifier;
+        this.damageTakenModifier = u.damageTakenModifier;
     }
 }

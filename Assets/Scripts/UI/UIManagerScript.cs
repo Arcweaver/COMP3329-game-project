@@ -46,10 +46,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void StartGame(int levelIndex)
+    public void StartGame(string sceneName)
     {
         // Load the selected level
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ExitGame()

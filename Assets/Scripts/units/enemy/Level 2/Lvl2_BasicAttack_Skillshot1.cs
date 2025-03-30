@@ -1,7 +1,7 @@
+using UnityEditor;
 using UnityEngine;
 
-// template skillshot class
-public class lvl1_boss_skill1_skillshot : Skillshot
+public class Lvl2_BasicAttack_Skillshot : Skillshot
 {
     public float hitTimer;
     public int damage = 20;
@@ -14,14 +14,11 @@ public class lvl1_boss_skill1_skillshot : Skillshot
         opponentTag = "Player";
 
         //skill persists for indication. Triggers hit on timer expiration
-        hitTimer = 2f;
+        hitTimer = 2.5f;
     }
 
     void Update()
-    {
-        //no movement for this case
-
-        //orientation
+    {//orientation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
@@ -51,24 +48,20 @@ public class lvl1_boss_skill1_skillshot : Skillshot
             {
                 UnitTemplate playerUnit = player.GetComponent<UnitTemplate>();
                 SkillEffect(playerUnit);
-                Debug.Log("Boss skill 1 hit!");
                 return;
             }
         }
-        Debug.Log("Boss skill 1 miss!");
     }
+
 
 
 
     protected override void SkillEffect(UnitTemplate enemy)
     {
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
-
-        //for testing without boss usage
-        //CombatParser.CombatParsing(null, null, 0, enemy, enemy.GetModifiedStats(), damage);
     }
 
-    
+
 
     //override to avoid unintended behaviour
     void OnTriggerEnter2D(Collider2D obj)

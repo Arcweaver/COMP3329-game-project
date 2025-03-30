@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1463805325180679770}
   - component: {fileID: 3161979717021535171}
   - component: {fileID: 3139411951576258375}
-  - component: {fileID: 3658349283401263832}
+  - component: {fileID: 7688334437689360192}
   m_Layer: 0
-  m_Name: lvl1BossSkill2Prefab
+  m_Name: lvl2SporeBurstPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5752387903329233096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -56.1, z: 0}
+  m_LocalPosition: {x: -324.16663, y: -104.170815, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.13811532, y: 0.54057515}
   m_EdgeRadius: 0
---- !u!114 &3658349283401263832
+--- !u!114 &7688334437689360192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5752387903329233096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4742f39ee0f8fbb4b9eb7efc22d79342, type: 3}
+  m_Script: {fileID: 11500000, guid: d8d53bc5ea68937469a14cba1a956a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
@@ -180,4 +180,4 @@ MonoBehaviour:
   affix: 0
   unit: {fileID: 0}
   opponentTag: Enemy
-  damage: 20
+  damage: 15

@@ -13,7 +13,7 @@ public class Level2_Boss : BossTemplate
     private Skill skill_SpawnFungus, skill_InfectedSmash, skill_BasicAttack;
 
     //custom timer & controller variable
-    public float melee_distance = 30f;
+    public float melee_distance = 60f;
     public float skill_interval = 8.0f;
 
 
@@ -79,7 +79,7 @@ public class Level2_Boss : BossTemplate
             Debug.Log("Boss basic attack");
         }
         //move towards player if no skill to use
-        MoveTowardsPlayer();
+        MoveTowardsPlayer(melee_distance);
         
     }
 

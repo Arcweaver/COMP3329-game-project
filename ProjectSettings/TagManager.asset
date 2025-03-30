@@ -48,11 +48,11 @@ TagManager:
   - name: Skillshot 1
     uniqueID: 3378426941
     locked: 0
-  - name: Skillshot 2
-    uniqueID: 3135951165
-    locked: 0
   - name: enemy
     uniqueID: 1783268601
+    locked: 0
+  - name: Skillshot 2
+    uniqueID: 3135951165
     locked: 0
   - name: player
     uniqueID: 622219037

@@ -1,4 +1,4 @@
-using System;
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -13,7 +13,7 @@ public class Lvl2_Skill_SpawnFungus : Skill
         description = "spawn fungus enemy";
 
         //load prefab
-        skillshotPrefabPath = "Prefabs/lvl1BossSkill1Prefab";
+        skillshotPrefabPath = "Prefabs/lvl2Fungus";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
 
 
@@ -37,7 +37,7 @@ public class Lvl2_Skill_InfectedSmash : Skill
         description = "smash in cone and destroy fungi";
 
         //load prefab
-        skillshotPrefabPath = "Prefabs/lvl1BossSkill2Prefab";
+        skillshotPrefabPath = "Prefabs/lvl2InfectedSmashPrefab";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
 
         //cooldown
@@ -64,7 +64,7 @@ public class Lvl2_Skill_BasicAttack : Skill
         description = "slow frontal cleave";
 
         //load prefab
-        skillshotPrefabPath = "Prefabs/lvl1BossSkill2Prefab";
+        skillshotPrefabPath = "Prefabs/lvl2BasicAttackPrefab";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
 
 
@@ -79,6 +79,42 @@ public class Lvl2_Skill_BasicAttack : Skill
         cooldownTimer = 3f;  // seconds before the boss can act
         globalCooldownTimer = 0;
     }
+}
+
+public class Lvl2_Skill_SporeBurst : Skill
+{
+    // Skill properties
+    public Lvl2_Skill_SporeBurst()
+    {
+        //skill description
+        skillName = "lvl 2 fungus spore burst";
+        description = "spore burst";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl2SporeBurstPrefab";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
+
+        //cooldown
+        cooldown = 0f;
+        globalCooldown = 0f;  
+
+        //timers
+        cooldownTimer = 0f; 
+        globalCooldownTimer = 0;
+    }
+
+    protected override void GenerateSkillshot(Vector3 position, Vector3 direction, UnitTemplate userUnit)
+    {
+        //generate multiple skillshot in random directions
+        int numberOfDirections = Random.Range(6, 11); //default 8
+        for (int i = 0; i < numberOfDirections; i++)
+        {
+            float angle = i * (360f / numberOfDirections) * Mathf.Deg2Rad;
+            Vector3 _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+            base.GenerateSkillshot(position, _dir, userUnit);
+        }
+    }
+
 }
 
 
