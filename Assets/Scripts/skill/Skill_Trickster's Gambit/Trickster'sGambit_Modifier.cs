@@ -1,14 +1,14 @@
 using System.Threading;
 using UnityEngine;
 
-public class HolyJudgementModifier : StatModifier
+public class TrickstersGambitModifier : StatModifier
 {
-    public float critBonus = 1f;
+    public float damageBonus = 2f;
 
-    public HolyJudgementModifier(int affix)
+    public TrickstersGambitModifier(int affix)
     {
         //declare duration and stuff
-        duration = 0.5f;
+        duration = 5;
 
         //timer
         timer = duration;
@@ -20,7 +20,7 @@ public class HolyJudgementModifier : StatModifier
         //might be better to get default value and apply bonus
         //this implementation can cause bonus to go out of control for multiple effects
         //it depends on multiplicative or additive bonus
-        stat.moveSpeed += critBonus;
+        stat.criticalModifier *= damageBonus;
     }
 
     //changes that only happen on update (eg. damage over time)

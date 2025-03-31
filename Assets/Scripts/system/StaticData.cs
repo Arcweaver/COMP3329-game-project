@@ -9,13 +9,15 @@ public class StaticData
         new FrostfireLanceSkill(),
         new QuicksilverSkill(),
         new HolyJudgement(),
+        new DragonCharge(),
+        new TrickstersGambit(),
     };
 
     public static List<Skill> selectedSkills = new()
     {
         new HolyJudgement(),
-        new(),
-        new(),
-        new(),
+        new DragonCharge(),
+        new TrickstersGambit(),
+        new QuicksilverSkill(),
     };
 }

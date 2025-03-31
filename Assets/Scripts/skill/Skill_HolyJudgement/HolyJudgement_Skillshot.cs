@@ -24,8 +24,8 @@ public class HolyJudgementSkillshot : Skillshot
     protected override void SkillEffect(UnitTemplate enemy)
     {
         //get the unit stats to do crit modification/damage amp magic  :)
-        //UnitStat sourceStat = unit.GetModifiedStats();
-        //sourceStat.criticalModifier = 3f; //for example
+        UnitStat sourceStat = unit.GetModifiedStats();
+        sourceStat.criticalModifier = 3f; //for example
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), 100);
     }
 

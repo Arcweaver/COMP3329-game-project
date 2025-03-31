@@ -17,9 +17,6 @@ public class HolyJudgement : Skill
         skillshotPrefabPath = "Prefabs/HolyJudgementPrefab";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath);
 
-         //load stat modifier
-        statModifier = new HolyJudgementModifier(affix);
-
         //cooldown
         cooldown = 3f;
         staminaCost = 5f;

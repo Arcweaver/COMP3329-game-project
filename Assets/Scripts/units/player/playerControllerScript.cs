@@ -129,24 +129,6 @@ public class PlayerController : UnitTemplate
         }
     }
 
-    public Vector3 GetDirectionToMouse()
-    {
-        // Get the mouse position in screen coordinates
-        Vector3 mousePosition = Input.mousePosition;
-
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        // Set the z coordinate to match the player's z position (if needed)
-        mousePosition.z = transform.position.z;
-
-        // Calculate the direction from the player to the mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
-
-        //Debug.Log($"Mouse Position: {mousePosition}, Player Position: {transform.position}, Direction: {direction}");
-
-        return direction; // Return the normalized direction vector
-    }
-
     public void TriggerSkillGCD()
     {
         skill1.TriggerGCD();
