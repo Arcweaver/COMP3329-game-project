@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthDisplay : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class HealthDisplay : MonoBehaviour
     void Update()
     {
         UpdateHealthDisplay();
+
+        if (unit.currentHealth <= 0)
+        {
+            HandleGameOver();
+        }
     }
 
     private void UpdateHealthDisplay()
@@ -20,5 +26,13 @@ public class HealthDisplay : MonoBehaviour
         }
         float fillAmount = (float)unit.currentHealth / unit.maxHealth;
         healthBar.fillAmount = fillAmount;
+    }
+
+    private void HandleGameOver()
+    {
+        PlayerPrefs.SetInt("PlayerWon", 0); // Player lost
+        PlayerPrefs.SetString("LevelResult", "You were defeated. Try again!");
+        PlayerPrefs.Save(); // Save PlayerPrefs data
+        SceneManager.LoadScene("CompletionUI"); // Switch to the game over screen
     }
 }

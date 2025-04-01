@@ -26,6 +26,8 @@ public class CompletionUI : MonoBehaviour
 
     void SetupCompletionScreen(bool playerWon, bool isFinalLevel, string resultInfo)
     {
+        actionButton.onClick.RemoveAllListeners();
+
         if (playerWon)
         {
             messageText.text = "Victory!";
@@ -39,7 +41,7 @@ public class CompletionUI : MonoBehaviour
             }
             else
             {
-                actionButtonText.text = "Proceed to Next Level";
+                actionButtonText.text = "Next Level";
                 actionButton.onClick.AddListener(ProceedToNextLevel);
             }
         }
@@ -52,6 +54,8 @@ public class CompletionUI : MonoBehaviour
             actionButtonText.text = "Return to Menu";
             actionButton.onClick.AddListener(ReturnToMainMenu);
         }
+
+        actionButton.gameObject.SetActive(true);
     }
 
     void ProceedToNextLevel()
