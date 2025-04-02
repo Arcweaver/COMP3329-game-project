@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class TrickstersGambit : Skill
+public class TrickstersGambit : Skill, ISkill
 {
     // Skill properties
     public TrickstersGambit()
@@ -29,7 +29,11 @@ public class TrickstersGambit : Skill
         //timers
         cooldownTimer = 0;
         globalCooldownTimer = 0;
+
     }
+
+    private float remainingCooldown = 0f;
+    private bool isOnCooldown = false;
 
     public override void UseSkill(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     {
@@ -75,5 +79,34 @@ public class TrickstersGambit : Skill
             Debug.Log($"{skillName} is on cooldown or during global cooldown.");
         }
     }
+
+    void Update()
+    {
+        if (isOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                remainingCooldown = 0;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isOnCooldown)
+        {
+            Debug.Log("Quicksilver Skill Activated!");
+            remainingCooldown = cooldown;
+            isOnCooldown = true;
+        }
+    }
+
+    public string GetSkillName() => skillName;
+    public Sprite GetIcon() => icon;
+    public float GetCooldownTime() => cooldown;
+    public float GetRemainingCooldown() => remainingCooldown;
+    public bool IsOnCooldown() => isOnCooldown;
 }
 

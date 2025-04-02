@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class QuicksilverSkill : Skill
+public class QuicksilverSkill : Skill, ISkill
 {
     // Skill properties
     public QuicksilverSkill()
@@ -55,5 +55,37 @@ public class QuicksilverSkill : Skill
     //        userUnit.AddModifier(statModifier);
     //    }
     //}
+
+    private float remainingCooldown = 0f;
+    private bool isOnCooldown = false;
+
+    void Update()
+    {
+        if (isOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                remainingCooldown = 0;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isOnCooldown)
+        {
+            Debug.Log("Quicksilver Skill Activated!");
+            remainingCooldown = cooldown;
+            isOnCooldown = true;
+        }
+    }
+
+    public string GetSkillName() => skillName;
+    public Sprite GetIcon() => icon;
+    public float GetCooldownTime() => cooldown;
+    public float GetRemainingCooldown() => remainingCooldown;
+    public bool IsOnCooldown() => isOnCooldown;
 }
 

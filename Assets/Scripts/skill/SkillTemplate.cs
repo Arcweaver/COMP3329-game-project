@@ -104,7 +104,7 @@ public class Skill
         }
     }
 
-    protected bool CanUseSkill()
+    public bool CanUseSkill() // I change it from protected to public (elsa)
     {
         return globalCooldownTimer<=0 && cooldownTimer<=0;
     }

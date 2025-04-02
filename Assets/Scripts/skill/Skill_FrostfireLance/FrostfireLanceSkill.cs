@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class FrostfireLanceSkill : Skill
+public class FrostfireLanceSkill : Skill, ISkill
 {
     // Skill properties
     public FrostfireLanceSkill()
@@ -35,9 +35,10 @@ public class FrostfireLanceSkill : Skill
         //timers
         cooldownTimer = 0;
         globalCooldownTimer = 0;
-}
 
-   
+    }
+
+
     //to fire different missiles, override this and also declare another skillshot
     //protected override void GenerateSkillshot(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     //{
@@ -57,6 +58,38 @@ public class FrostfireLanceSkill : Skill
     //        userUnit.AddModifier(statModifier);
     //    }
     //}
+
+    private float remainingCooldown = 0f;
+    private bool isOnCooldown = false;
+
+    void Update()
+    {
+        if (isOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                remainingCooldown = 0;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isOnCooldown)
+        {
+            Debug.Log("Frostfire Lance Skill Activated!");
+            remainingCooldown = cooldown;
+            isOnCooldown = true;
+        }
+    }
+
+    public string GetSkillName() => skillName;
+    public Sprite GetIcon() => icon;
+    public float GetCooldownTime() => cooldown;
+    public float GetRemainingCooldown() => remainingCooldown;
+    public bool IsOnCooldown() => isOnCooldown;
 }
 
 

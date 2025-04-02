@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DragonCharge : Skill
+public class DragonCharge : Skill, ISkill
 {
     public DragonCharge()
     {
@@ -24,5 +24,38 @@ public class DragonCharge : Skill
         //timers
         cooldownTimer = 0;
         globalCooldownTimer = 0;
+
     }
+
+    private float remainingCooldown = 0f;
+    private bool isOnCooldown = false;
+
+    void Update()
+    {
+        if (isOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                remainingCooldown = 0;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isOnCooldown)
+        {
+            Debug.Log("Dragon Charge Skill Activated!");
+            remainingCooldown = cooldown;
+            isOnCooldown = true;
+        }
+    }
+
+    public string GetSkillName() => skillName;
+    public Sprite GetIcon() => icon;
+    public float GetCooldownTime() => cooldown;
+    public float GetRemainingCooldown() => remainingCooldown;
+    public bool IsOnCooldown() => isOnCooldown;
 }

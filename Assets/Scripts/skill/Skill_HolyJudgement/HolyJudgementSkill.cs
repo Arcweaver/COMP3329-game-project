@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HolyJudgement : Skill
+public class HolyJudgement : Skill, ISkill
 {
     public HolyJudgement()
     {
@@ -24,5 +24,38 @@ public class HolyJudgement : Skill
         //timers
         cooldownTimer = 0;
         globalCooldownTimer = 0;
+
     }
+
+    private float remainingCooldown = 0f;
+    private bool isOnCooldown = false;
+
+    void Update()
+    {
+        if (isOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                remainingCooldown = 0;
+                isOnCooldown = false;
+            }
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isOnCooldown)
+        {
+            Debug.Log("Holy Judgement Skill Activated!");
+            remainingCooldown = cooldown;
+            isOnCooldown = true;
+        }
+    }
+
+    public string GetSkillName() => skillName;
+    public Sprite GetIcon() => icon;
+    public float GetCooldownTime() => cooldown;
+    public float GetRemainingCooldown() => remainingCooldown;
+    public bool IsOnCooldown() => isOnCooldown;
 }
