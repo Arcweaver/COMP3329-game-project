@@ -28,7 +28,7 @@ public class HealthDisplay : MonoBehaviour
         healthBar.fillAmount = fillAmount;
     }
 
-    private void HandleGameOver()
+    public virtual void HandleGameOver()
     {
         PlayerPrefs.SetInt("PlayerWon", 0); // Player lost
         PlayerPrefs.SetString("LevelResult", "You were defeated. Try again!");

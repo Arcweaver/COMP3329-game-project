@@ -1,27 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SkillUIManager : MonoBehaviour
 {
-    [SerializeField] private PlayerSkills playerSkills;
     [SerializeField] private Button[] skillButtons = new Button[4];
     [SerializeField] private Image[] cooldownOverlays = new Image[4];
+    public PlayerController controller;
 
     void Start()
     {
-        // Debug
-        if (playerSkills == null)
-        {
-            Debug.LogError("PlayerSkills reference is missing in SkillUIManager!");
-            return;
-        }
 
-        Skill[] skills = playerSkills.GetSkills();
-        if (skills == null || skills.Length != 4)
-        {
-            Debug.LogError("GetSkills() returned null or incorrect number of skills!");
-            return;
-        }
+        List<Skill> skills = new List<Skill>();
+        skills.Add(controller.skill1);
+        skills.Add(controller.skill2);
+        skills.Add(controller.skill3);
+        skills.Add(controller.skill4);
+
 
         for (int i = 0; i < skillButtons.Length; i++)
         {
@@ -32,12 +27,13 @@ public class SkillUIManager : MonoBehaviour
             }
             int index = i;
             skillButtons[i].image.sprite = skills[i].icon;
-            skillButtons[i].onClick.AddListener(() => ActivateSkill(index));
+            //skillButtons[i].onClick.AddListener(() => ActivateSkill(index));   //i do not know how to fix
         }
     }
 
     void Update()
     {
+        /*
         if (playerSkills == null) return; // Early exit if not assigned
 
         Skill[] skills = playerSkills.GetSkills();
@@ -59,17 +55,15 @@ public class SkillUIManager : MonoBehaviour
                 skillButtons[i].interactable = true;
                 cooldownOverlays[i].fillAmount = 0;
             }
-        }
+        }*/
     }
 
-    void ActivateSkill(int skillIndex)
-    {
-        if (playerSkills == null) return;
+    
+    /*void ActivateSkill(int skillIndex)
 
-        Skill[] skills = playerSkills.GetSkills();
         if (skillIndex < skills.Length && skills[skillIndex] != null && skills[skillIndex].CanUseSkill())
         {
             playerSkills.UseSkill(skillIndex);
         }
-    }
+    }*/
 }

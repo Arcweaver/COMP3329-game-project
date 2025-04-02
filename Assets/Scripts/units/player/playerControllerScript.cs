@@ -9,7 +9,7 @@ public class PlayerController : UnitTemplate
 {
     private Vector2 moveInput; 
     private SpriteRenderer spriteRenderer;
-    private Skill skill1, skill2, skill3, skill4;
+    public Skill skill1, skill2, skill3, skill4;
     private Skill weaponAttack;
     private Animator animator;
 
