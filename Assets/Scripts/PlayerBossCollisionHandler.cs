@@ -16,20 +16,19 @@ public class PlayerBossCollisionHandler : MonoBehaviour
             {
                 bossHealth.TakeDamage(playerDamage);
                 // Update the objective tracker that the player hit the boss
-                FindObjectOfType<GameObjectiveTracker>().PlayerHitsBoss();
+                Object.FindFirstObjectByType<GameObjectiveTracker>().PlayerHitsBoss();
             }
         }
 
         // When the boss hits the player
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Get the PlayerHealth script and apply damage
-            HealthDisplay playerHealth = collision.gameObject.GetComponent<HealthDisplay>();
-            if (playerHealth != null)
+            UnitTemplate unit = collision.gameObject.GetComponent<UnitTemplate>();
+            if (unit != null)
             {
-                playerHealth.TakeDamage(bossDamage);
+                unit.TakeDamage(bossDamage);
                 // Update the objective tracker that the boss hit the player
-                FindObjectOfType<GameObjectiveTracker>().BossHitsPlayer();
+                Object.FindFirstObjectByType<GameObjectiveTracker>().BossHitsPlayer();
             }
         }
     }
