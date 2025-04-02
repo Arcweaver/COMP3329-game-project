@@ -1804,7 +1804,7 @@ MonoBehaviour:
   damageTakenModifier: 1
   staminaRegenRate: 1.5
   player: {fileID: 2000817141}
-  defaultMaxHealth: 4000
+  defaultMaxHealth: 300
   defaultMovespeed: 100
 --- !u!1 &1707550331
 GameObject:
