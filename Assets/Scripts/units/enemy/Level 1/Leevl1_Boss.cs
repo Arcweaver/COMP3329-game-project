@@ -54,7 +54,7 @@ public class Level1_Boss : BossTemplate
         }
 
         //move towards player if no skill to use
-        MoveTowardsPlayer();
+        MoveTowardsPlayer(60);
         
     }
 

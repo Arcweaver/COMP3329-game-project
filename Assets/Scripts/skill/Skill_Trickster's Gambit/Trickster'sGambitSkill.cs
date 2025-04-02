@@ -37,10 +37,10 @@ public class TrickstersGambit : Skill, ISkill
 
     public override void UseSkill(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     {
-        if (CanUseSkill() && userUnit.stamina >= staminaCost)
+        if (CanUseSkill() && userUnit.Stamina >= staminaCost)
         {
             //use stamina
-            userUnit.stamina -= staminaCost;
+            userUnit.Stamina -= staminaCost;
 
              // Skillshot or Modifer?
             int roll1 = Random.Range(1, 6);

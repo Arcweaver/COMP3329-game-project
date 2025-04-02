@@ -51,10 +51,10 @@ public class Skill
     // Method to use the skill
     public virtual void UseSkill(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     {
-        if (CanUseSkill() && userUnit.stamina >= staminaCost)
+        if (CanUseSkill() && userUnit.Stamina >= staminaCost)
         {
             //use stamina
-            userUnit.stamina -= staminaCost;
+            userUnit.Stamina -= staminaCost;
 
             // Generate skillshot if applicable
             if (skillshotPrefab != null)

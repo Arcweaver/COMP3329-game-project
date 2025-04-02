@@ -15,7 +15,7 @@ public class UnitTemplate : MonoBehaviour
     public float criticalModifier = 2f;
     public float damageTakenModifier = 1f;
     private float _stamina = 100;
-    public float stamina
+    public float Stamina
     {
         get { return _stamina; }
         set {_stamina = Mathf.Min(value, 100);}
@@ -40,7 +40,7 @@ public class UnitTemplate : MonoBehaviour
     {
         modifiedStats.CopyStat(this);
         UpdateModifiers(this);
-        stamina += staminaRegenRate*Time.deltaTime;
+        Stamina += staminaRegenRate*Time.deltaTime;
     }
 
     public virtual void TakeDamage(int damage)
