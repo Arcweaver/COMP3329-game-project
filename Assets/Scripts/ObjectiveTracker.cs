@@ -4,8 +4,8 @@ using TMPro;
 public class GameObjectiveTracker : MonoBehaviour
 {
     public TextMeshProUGUI objectivesText; // Text UI for displaying objectives
-    private int playerHits = 0;            // Count the number of times the player hits the boss
-    private int bossHits = 0;              // Count the number of times the boss hits the player
+    public int playerHits = 0;            // Count the number of times the player hits the boss
+    public int bossHits = 0;              // Count the number of times the boss hits the player
 
     void Start()
     {
@@ -29,6 +29,9 @@ public class GameObjectiveTracker : MonoBehaviour
     // Update the text showing the current objectives
     private void UpdateObjectiveText()
     {
-        objectivesText.text = $"Player Hits: {playerHits}\nBoss Hits: {bossHits}";
+        if (objectivesText != null)
+        {
+            objectivesText.text = $"Player Hits: {playerHits}\nBoss Hits: {bossHits}";
+        }
     }
 }

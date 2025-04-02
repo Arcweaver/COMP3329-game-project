@@ -6,6 +6,7 @@ public class lvl1_boss_skill2_skillshot : Skillshot
     private GameObjectiveTracker tracker;
     public int damage = 20;
 
+    [System.Obsolete]
     private void Start()
     {
         speed = 200f;
