@@ -20,7 +20,7 @@ public class UnitTemplate : MonoBehaviour
         get { return _stamina; }
         set {_stamina = Mathf.Min(value, 100);}
     }
-    public float staminaRegenRate = 1.5f; //per second
+    public float staminaRegenRate = 3f; //per second
 
     public List<StatModifier> activeModifiers = new();
     public UnitStat modifiedStats = new();
