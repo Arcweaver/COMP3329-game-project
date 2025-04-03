@@ -13,14 +13,14 @@ public class CompletionUI : MonoBehaviour
     void Start()
     {
         // Retrieve win/loss status from PlayerPrefs
-        bool playerWon = PlayerPrefs.GetInt("PlayerWon", 0) == 1;
+        bool  playerWon =PlayerPrefs.GetInt("PlayerWon") == 1;
 
         // Retrieve the result & objectives achieved
         string resultInfo = PlayerPrefs.GetString("LevelResult", "Objectives achieved: None");
 
         // Check if it's the final level
         bool isFinalLevel = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
-
+    
         SetupCompletionScreen(playerWon, isFinalLevel, resultInfo);
     }
 
