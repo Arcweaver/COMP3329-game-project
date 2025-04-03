@@ -1036,7 +1036,6 @@ MonoBehaviour:
   - {fileID: 2081027096}
   - {fileID: 1442167346}
   - {fileID: 1129914397}
-  controller: {fileID: 0}
 --- !u!114 &838801647
 MonoBehaviour:
   m_ObjectHideFlags: 0

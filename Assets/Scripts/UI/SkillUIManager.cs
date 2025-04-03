@@ -6,16 +6,14 @@ public class SkillUIManager : MonoBehaviour
 {
     [SerializeField] private Button[] skillButtons = new Button[4];
     [SerializeField] private Image[] cooldownOverlays = new Image[4];
-    public PlayerController controller;
+    List<Skill> skills = new List<Skill>();
 
     void Start()
     {
-
-        List<Skill> skills = new List<Skill>();
-        skills.Add(controller.skill1);
-        skills.Add(controller.skill2);
-        skills.Add(controller.skill3);
-        skills.Add(controller.skill4);
+        skills.Add(StaticData.selectedSkills[0]);
+        skills.Add(StaticData.selectedSkills[1]);
+        skills.Add(StaticData.selectedSkills[2]);
+        skills.Add(StaticData.selectedSkills[3]);
 
 
         for (int i = 0; i < skillButtons.Length; i++)
@@ -33,13 +31,9 @@ public class SkillUIManager : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (playerSkills == null) return; // Early exit if not assigned
+        if (skills == null || skills.Count < 4) return; // Early exit if no skills
 
-        Skill[] skills = playerSkills.GetSkills();
-        if (skills == null || skills.Length == 0) return; // Early exit if no skills
-
-        for (int i = 0; i < skills.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (skills[i] == null) continue; // Skip null skills
 
@@ -55,10 +49,10 @@ public class SkillUIManager : MonoBehaviour
                 skillButtons[i].interactable = true;
                 cooldownOverlays[i].fillAmount = 0;
             }
-        }*/
+        }
     }
 
-    
+
     /*void ActivateSkill(int skillIndex)
 
         if (skillIndex < skills.Length && skills[skillIndex] != null && skills[skillIndex].CanUseSkill())
