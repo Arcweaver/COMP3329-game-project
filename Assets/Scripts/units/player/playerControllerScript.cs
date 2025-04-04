@@ -26,7 +26,7 @@ public class PlayerController : UnitTemplate
         skill2 = StaticData.selectedSkills[1];
         skill3 = StaticData.selectedSkills[2];
         skill4 = StaticData.selectedSkills[3];
-        weaponAttack = new FrostfireLanceSkill();
+        weaponAttack = new WeaponSkill();
 
         // Get animator
         animator = GetComponent<Animator>();
