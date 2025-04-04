@@ -22,6 +22,7 @@ public class GameObjectiveTracker : MonoBehaviour
         playerHits++;
         UpdateObjectiveText();
         SaveObjectives(); // Save data whenever it changes
+        Debug.Log($"Player hits boss! Total hits: {playerHits}"); // Debug to confirm
     }
 
     public void PlayerTakesDamage(float damage)
@@ -30,6 +31,7 @@ public class GameObjectiveTracker : MonoBehaviour
         if (playerHP < 0) playerHP = 0; // Clamp HP to 0
         UpdateObjectiveText();
         SaveObjectives(); // Save data whenever it changes
+        Debug.Log($"Player took {damage} damage. HP: {playerHP}"); // Debug to confirm
     }
 
     // Update the text showing the current objectives
@@ -47,6 +49,7 @@ public class GameObjectiveTracker : MonoBehaviour
         string resultInfo = $"Player Hits: {playerHits}\nPlayer HP: {playerHP}/{maxPlayerHP}";
         PlayerPrefs.SetString("LevelResult", resultInfo);
         PlayerPrefs.Save(); // Ensure data is written to disk
+        Debug.Log($"Saved objectives: {resultInfo}"); // Debug to confirm save
     }
 
     // Public method to force save before level end

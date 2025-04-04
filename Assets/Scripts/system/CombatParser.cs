@@ -23,7 +23,26 @@ public class CombatParser
             float critModifier = isCritical ? sourceStat.criticalModifier : 1f;
 
             int hpChange = Mathf.FloorToInt(Mathf.Abs(targetHpChange) * critModifier * targetStat.damageTakenModifier);
-            if (isDamage) { target.TakeDamage(hpChange); } else { target.Heal(hpChange); }
+            //if (isDamage) { target.TakeDamage(hpChange); } else { target.Heal(hpChange); }
+            if (isDamage)
+            {
+                target.TakeDamage(hpChange); // Apply damage to target
+
+                // Check if source is Player and target is Boss
+                if (source.CompareTag("Player") && target.CompareTag("Enemy"))
+                {
+                    GameObjectiveTracker tracker = Object.FindObjectOfType<GameObjectiveTracker>();
+                    if (tracker != null)
+                    {
+                        tracker.PlayerHitsBoss(); // Record the hit
+                        Debug.Log("Player hit the boss via CombatParser!");
+                    }
+                }
+            }
+            else
+            {
+                target.Heal(hpChange);
+            }
         }
 
         //to target, without source

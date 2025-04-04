@@ -7,7 +7,7 @@ public class HealthDisplay : MonoBehaviour
     public UnitTemplate unit; 
     public Text healthText;
     public Image healthBar;
-    private GameObjectiveTracker tracker; // Reference to GameObjectiveTracker
+    public GameObjectiveTracker tracker; // Reference to GameObjectiveTracker
 
     void Start()
     {
@@ -37,6 +37,10 @@ public class HealthDisplay : MonoBehaviour
 
     public virtual void HandleGameOver()
     {
+        if (tracker != null)
+        {
+            tracker.SaveObjectivesBeforeLevelEnd(); // Save objectives before ending
+        }
         PlayerPrefs.SetInt("PlayerWon", 0); // Player lost
         //PlayerPrefs.SetString("LevelResult", "You were defeated. Try again!");
         PlayerPrefs.Save(); // Save PlayerPrefs data
