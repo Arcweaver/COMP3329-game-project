@@ -61,7 +61,8 @@ public class CompletionUI : MonoBehaviour
     void ProceedToNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex);
+        string nextSceneName = "Level" + nextSceneIndex;
+        SceneManager.LoadScene(nextSceneName);
     }
 
     void ReturnToMainMenu()
