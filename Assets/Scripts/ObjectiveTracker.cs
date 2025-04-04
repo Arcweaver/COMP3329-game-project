@@ -5,17 +5,14 @@ public class GameObjectiveTracker : MonoBehaviour
 {
     public TextMeshProUGUI objectivesText; // Text UI for displaying objectives
     public int playerHits = 0;            // Count the number of times the player hits the boss
-    public int bossHits = 0;              // Count the number of times the boss hits the player
-    public int hitsToWin = 5;             // Example: Player needs 5 hits to win, should be different in each level
-    public int maxBossHitsAllowed = 3;    // Example: Player loses if boss hits them 3 times, should be different in each level
-
-    private bool levelCompleted = false;
+    public float playerHP = 100f;         // Player's current HP
+    public float maxPlayerHP = 100f;      // Player's max HP for display
 
     void Start()
     {
         // Reset counters at the start of the level
         playerHits = 0;
-        bossHits = 0;
+        playerHP = maxPlayerHP;
         UpdateObjectiveText();
     }
 
@@ -23,16 +20,16 @@ public class GameObjectiveTracker : MonoBehaviour
     public void PlayerHitsBoss()
     {
         playerHits++;
-        CheckLevelCompletion();
         UpdateObjectiveText();
+        SaveObjectives(); // Save data whenever it changes
     }
 
-    // Call this when the boss hits the player
-    public void BossHitsPlayer()
+    public void PlayerTakesDamage(float damage)
     {
-        bossHits++;
-        CheckLevelCompletion();
+        playerHP -= damage;
+        if (playerHP < 0) playerHP = 0; // Clamp HP to 0
         UpdateObjectiveText();
+        SaveObjectives(); // Save data whenever it changes
     }
 
     // Update the text showing the current objectives
@@ -40,36 +37,21 @@ public class GameObjectiveTracker : MonoBehaviour
     {
         if (objectivesText != null)
         {
-            objectivesText.text = $"Player Hits: {playerHits}/{hitsToWin}\nBoss Hits: {bossHits}/{maxBossHitsAllowed}";
+            objectivesText.text = $"Player Hits: {playerHits}\nPlayer HP: {playerHP}/{maxPlayerHP}";
         }
     }
 
-    // Check if the level is won or lost
-    private void CheckLevelCompletion()
+    private void SaveObjectives()
     {
-        if (playerHits >= hitsToWin && !levelCompleted)
-        {
-            levelCompleted = true;
-            EndLevel(true); // Player wins
-        }
-        else if (bossHits >= maxBossHitsAllowed && !levelCompleted)
-        {
-            levelCompleted = true;
-            EndLevel(false); // Player loses
-        }
-    }
-
-    // Save objectives and end the level
-    private void EndLevel(bool playerWon)
-    {
-        // Save win/loss status
-        PlayerPrefs.SetInt("PlayerWon", playerWon ? 1 : 0);
-
-        // Prepare the objectives result string
-        string resultInfo = $"Objectives:\n- Hit the boss: {playerHits}/{hitsToWin} ( {(playerHits >= hitsToWin ? "Achieved" : "Failed")} )\n- Avoid boss hits: {bossHits}/{maxBossHitsAllowed} ( {(bossHits < maxBossHitsAllowed ? "Achieved" : "Failed")} )";
+        // Prepare the objectives result string, each on its own line
+        string resultInfo = $"Player Hits: {playerHits}\nPlayer HP: {playerHP}/{maxPlayerHP}";
         PlayerPrefs.SetString("LevelResult", resultInfo);
+        PlayerPrefs.Save(); // Ensure data is written to disk
+    }
 
-        // Load the completion scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("CompletionUI");
+    // Public method to force save before level end
+    public void SaveObjectivesBeforeLevelEnd()
+    {
+        SaveObjectives();
     }
 }

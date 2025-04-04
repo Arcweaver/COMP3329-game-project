@@ -24,7 +24,7 @@ public class lvl1_boss_skill2_skillshot : Skillshot
 
         if (tracker != null)
         {
-            tracker.BossHitsPlayer();
+            tracker.PlayerTakesDamage(damage); // Updated to match GameObjectiveTracker
         }
     }
 

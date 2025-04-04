@@ -16,7 +16,7 @@ public class CompletionUI : MonoBehaviour
         bool  playerWon =PlayerPrefs.GetInt("PlayerWon") == 1;
 
         // Retrieve the result & objectives achieved
-        string resultInfo = PlayerPrefs.GetString("LevelResult", "Objectives achieved: None");
+        string resultInfo = PlayerPrefs.GetString("LevelResult", "No objectives recorded");
 
         // Check if it's the final level
         bool isFinalLevel = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
@@ -31,7 +31,7 @@ public class CompletionUI : MonoBehaviour
         if (playerWon)
         {
             messageText.text = "Victory!";
-            resultText.text = resultInfo; // Show the results & objectives achieved
+            resultText.text = "Objectives Achieved:\n" + resultInfo; // Display objectives, each on its own line
             resultText.gameObject.SetActive(true);
 
             if (isFinalLevel)
@@ -48,7 +48,7 @@ public class CompletionUI : MonoBehaviour
         else
         {
             messageText.text = "Game Over!";
-            resultText.text = "You failed this level. Try again!";
+            resultText.text = "Objectives at End:\n" + resultInfo; // Display objectives, each on its own line
             resultText.gameObject.SetActive(true);
 
             actionButtonText.text = "Return to Menu";
