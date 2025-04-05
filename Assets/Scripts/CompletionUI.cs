@@ -13,7 +13,7 @@ public class CompletionUI : MonoBehaviour
     void Start()
     {
         // Retrieve win/loss status from PlayerPrefs
-        bool  playerWon =PlayerPrefs.GetInt("PlayerWon") == 1;
+        bool playerWon =PlayerPrefs.GetInt("PlayerWon") == 1;
 
         // Retrieve the result & objectives achieved
         string resultInfo = PlayerPrefs.GetString("LevelResult", "No objectives recorded");
