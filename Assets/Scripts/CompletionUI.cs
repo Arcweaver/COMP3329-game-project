@@ -31,7 +31,7 @@ public class CompletionUI : MonoBehaviour
         if (playerWon)
         {
             messageText.text = "Victory!";
-            resultText.text = "Objectives Achieved:\n" + resultInfo; // Display objectives, each on its own line
+            resultText.text = resultInfo; // Display objectives, each on its own line
             resultText.gameObject.SetActive(true);
 
             if (isFinalLevel)
@@ -48,7 +48,7 @@ public class CompletionUI : MonoBehaviour
         else
         {
             messageText.text = "Game Over!";
-            resultText.text = "Objectives at End:\n" + resultInfo; // Display objectives, each on its own line
+            resultText.text = resultInfo; // Display objectives, each on its own line
             resultText.gameObject.SetActive(true);
 
             actionButtonText.text = "Return to Menu";
