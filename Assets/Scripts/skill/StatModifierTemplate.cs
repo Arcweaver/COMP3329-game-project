@@ -68,9 +68,6 @@ public class StatModifier
     // Apply the buff effect to user
     public virtual void ApplyEffect(UnitTemplate unit)
     {
-        // SpriteRenderer spriteRenderer = unit.GetComponent<SpriteRenderer>();
-        // float halfHeight = spriteRenderer.sprite.bounds.size.y/2;
-        // Debug.Log("Half height is:" + halfHeight);
         if (effectPrefab != null)
         {
             effectObject = Object.Instantiate(effectPrefab, unit.transform);

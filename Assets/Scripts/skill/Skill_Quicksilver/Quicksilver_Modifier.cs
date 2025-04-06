@@ -12,6 +12,10 @@ public class QuicksilverModifier : StatModifier
 
         //timer
         timer = duration;
+
+        // Effect
+        effectPrefabPath = "Prefabs/SpeedBuff";
+        effectPrefab = Resources.Load<GameObject>(effectPrefabPath);
     }
    
     //declare stat change here
