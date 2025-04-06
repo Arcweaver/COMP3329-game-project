@@ -126,6 +126,7 @@ public class Skill
         if (statModifier != null)
         {
             statModifier.StartModifier();
+            statModifier.ApplyEffect(userUnit);
             userUnit.AddModifier(statModifier);
         }
     }

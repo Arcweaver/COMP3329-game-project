@@ -12,6 +12,10 @@ public class TrickstersGambitModifier : StatModifier
 
         //timer
         timer = duration;
+
+        // Effect
+        effectPrefabPath = "Prefabs/AttackBuff";
+        effectPrefab = Resources.Load<GameObject>(effectPrefabPath);
     }
    
     //declare stat change here
@@ -21,6 +25,7 @@ public class TrickstersGambitModifier : StatModifier
         //this implementation can cause bonus to go out of control for multiple effects
         //it depends on multiplicative or additive bonus
         stat.criticalModifier *= damageBonus;
+        
     }
 
     //changes that only happen on update (eg. damage over time)

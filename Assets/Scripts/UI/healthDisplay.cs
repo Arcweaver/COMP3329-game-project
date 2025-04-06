@@ -12,7 +12,7 @@ public class HealthDisplay : MonoBehaviour
     void Start()
     {
         // Find the GameObjectiveTracker in the scene
-        tracker = FindObjectOfType<GameObjectiveTracker>();
+        tracker = FindFirstObjectByType<GameObjectiveTracker>();
     }
 
     void Update()

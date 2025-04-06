@@ -18,7 +18,7 @@ public class PlayerController : UnitTemplate
         //default stat modification here
 
         //sprite
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         currentHealth = maxHealth;
 
         //assign the selected skills and weapons (need manager to replace this)
@@ -29,7 +29,7 @@ public class PlayerController : UnitTemplate
         weaponAttack = new WeaponSkill();
 
         // Get animator
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -86,10 +86,10 @@ public class PlayerController : UnitTemplate
                     animator.SetFloat("LastInputY", direction.y);
                     if(direction.x > 0)
                     {
-                        transform.localScale = new Vector2(150f, 150f);
+                        spriteRenderer.transform.localScale = new Vector2(150f, 150f);
                     } else if(direction.x < 0)
                     {
-                        transform.localScale = new Vector2(-150f, 150f);
+                        spriteRenderer.transform.localScale = new Vector2(-150f, 150f);
                     }
                 }
                 else animator.SetBool("isWalking", false);

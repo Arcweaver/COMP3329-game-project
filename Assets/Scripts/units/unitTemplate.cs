@@ -143,7 +143,6 @@ public class UnitTemplate : MonoBehaviour
 
         return direction; // Return the normalized direction vector
     }
-    
 }
 
 

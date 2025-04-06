@@ -31,7 +31,7 @@ public class CombatParser
                 // Check if source is Player and target is Boss
                 if (source.CompareTag("Player") && target.CompareTag("Enemy"))
                 {
-                    GameObjectiveTracker tracker = Object.FindObjectOfType<GameObjectiveTracker>();
+                    GameObjectiveTracker tracker = Object.FindFirstObjectByType<GameObjectiveTracker>();
                     if (tracker != null)
                     {
                         tracker.PlayerHitsBoss(); // Record the hit

@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000001d4f16251b51b4d80318c1e23db45ec93dd1eabaf9844a6a
+  m_ApplyToSortingLayers: 000000001d4f16251b51b4d80318c1e23db45ec93dd1eabaf9844a6ab1e4b7ab
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -584,7 +584,7 @@ Transform:
   m_GameObject: {fileID: 1653112776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 277, y: -3, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -767,11 +767,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5199678719598977860, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0292
+      value: -286
       objectReference: {fileID: 0}
     - target: {fileID: 5199678719598977860, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -225.7222
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 5199678719598977860, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_LocalPosition.z

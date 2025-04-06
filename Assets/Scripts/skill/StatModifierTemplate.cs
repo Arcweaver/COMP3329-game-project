@@ -8,6 +8,9 @@ public class StatModifier
     //public float speedModifier;
     public float duration = 0; // Duration for which the modifier is effective
     public float timer = 0; // Timer to track expiration
+    public string effectPrefabPath; // Buff effect path
+    public GameObject effectPrefab; // Buff effect prefab
+    public GameObject effectObject; // Buff effect object
     public int affix = 0;
 
     public virtual void StartModifier()
@@ -24,7 +27,6 @@ public class StatModifier
 
         // Apply stat modifiers not involving damage to the owner
         ApplyStatChange(stat);
-
 
         //if it is a damage over time, declare it here
         ApplyChangeOnUpdate(unit, stat);
@@ -61,5 +63,17 @@ public class StatModifier
     public virtual void ApplyExpirationChange(UnitTemplate unit)
     {
         
+    }
+
+    // Apply the buff effect to user
+    public virtual void ApplyEffect(UnitTemplate unit)
+    {
+        // SpriteRenderer spriteRenderer = unit.GetComponent<SpriteRenderer>();
+        // float halfHeight = spriteRenderer.sprite.bounds.size.y/2;
+        // Debug.Log("Half height is:" + halfHeight);
+        if (effectPrefab != null)
+        {
+            effectObject = Object.Instantiate(effectPrefab, unit.transform);
+        }
     }
 }
