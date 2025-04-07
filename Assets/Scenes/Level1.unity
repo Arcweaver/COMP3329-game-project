@@ -931,6 +931,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 938370521259592026, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2000817143}
     - target: {fileID: 2248707008156725502, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
       propertyPath: m_Name
       value: ObjectiveTracker

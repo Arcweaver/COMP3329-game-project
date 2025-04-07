@@ -16,7 +16,10 @@ public class Level2_Fungus : BossTemplate
     public float detonate_timer = 20.0f;
     public bool inactive = false;
 
+    //track
+    private lvl2_ObjTracker tracker;
 
+    [Obsolete]
     private void Start()
     {
         maxHealth = defaultMaxHealth;
@@ -27,6 +30,11 @@ public class Level2_Fungus : BossTemplate
         //set the skills
         skill_SporeBurst = new Lvl2_Skill_SporeBurst();
 
+        //locate tracker
+        tracker = FindObjectOfType<lvl2_ObjTracker>();
+
+        //spawn objective
+        tracker.CheckFungiInQuadrant(transform.position);
     }
 
     void Update()
@@ -67,15 +75,13 @@ public class Level2_Fungus : BossTemplate
         {
             skill_SporeBurst.UseSkill(transform.position, transform.position, this);
             Destroy(gameObject);
+            tracker.isNoSelfDetonateFungi = false;
         }
     }
 
     public void DestroyFungusByBoss()
     {
-        if (!inactive)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
 
