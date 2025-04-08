@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5630479392734349379}
   - component: {fileID: 8048190107074010138}
   - component: {fileID: 5902215737411201476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lvl2InfectedSmashPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

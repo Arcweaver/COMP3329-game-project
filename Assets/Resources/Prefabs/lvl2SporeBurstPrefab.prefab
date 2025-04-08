@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2580691454827238559}
   - component: {fileID: 1463805325180679770}
   - component: {fileID: 3161979717021535171}
-  - component: {fileID: 3139411951576258375}
   - component: {fileID: 7688334437689360192}
-  m_Layer: 0
+  - component: {fileID: 5333350940765801783}
+  m_Layer: 8
   m_Name: lvl2SporeBurstPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 5752387903329233096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -324.16663, y: -104.170815, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: -318.2126, y: -108.6888, z: 0}
+  m_LocalScale: {x: 60, y: 60, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -916540355
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2346302928887187388, guid: 88b01338339213d499922858d16e95b7, type: 3}
+  m_Sprite: {fileID: -2145668074074827462, guid: 64f6d150b98657e47af8246a746b0b4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,8 +117,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &3139411951576258375
-BoxCollider2D:
+--- !u!114 &7688334437689360192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752387903329233096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d53bc5ea68937469a14cba1a956a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  direction: {x: 0, y: 0, z: 0}
+  affix: 0
+  unit: {fileID: 0}
+  opponentTag: Enemy
+  damage: 15
+--- !u!58 &5333350940765801783
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,33 +169,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0012939535, y: 0.0005533099}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.13, y: 0.54}
-    newSize: {x: 0.12, y: 0.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.13811532, y: 0.54057515}
-  m_EdgeRadius: 0
---- !u!114 &7688334437689360192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5752387903329233096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d53bc5ea68937469a14cba1a956a17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  direction: {x: 0, y: 0, z: 0}
-  affix: 0
-  unit: {fileID: 0}
-  opponentTag: Enemy
-  damage: 15
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.245

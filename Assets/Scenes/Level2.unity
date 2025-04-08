@@ -1866,6 +1866,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: m_Size.x
+      value: 46.867386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: m_Size.y
+      value: 69.90672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.22375774
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.27855682
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9066525023589891077, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -2206,7 +2226,7 @@ GameObject:
   - component: {fileID: 1629121280}
   - component: {fileID: 1629121282}
   - component: {fileID: 1629121281}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3085,6 +3105,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.13564613
       objectReference: {fileID: 0}
+    - target: {fileID: 309127246590164583, guid: abd2af22549de9848ad8b916061dc756, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3360717769343032503, guid: abd2af22549de9848ad8b916061dc756, type: 3}
       propertyPath: player
       value: 
@@ -3140,6 +3164,10 @@ PrefabInstance:
     - target: {fileID: 9203449528376642530, guid: abd2af22549de9848ad8b916061dc756, type: 3}
       propertyPath: m_Name
       value: boss_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203449528376642530, guid: abd2af22549de9848ad8b916061dc756, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8601174742380558473, guid: abd2af22549de9848ad8b916061dc756, type: 3}

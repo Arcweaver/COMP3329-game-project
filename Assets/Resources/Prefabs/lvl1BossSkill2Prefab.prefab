@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3161979717021535171}
   - component: {fileID: 3139411951576258375}
   - component: {fileID: 3658349283401263832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lvl1BossSkill2Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
