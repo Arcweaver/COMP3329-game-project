@@ -18,7 +18,7 @@ public class WeaponSkillshot : Skillshot
 
     protected override void SkillEffect(UnitTemplate enemy)
     {
-        CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), 10);
+        CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), 65);
     }
 
     void OnTriggerEnter2D(Collider2D obj)

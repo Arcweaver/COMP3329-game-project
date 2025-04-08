@@ -122,12 +122,17 @@ public class Skill
     //modifier to skill user
     protected virtual void ApplyStatModifier(UnitTemplate userUnit)
     {
+        ApplyStatModifier(statModifier, userUnit);
+    }
+
+    protected virtual void ApplyStatModifier(StatModifier modifier, UnitTemplate userUnit)
+    {
         // Logic for applying the stat modifier
-        if (statModifier != null)
+        if (modifier != null)
         {
-            statModifier.StartModifier();
-            statModifier.ApplyEffect(userUnit);
-            userUnit.AddModifier(statModifier);
+            modifier.StartModifier();
+            modifier.ApplyEffect(userUnit);
+            userUnit.AddModifier(modifier);
         }
     }
 

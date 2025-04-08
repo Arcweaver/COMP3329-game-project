@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public class Level2_Fungus : BossTemplate
+public class Level2_Fungus : EnemyTemplate
 {
     //additional stats
     public int defaultMaxHealth = 400;
@@ -18,6 +18,10 @@ public class Level2_Fungus : BossTemplate
 
     //track
     private lvl2_ObjTracker tracker;
+
+    //sprite tracker
+    public Sprite livingSprite;
+    public Sprite wiltedSprite;
 
     [Obsolete]
     private void Start()
@@ -35,6 +39,11 @@ public class Level2_Fungus : BossTemplate
 
         //spawn objective
         tracker.CheckFungiInQuadrant(transform.position);
+
+        //sprite renderer
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = livingSprite;
     }
 
     void Update()
@@ -55,12 +64,14 @@ public class Level2_Fungus : BossTemplate
         {
             detonate_timer = 40f;
             inactive = true;
+            spriteRenderer.sprite = wiltedSprite;
         }
 
         if (detonate_timer < 20 && inactive)
         {
             inactive = false;
             currentHealth = maxHealth;
+            spriteRenderer.sprite = livingSprite;
         }
         else if (detonate_timer < 0)
         {

@@ -14,7 +14,7 @@ public class DragonCharge : Skill, ISkill
         icon = Resources.Load<Sprite>(iconPath);
 
         //cooldown
-        cooldown = 1f;
+        cooldown = 7f;
         staminaCost = 15f;
 
         //load prefab

@@ -5,6 +5,8 @@ using UnityEngine.SocialPlatforms.Impl;
 public class TrickstersGambit : Skill, ISkill
 {
     // Skill properties
+    public TrickstersGambitModifier TGStatModifier;
+
     public TrickstersGambit()
     {
         //skill description
@@ -13,14 +15,15 @@ public class TrickstersGambit : Skill, ISkill
         description = "Roll 2 die. Low rolls (<=6) increase your damage by twice the value for 5 seconds. High rolls fire a blast travelling forward for 10 times the value as damage.";
 
         //load icon
-        iconPath = "Icon/DragonCharge";
+        iconPath = "Icon/TrickstersGambit";
         icon = Resources.Load<Sprite>(iconPath);
 
         //cooldown
-        cooldown = 1f;
+        cooldown = 6f;
 
         //load stat modifier
         statModifier = new TrickstersGambitModifier(affix);
+        TGStatModifier = (TrickstersGambitModifier) statModifier;
 
         //load prefab
         skillshotPrefabPath = "Prefabs/TrickstersGambitPrefab";
@@ -48,7 +51,8 @@ public class TrickstersGambit : Skill, ISkill
             Debug.Log(roll1 + roll2);
             if (roll1 + roll2 <= 6)
             {
-                ApplyStatModifier(userUnit);
+                TGStatModifier.damageBonus = roll1 + roll2;
+                ApplyStatModifier(TGStatModifier, userUnit);
                 Debug.Log("Trickster's Gambit applied stat!");
             }
             else 
@@ -102,6 +106,8 @@ public class TrickstersGambit : Skill, ISkill
             isOnCooldown = true;
         }
     }
+
+
 
     public string GetSkillName() => skillName;
     public Sprite GetIcon() => icon;

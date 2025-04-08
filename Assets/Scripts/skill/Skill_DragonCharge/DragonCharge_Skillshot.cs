@@ -18,10 +18,17 @@ public class DragonChargeSkillshot : Skillshot
      void Update()
     {
         // Get player object
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject _dummy = GameObject.FindGameObjectWithTag("Player");
+        PlayerController player = _dummy.GetComponent<PlayerController>();
+
+        UnitStat playerStats = player.GetModifiedStats();
+        playerStats.moveSpeed *= 2;
 
         // Increase player speed
-        player.transform.position += 2 * Time.deltaTime * unit.moveSpeed * direction;
+        Vector2 movement = direction.normalized * playerStats.moveSpeed; // Calculate movement vector
+        player.rb.linearVelocity = movement; // Use Rigidbody2D to move the player
+
+        //player.transform.position += 2 * Time.deltaTime * unit.moveSpeed * direction;
 
         // Make the skillshot stick to player
         transform.position = player.transform.position;

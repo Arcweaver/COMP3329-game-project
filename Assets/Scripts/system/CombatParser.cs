@@ -22,7 +22,7 @@ public class CombatParser
             bool isCritical = Random.Range(0f, 1f) <= sourceStat.criticalChance;
             float critModifier = isCritical ? sourceStat.criticalModifier : 1f;
 
-            int hpChange = Mathf.FloorToInt(Mathf.Abs(targetHpChange) * critModifier * targetStat.damageTakenModifier);
+            int hpChange = Mathf.FloorToInt(Mathf.Abs(targetHpChange) * critModifier * sourceStat.damageDoneModifier * targetStat.damageTakenModifier);
             //if (isDamage) { target.TakeDamage(hpChange); } else { target.Heal(hpChange); }
             if (isDamage)
             {

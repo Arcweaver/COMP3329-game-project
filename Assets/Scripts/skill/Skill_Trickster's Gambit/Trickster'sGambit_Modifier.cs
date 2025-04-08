@@ -1,4 +1,4 @@
-using System.Threading;
+﻿using System.Threading;
 using UnityEngine;
 
 public class TrickstersGambitModifier : StatModifier
@@ -24,7 +24,7 @@ public class TrickstersGambitModifier : StatModifier
         //might be better to get default value and apply bonus
         //this implementation can cause bonus to go out of control for multiple effects
         //it depends on multiplicative or additive bonus
-        stat.criticalModifier *= damageBonus;
+        stat.damageDoneModifier *= (damageBonus/50) + 1;  //eq. to 1 + damageBonus/100）*2
         
     }
 

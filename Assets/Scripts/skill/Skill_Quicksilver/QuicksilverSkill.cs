@@ -21,7 +21,7 @@ public class QuicksilverSkill : Skill, ISkill
         affix3Description = "Continue moving for at least 2 seconds during this effect will reduce the cooldown of all abilities by 2 seconds. Stamina cost increased to 20.";
 
         //load icon
-        iconPath = "Icon/DragonCharge";
+        iconPath = "Icon/Quicksilver";
         icon = Resources.Load<Sprite>(iconPath);
 
         //load stat modifier

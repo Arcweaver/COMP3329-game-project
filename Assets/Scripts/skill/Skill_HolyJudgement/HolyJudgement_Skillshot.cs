@@ -25,8 +25,8 @@ public class HolyJudgementSkillshot : Skillshot
     {
         //get the unit stats to do crit modification/damage amp magic  :)
         UnitStat sourceStat = unit.GetModifiedStats();
-        sourceStat.criticalModifier = 3f; //for example
-        CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), 100);
+        sourceStat.criticalModifier *= 2f; //for example
+        CombatParser.CombatParsing(unit, sourceStat, 0, enemy, enemy.GetModifiedStats(), 100);
     }
 
 }
