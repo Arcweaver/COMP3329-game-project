@@ -127,6 +127,7 @@ public class Lvl2_Skill_SporeBurst : Skill
 public class Lvl2_Boss_Standstill_Modifier : StatModifier
 {
     public float speedBonus = 2f;
+    public string skillname;
 
     public Lvl2_Boss_Standstill_Modifier(float dura)
     {
@@ -140,7 +141,11 @@ public class Lvl2_Boss_Standstill_Modifier : StatModifier
     }
 
     public override void ApplyChangeOnUpdate(UnitTemplate unit, UnitStat stat){}
-    public override void ApplyExpirationChange(UnitTemplate unit){}
+    public override void ApplyExpirationChange(UnitTemplate unit)
+    {
+        unit.animator.SetBool("isSlam", false);
+        unit.animator.SetBool("isBite", false);
+    }
 }
 
 public class Lvl2_Boss_Self_Debuff_Modifier : StatModifier

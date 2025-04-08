@@ -21,7 +21,7 @@ public class EnemyTemplate : UnitTemplate
         MoveTowardsPlayer();
     }
 
-    public virtual void MoveTowardsPlayer(float min_distance)
+    public virtual void MoveTowardsPlayer(float min_distance, float spriteScale)
     {
         if (modifiedStats.moveSpeed != 0){
             if (player != null)
@@ -32,12 +32,27 @@ public class EnemyTemplate : UnitTemplate
                 Vector3 direction = (player.position - transform.position).normalized;
                 //Debug.Log($"Moving towards player at position: {player.position}");
                 transform.position += modifiedStats.moveSpeed * Time.deltaTime * direction;
+
+                //update sprite
+                if (direction.x > 0)
+                {
+                    spriteRenderer.transform.localScale = new Vector2(spriteScale, spriteScale);
+                }
+                else if (direction.x < 0)
+                {
+                    spriteRenderer.transform.localScale = new Vector2(-spriteScale, spriteScale);
+                }
             }
             else
             {
                 Debug.LogWarning("Player reference is null!");
             }
         }
+    }
+
+    public virtual void MoveTowardsPlayer(float min_distance)
+    {
+        MoveTowardsPlayer(min_distance, 1f);
     }
 
     public virtual void MoveTowardsPlayer()

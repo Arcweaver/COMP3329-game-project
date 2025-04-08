@@ -31,6 +31,10 @@ public class Level2_Boss : BossTemplate
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
 
+        //sprite and animator
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void Update()
@@ -64,6 +68,7 @@ public class Level2_Boss : BossTemplate
             // big smash
             else if (skill_InfectedSmash.cooldownTimer <= 0 && CanUseOtherSkill())
             {
+                animator.SetBool("isSlam", true);
                 skill_InfectedSmash.UseSkill(transform.position, (player.position - transform.position).normalized, this);
                 Debug.Log("Infected Smash");
                 skill_interval = 10.0f;
@@ -73,13 +78,14 @@ public class Level2_Boss : BossTemplate
         }
 
         
-        if (Vector3.Distance(player.position, transform.position) <= melee_distance && CanUseOtherSkill())
+        if (Vector3.Distance(player.position, transform.position) <= melee_distance && skill_BasicAttack.cooldownTimer <= 0 && CanUseOtherSkill())
         {
+            animator.SetBool("isBite", true);
             skill_BasicAttack.UseSkill(transform.position, (player.position - transform.position).normalized, this);
             Debug.Log("Boss basic attack");
         }
         //move towards player if no skill to use
-        MoveTowardsPlayer(melee_distance);
+        MoveTowardsPlayer(melee_distance, 2f);
         
     }
 
