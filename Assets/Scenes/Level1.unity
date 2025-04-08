@@ -822,13 +822,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 303659696981327324, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 995395516912750909, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
     - target: {fileID: 2984064192758288521, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
       propertyPath: unit
       value: 
       objectReference: {fileID: 2000817143}
+    - target: {fileID: 3148728777796947799, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
     - target: {fileID: 7342927717473496302, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
       propertyPath: m_Name
       value: GameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368999475893914343, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
       objectReference: {fileID: 0}
     - target: {fileID: 8559786544194860411, guid: 16ad4ccf1da419141bf5f6b932957863, type: 3}
       propertyPath: unit
