@@ -21,7 +21,7 @@ public class EnemyTemplate : UnitTemplate
         MoveTowardsPlayer();
     }
 
-    public void MoveTowardsPlayer(float min_distance)
+    public virtual void MoveTowardsPlayer(float min_distance)
     {
         if (modifiedStats.moveSpeed != 0){
             if (player != null)
@@ -40,7 +40,7 @@ public class EnemyTemplate : UnitTemplate
         }
     }
 
-    public void MoveTowardsPlayer()
+    public virtual void MoveTowardsPlayer()
     {
         MoveTowardsPlayer(0.0f);
     }

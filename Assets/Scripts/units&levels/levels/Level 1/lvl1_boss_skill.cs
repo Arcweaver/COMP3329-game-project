@@ -78,5 +78,7 @@ public class Lvl1_Boss_Skill1_Boss_Modifier : StatModifier
     }
 
     public override void ApplyChangeOnUpdate(UnitTemplate unit, UnitStat stat){}
-    public override void ApplyExpirationChange(UnitTemplate unit){}
+    public override void ApplyExpirationChange(UnitTemplate unit){
+        unit.animator.SetBool("isSpellAttack", false);
+    }
 }

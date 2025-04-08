@@ -25,6 +25,10 @@ public class UnitTemplate : MonoBehaviour
     public List<StatModifier> activeModifiers = new();
     public UnitStat modifiedStats = new();
 
+    //sprite
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
     void Start()
     {
         currentHealth = maxHealth;
