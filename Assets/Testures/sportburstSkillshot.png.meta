@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sportburstSkillshot_0: -2145668074074827462
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
