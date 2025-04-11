@@ -9,6 +9,10 @@ public class CompletionUI : MonoBehaviour
     public TextMeshProUGUI resultText; // Displays results & objectives achieved
     public Button actionButton;  // One button (either Proceed or Return)
     public TextMeshProUGUI actionButtonText; // Text inside the button
+    public Button returnToMenuButton;        // Always active
+    public TextMeshProUGUI returnToMenuButtonText;
+    public Button nextLevelButton;           // Only active on win
+    public TextMeshProUGUI nextLevelButtonText; // Text for next level button
 
     void Start()
     {
@@ -26,43 +30,58 @@ public class CompletionUI : MonoBehaviour
 
     void SetupCompletionScreen(bool playerWon, bool isFinalLevel, string resultInfo)
     {
-        actionButton.onClick.RemoveAllListeners();
+        returnToMenuButton.onClick.RemoveAllListeners();
+        if (nextLevelButton != null)
+        {
+            nextLevelButton.onClick.RemoveAllListeners();
+        }
+
+        resultText.text = resultInfo;
+        resultText.gameObject.SetActive(true);
 
         if (playerWon)
         {
             messageText.text = "Victory!";
-            resultText.text = resultInfo; // Display objectives, each on its own line
-            resultText.gameObject.SetActive(true);
+            returnToMenuButtonText.text = "Return to Menu";
+            returnToMenuButton.onClick.AddListener(ReturnToMainMenu);
+            returnToMenuButton.gameObject.SetActive(true);
 
-            if (isFinalLevel)
+            // Show Next Level button unless it's the final level
+            if (isFinalLevel && nextLevelButton != null)
             {
-                actionButtonText.text = "Return to Menu";
-                actionButton.onClick.AddListener(ReturnToMainMenu);
+                nextLevelButtonText.text = "Next Level";
+                nextLevelButton.onClick.AddListener(ProceedToNextLevel);
+                nextLevelButton.gameObject.SetActive(true);
             }
-            else
+            else if (nextLevelButton != null)
             {
-                actionButtonText.text = "Next Level";
-                actionButton.onClick.AddListener(ProceedToNextLevel);
+                nextLevelButton.gameObject.SetActive(false); // Hide if final level
             }
         }
         else
         {
             messageText.text = "Game Over!";
-            resultText.text = resultInfo; // Display objectives, each on its own line
-            resultText.gameObject.SetActive(true);
+            returnToMenuButtonText.text = "Return to Menu";
+            returnToMenuButton.onClick.AddListener(ReturnToMainMenu);
+            returnToMenuButton.gameObject.SetActive(true);
 
-            actionButtonText.text = "Return to Menu";
-            actionButton.onClick.AddListener(ReturnToMainMenu);
+            if (nextLevelButton != null)
+            {
+                nextLevelButton.gameObject.SetActive(false);
+            }
         }
-
-        actionButton.gameObject.SetActive(true);
     }
 
     void ProceedToNextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        string nextSceneName = "Level" + nextSceneIndex;
-        SceneManager.LoadScene(nextSceneName);
+        PlayerPrefs.SetInt("NextLevelIndex", SceneManager.GetActiveScene().buildIndex - 3 + 1); // Adjust for CompletionUI at index 4
+        SceneManager.LoadScene("StorylineScene");
+    }
+
+    void LoadEndingStory()
+    {
+        PlayerPrefs.SetInt("NextLevelIndex", 4); // Arbitrary value > 3 for ending
+        SceneManager.LoadScene("StorylineScene");
     }
 
     void ReturnToMainMenu()
