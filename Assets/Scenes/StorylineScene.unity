@@ -276,7 +276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: 25
   resetPositionY: -100
-  startPositionY: 300
+  level2Story: The hero ventures deeper into the dark forest...
+  level3Story: The castle looms ahead, filled with danger...
+  endingStory: With the boss defeated, peace returns...
 --- !u!114 &415906892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +300,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "This is a template. We should put the story here later when we do implementation.
-    \nfesf\nfefe\nfs\nf\nsf\nef\n\n\n\n"
+    \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -828,7 +830,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1650130075}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadGameScene
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1650130075}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

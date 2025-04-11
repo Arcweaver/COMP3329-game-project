@@ -572,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mushrooms_pixel_asset_0: -616323085632415963
+      mushrooms_pixel_asset_1: -3136008585277252508
+      mushrooms_pixel_asset_10: 8962897086768445184
+      mushrooms_pixel_asset_11: 7402078587914630103
+      mushrooms_pixel_asset_12: -3024094591951032698
+      mushrooms_pixel_asset_13: -1367206434445695803
+      mushrooms_pixel_asset_14: 1181316454639002444
+      mushrooms_pixel_asset_15: 6832877550282935498
+      mushrooms_pixel_asset_16: -1749702324361520552
+      mushrooms_pixel_asset_17: 8750110198275792371
+      mushrooms_pixel_asset_2: 1564095811822978627
+      mushrooms_pixel_asset_3: 469930925114651651
+      mushrooms_pixel_asset_4: -6506623527477068000
+      mushrooms_pixel_asset_5: -6983613070590708054
+      mushrooms_pixel_asset_6: 2398369619727591995
+      mushrooms_pixel_asset_7: -6948925636213650954
+      mushrooms_pixel_asset_8: 6048319971392950388
+      mushrooms_pixel_asset_9: 2738557358730440952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
