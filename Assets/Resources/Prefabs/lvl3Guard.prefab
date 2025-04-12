@@ -134,6 +134,7 @@ MonoBehaviour:
   defaultMaxHealth: 400
   defaultMovespeed: 70
   melee_distance: 60
+  deathCount: 0
 --- !u!1 &8648958015675734278
 GameObject:
   m_ObjectHideFlags: 0

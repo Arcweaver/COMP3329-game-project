@@ -73,3 +73,42 @@ public class Lvl3_Skill_Gurad_BasicAttack : Skill
         globalCooldownTimer = 0;
     }
 }
+
+public class Lvl3_Skill_HolyNova : Skill
+{
+    public Lvl3_Skill_HolyNova()
+    {
+        //skill description
+        skillName = "lvl 3 boss holy nova";
+        description =   "Fire a cluster of holy bolts spreading outwards. If they hit a unit (except the king), leave behind a sanctified ground. The sanctified ground deals some damage every second to the player if they are in it." +
+                        "Additional effects for holy bolts:" +
+                        "Player: Deal damage." +
+                        "Guard: Movement speed buff." +
+                        "Corpse: Revive them and give them movement speed buff. They will not leave behind a corpse when they die.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3HolyNova";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 5f;
+        globalCooldown = 1f; 
+
+        //timers
+        cooldownTimer = 0f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+
+    protected override void GenerateSkillshot(Vector3 position, Vector3 direction, UnitTemplate userUnit)
+    {
+        //generate multiple skillshot in random directions
+        int numberOfDirections = Random.Range(6, 11); //default 8
+        for (int i = 0; i < numberOfDirections; i++)
+        {
+            float angle = i * (360f / numberOfDirections) * Mathf.Deg2Rad;
+            Vector3 _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+            base.GenerateSkillshot(position, _dir, userUnit);
+        }
+    }
+}

@@ -10,7 +10,7 @@ public class Level3_Boss : BossTemplate
     public int defaultMovespeed = 70;
 
     //skills
-    private Skill skill_Smite, skill_CallGuard;
+    private Skill skill_Smite, skill_CallGuard, skill_HolyNova;
 
     //custom timer & controller variable
     public float skill_interval = 3.0f;
@@ -25,6 +25,7 @@ public class Level3_Boss : BossTemplate
         //set the skills
         skill_Smite = new Lvl3_Skill_Smite();
         skill_CallGuard = new Lvl3_Skill_CallGuard();
+        skill_HolyNova = new Lvl3_Skill_HolyNova();
 
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
@@ -38,15 +39,16 @@ public class Level3_Boss : BossTemplate
     void Update()
     {
         CallOnUpdate();
-        HandleSkills();
+        HandleSkillsP2();
 
         // Update cooldown
         skill_Smite.UpdateCooldown();
         skill_CallGuard.UpdateCooldown();
+        skill_HolyNova.UpdateCooldown();
     }
    
     //boss actions
-    public override void HandleSkills()
+    public void HandleSkillsP1()
     {
         //action timer
         skill_interval -= Time.deltaTime;
@@ -74,12 +76,31 @@ public class Level3_Boss : BossTemplate
         }
     }
 
+    public void HandleSkillsP2()
+    {
+        //action timer
+        skill_interval -= Time.deltaTime;
+
+        //ability sequence
+        if (skill_interval <= 0)
+        {
+            // Holy Nova
+            if (skill_HolyNova.cooldownTimer <= 0 && CanUseOtherSkill())
+            {
+                skill_HolyNova.UseSkill(transform.position, (player.position - transform.position).normalized, this);
+                Debug.Log("Holy Nova");
+                skill_interval = 2.0f;
+            }
+            return;
+        }
+    }
+
 
 
     //put all the global cooldown check here
     private Boolean CanUseOtherSkill()
     {
-        return skill_Smite.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0;
+        return skill_Smite.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0&& skill_HolyNova.globalCooldownTimer <= 0;
     }
 
 }
