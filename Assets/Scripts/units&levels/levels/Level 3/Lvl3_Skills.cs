@@ -23,3 +23,53 @@ public class Lvl3_Skill_Smite : Skill
         globalCooldownTimer = 0;  
     }
 }
+
+public class Lvl3_Skill_CallGuard : Skill
+{
+    public Lvl3_Skill_CallGuard()
+    {
+        //skill description
+        skillName = "lvl 3 boss call guard";
+        description = "Call a guard to attack the player.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Guard";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 30f;
+        globalCooldown = 1f;
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
+public class Lvl3_Skill_Gurad_BasicAttack : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Gurad_BasicAttack()
+    {
+        //skill description
+        skillName = "lvl 3 guard basic attack";
+        description = "cleave attack";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3GuardBasicAttackPrefab";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
+
+
+        //cooldown
+        cooldown = 1f;
+        globalCooldown = 2.5f;  //disable skill usage
+
+        //load stat modifier
+        statModifier = new Lvl3_Guard_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;
+    }
+}

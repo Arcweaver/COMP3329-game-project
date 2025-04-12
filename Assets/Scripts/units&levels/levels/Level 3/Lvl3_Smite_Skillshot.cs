@@ -37,7 +37,6 @@ public class Lvl3_Smite_Skillshot : Skillshot
     // Collision check
     void OnTriggerStay2D(Collider2D obj)
     {
-        Debug.Log(hitTimer);
         if (obj.name == "player" && hitTimer - Time.deltaTime < 0f)
         {
             UnitTemplate playerUnit = obj.GetComponent<UnitTemplate>();
