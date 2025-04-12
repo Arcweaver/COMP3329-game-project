@@ -1,19 +1,21 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using System;
+
 
 public class Level3_Boss : BossTemplate
 {
     //additional stats
-    public int defaultMaxHealth = 4000;
+    public int defaultMaxHealth = 300;
     public int defaultMovespeed = 70;
 
     //skills
-    private Skill skill_Smite, skill_CallGuard, skill_HolyNova;
+    private Skill skill_Smite, skill_CallGuard, skill_HolyNova, skill_CallBishop;
 
     //custom timer & controller variable
     public float skill_interval = 3.0f;
+    public float healthPercent;
+    public GameObject guardSpwaner;
 
 
     private void Start()
@@ -26,6 +28,7 @@ public class Level3_Boss : BossTemplate
         skill_Smite = new Lvl3_Skill_Smite();
         skill_CallGuard = new Lvl3_Skill_CallGuard();
         skill_HolyNova = new Lvl3_Skill_HolyNova();
+        skill_CallBishop = new Lvl3_Skill_CallBishop();
 
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
@@ -39,66 +42,100 @@ public class Level3_Boss : BossTemplate
     void Update()
     {
         CallOnUpdate();
-        HandleSkillsP2();
+        HandleSkills();
 
         // Update cooldown
         skill_Smite.UpdateCooldown();
         skill_CallGuard.UpdateCooldown();
         skill_HolyNova.UpdateCooldown();
+        skill_CallBishop.UpdateCooldown();
     }
    
     //boss actions
-    public void HandleSkillsP1()
+    public override void HandleSkills()
     {
         //action timer
         skill_interval -= Time.deltaTime;
+        healthPercent = (float)currentHealth / (float)maxHealth;
 
         //ability sequence
-        if (skill_interval <= 0)
+        if (skill_interval <= 0 && healthPercent > 0.7)
         {
-            // Smite
-            if (skill_Smite.cooldownTimer <= 0 && CanUseOtherSkill())
-            {
-                skill_Smite.UseSkill(player.position, (player.position - transform.position).normalized, this);
-                Debug.Log("Smite");
-                skill_interval = 2.0f;
-            }
-
-            // Call guard
-            if (skill_CallGuard.cooldownTimer <= 0 && CanUseOtherSkill())
-            {
-                skill_CallGuard.UseSkill(transform.position, (player.position - transform.position).normalized, this);
-                Debug.Log("Call guard");
-                skill_interval = 5.0f;
-            }
-
+            UseSmite();
+            UseCallBishop();
             return;
+        }
+        else if (skill_interval <= 0 && healthPercent > 0.3)
+        {
+            UseSmite();
+            UseCallGuard();
+            UseHolyNova();
+            UseCallBishop();
+            return;
+        }
+        else if (skill_interval <= 0)
+        {
+
         }
     }
 
-    public void HandleSkillsP2()
+    private void UseSmite()
     {
-        //action timer
-        skill_interval -= Time.deltaTime;
-
-        //ability sequence
-        if (skill_interval <= 0)
+        if (skill_Smite.cooldownTimer <= 0 && CanUseOtherSkill())
         {
-            // Holy Nova
-            if (skill_HolyNova.cooldownTimer <= 0 && CanUseOtherSkill())
-            {
-                skill_HolyNova.UseSkill(transform.position, (player.position - transform.position).normalized, this);
-                Debug.Log("Holy Nova");
-                skill_interval = 2.0f;
-            }
-            return;
+            skill_Smite.UseSkill(player.position, (player.position - transform.position).normalized, this);
+            Debug.Log("Smite");
+            skill_interval = 2.0f;
         }
     }
 
+    private void UseCallGuard()
+    {
+        
+        if (skill_CallGuard.cooldownTimer <= 0 && CanUseOtherSkill())
+        {
+            skill_CallGuard.UseSkill(GetSpwanPosition(), (player.position - transform.position).normalized, this);
+            Debug.Log("Call Guard");
+            skill_interval = 5.0f;
+        }
+    }
+
+    private void UseHolyNova()
+    {
+        if (skill_HolyNova.cooldownTimer <= 0 && CanUseOtherSkill())
+        {
+            skill_HolyNova.UseSkill(transform.position, (player.position - transform.position).normalized, this);
+            Debug.Log("Holy Nova");
+            skill_interval = 2.0f;
+        }
+    }
+
+    private void UseCallBishop()
+    {
+        if (skill_CallBishop.cooldownTimer <= 0 && CanUseOtherSkill())
+        {
+            skill_CallBishop.UseSkill(GetSpwanPosition(), (player.position - transform.position).normalized, this);
+            Debug.Log("Call Bishop");
+            skill_interval = 5.0f;
+        }
+    }
+
+    // Get spwan point for guards
+    private Vector2 GetSpwanPosition()
+    {
+        Collider2D spwanCollider = guardSpwaner.GetComponent<Collider2D>();
+        float s = spwanCollider.bounds.size.x / 2;
+        float x1 = guardSpwaner.transform.position.x - s;
+        float x2 = guardSpwaner.transform.position.x + s;
+        float y1 = guardSpwaner.transform.position.y - s;
+        float y2 = guardSpwaner.transform.position.y + s;
+        Vector2 spawnPoint = new (Random.Range(x1, x2), Random.Range(y1, y2));
+        return spawnPoint;
+    }
 
 
     //put all the global cooldown check here
-    private Boolean CanUseOtherSkill()
+    private bool CanUseOtherSkill()
     {
         return skill_Smite.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0&& skill_HolyNova.globalCooldownTimer <= 0;
     }

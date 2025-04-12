@@ -26,9 +26,6 @@ public class Level3_Guard : BossTemplate
         //set the skills
         skill_Guard_BasicAttack = new Lvl3_Skill_Gurad_BasicAttack();
 
-        //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
-        //AddModifier(yourModifier);
-
         //sprite and animator
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
@@ -37,10 +34,10 @@ public class Level3_Guard : BossTemplate
 
     void Update()
     {
-        if (deathCount == 1) return;
+        if (currentHealth <= 0 && deathCount >= 1) Destroy(gameObject);
+        if (currentHealth <= 0) return;
         CallOnUpdate();
         HandleSkills();
-        CheckDeath();
 
         // Update cooldown
         skill_Guard_BasicAttack.UpdateCooldown();
@@ -58,10 +55,18 @@ public class Level3_Guard : BossTemplate
         MoveTowardsPlayer(melee_distance, 50f);
     }
 
-    // Increacse death counter if no health
-    private void CheckDeath()
+    // Revive the corpse
+    public void Revive()
     {
-        if (currentHealth <= 0) deathCount++;
+        if (currentHealth > 0) return;
+        currentHealth = maxHealth;
+        deathCount++;
+    }
+
+    // Apply speed buff
+    public void ApplySpeedBuff()
+    {
+        AddModifier(new Lvl3_Guard_Speed_Modifer(1));
     }
 
     //put all the global cooldown check here

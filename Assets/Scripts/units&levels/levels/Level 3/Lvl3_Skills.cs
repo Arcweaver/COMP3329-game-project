@@ -103,12 +103,61 @@ public class Lvl3_Skill_HolyNova : Skill
     protected override void GenerateSkillshot(Vector3 position, Vector3 direction, UnitTemplate userUnit)
     {
         //generate multiple skillshot in random directions
-        int numberOfDirections = Random.Range(6, 11); //default 8
+        int numberOfDirections = Random.Range(15, 20); //default 8
         for (int i = 0; i < numberOfDirections; i++)
         {
             float angle = i * (360f / numberOfDirections) * Mathf.Deg2Rad;
             Vector3 _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
             base.GenerateSkillshot(position, _dir, userUnit);
         }
+    }
+}
+
+public class Lvl3_Skill_CallBishop : Skill
+{
+    public Lvl3_Skill_CallBishop()
+    {
+        //skill description
+        skillName = "lvl 3 boss call bishop";
+        description = "Summon a bishop.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Bishop";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+        //cooldown
+        cooldown = 30f;
+        globalCooldown = 1f;
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
+public class Lvl3_Skill_Bishop_HolyLight : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Bishop_HolyLight()
+    {
+        //skill description
+        skillName = "lvl 3 guard holy light";
+        description = "Restore 10% health to king.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3BishopHolyLightPrefab";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
+
+
+        //cooldown
+        cooldown = 1f;
+        globalCooldown = 2.5f;  //disable skill usage
+
+        //load stat modifier
+        statModifier = new Lvl3_Guard_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;
     }
 }

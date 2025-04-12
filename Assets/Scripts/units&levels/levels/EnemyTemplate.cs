@@ -8,7 +8,6 @@ public class EnemyTemplate : UnitTemplate
     public Transform player; // player location
     //public List<GameObject> statModifier; //store stat modifiers
 
-
     void Update()
     {
         CallOnUpdate();
@@ -58,6 +57,35 @@ public class EnemyTemplate : UnitTemplate
     public virtual void MoveTowardsPlayer()
     {
         MoveTowardsPlayer(0.0f);
+    }
+
+    public virtual void MoveTowards(float min_distance, float spriteScale, Transform obj)
+    {
+        if (modifiedStats.moveSpeed != 0){
+            if (obj != null)
+            {
+                float distance = Vector3.Distance(obj.position, transform.position);
+                if (distance < min_distance){return;}
+
+                Vector3 direction = (obj.position - transform.position).normalized;
+                //Debug.Log($"Moving towards player at position: {player.position}");
+                transform.position += modifiedStats.moveSpeed * Time.deltaTime * direction;
+
+                //update sprite
+                if (direction.x > 0)
+                {
+                    spriteRenderer.transform.localScale = new Vector2(spriteScale, spriteScale);
+                }
+                else if (direction.x < 0)
+                {
+                    spriteRenderer.transform.localScale = new Vector2(-spriteScale, spriteScale);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("obj reference is null!");
+            }
+        }
     }
 
 }
