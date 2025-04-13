@@ -14,7 +14,7 @@ public class Lvl3_Guard_BasicAttack_Skillshot : Skillshot
         opponentTag = "Player";
 
         //skill persists for indication. Triggers hit on timer expiration
-        hitTimer = 2.5f;
+        hitTimer = 0.7f * 1.7f;
     }
 
     void Update()

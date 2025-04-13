@@ -65,17 +65,13 @@ public class Level3_Boss : BossTemplate
             UseCallBishop();
             return;
         }
-        else if (skill_interval <= 0 && healthPercent > 0.3)
+        else if (skill_interval <= 0)
         {
             UseSmite();
             UseCallGuard();
             UseHolyNova();
             UseCallBishop();
             return;
-        }
-        else if (skill_interval <= 0)
-        {
-
         }
     }
 

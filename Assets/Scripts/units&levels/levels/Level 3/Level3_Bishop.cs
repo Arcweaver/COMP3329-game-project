@@ -13,6 +13,7 @@ public class Level3_Bishop : Level3_Guard
         moveSpeed = defaultMovespeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         boss = GameObject.Find("boss_3").transform;
+        melee_distance = 100;
 
         //set the skills
         skill_Bishop_HolyLight = new Lvl3_Skill_Bishop_HolyLight();
@@ -26,7 +27,11 @@ public class Level3_Bishop : Level3_Guard
     void Update()
     {
         if (currentHealth <= 0 && deathCount >= 1) Destroy(gameObject);
-        if (currentHealth <= 0) return;
+        if (currentHealth <= 0) 
+        {
+            animator.SetBool("isDead", true);
+            return;
+        }
         CallOnUpdate();
         HandleSkills();
 

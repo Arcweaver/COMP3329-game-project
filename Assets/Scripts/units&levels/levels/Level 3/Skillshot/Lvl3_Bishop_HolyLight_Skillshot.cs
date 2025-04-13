@@ -33,27 +33,10 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
         //might need sprite change for "shooting" the skill?
         if (hitTimer < 0f)
         {
-            CheckBossInZone();
+            GameObject boss = GameObject.Find("boss_3");
+            UnitTemplate bossUnit = boss.GetComponent<UnitTemplate>();
+            SkillEffect(bossUnit);
             Destroy(gameObject);
-        }
-    }
-
-    //collision check
-    private void CheckBossInZone()
-    {
-        // Find the player GameObject
-        GameObject boss = GameObject.Find("boss_3");
-
-        if (boss != null)
-        {
-            // Check if the player is within the bounds of the collider
-            Collider2D bossCollider = boss.GetComponent<Collider2D>();
-            if (bossCollider != null && GetComponent<Collider2D>().IsTouching(bossCollider))
-            {
-                UnitTemplate bossUnit = boss.GetComponent<UnitTemplate>();
-                SkillEffect(bossUnit);
-                return;
-            }
         }
     }
 
