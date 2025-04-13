@@ -13,8 +13,8 @@ public class Level3_Guard : BossTemplate
     private Skill skill_Guard_BasicAttack;
 
     //custom timer & controller variable
-     public float melee_distance = 60f;
-     public float deathCount = 0;
+    public float melee_distance = 60f;
+    public float deathCount = 0;
 
     private void Start()
     {

@@ -45,12 +45,18 @@ public class Lvl3_HolyNova_Skillshot : Skillshot
                 GenerateSanctifiedGround();
             }
         }
-        // Speed buff or revive for guards
-        else if (collidedObject.name != "boss_3")
+        else if (collidedObject.CompareTag("Enemy"))
         {
             Level3_Guard guardUnit = collidedObject.GetComponent<Level3_Guard>();
+            Level3_Bishop bishopUnit = collidedObject.GetComponent<Level3_Bishop>();
             
-            if (guardUnit != null)
+            // Ignore alive bishop
+            if (bishopUnit != null && bishopUnit.currentHealth > 0)
+            {
+                return;
+            }
+            // Speed buff or revive for guards
+            else if (guardUnit != null)
             {
                 Destroy(gameObject);
                 guardUnit.Revive();
