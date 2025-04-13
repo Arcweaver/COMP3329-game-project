@@ -41,9 +41,10 @@ public class Level3_Bishop : Level3_Guard
         {
             skill_Bishop_HolyLight.UseSkill(transform.position, (boss.position - transform.position).normalized, this);
             Debug.Log("Bishop Holy Light");
+            animator.SetBool("isAttack", true);
         }
         //move towards boss to heal
-        MoveTowards(melee_distance, 50f, boss);
+        MoveTowards(melee_distance, 160f, boss);
     }
 
     //put all the global cooldown check here

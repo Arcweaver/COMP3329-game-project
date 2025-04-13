@@ -35,7 +35,11 @@ public class Level3_Guard : BossTemplate
     void Update()
     {
         if (currentHealth <= 0 && deathCount >= 1) Destroy(gameObject);
-        if (currentHealth <= 0) return;
+        if (currentHealth <= 0) 
+        {
+            animator.SetBool("isDead", true);
+            return;
+        }
         CallOnUpdate();
         HandleSkills();
 
@@ -50,9 +54,10 @@ public class Level3_Guard : BossTemplate
         {
             skill_Guard_BasicAttack.UseSkill(transform.position, (player.position - transform.position).normalized, this);
             Debug.Log("Guard basic attack");
+            animator.SetBool("isAttack", true);
         }
         //move towards player if no skill to use
-        MoveTowardsPlayer(melee_distance, 50f);
+        MoveTowardsPlayer(melee_distance, 160f);
     }
 
     // Revive the corpse
@@ -61,6 +66,7 @@ public class Level3_Guard : BossTemplate
         if (currentHealth > 0) return;
         currentHealth = maxHealth;
         deathCount++;
+        animator.SetBool("isDead", false);
     }
 
     // Apply speed buff
