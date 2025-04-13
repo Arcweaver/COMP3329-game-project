@@ -37,12 +37,12 @@ public class Level3_Bishop : Level3_Guard
     //boss actions
     public override void HandleSkills()
     {
-        if (Vector3.Distance(player.position, transform.position) <= melee_distance && skill_Bishop_HolyLight.cooldownTimer <= 0 && CanUseOtherSkill())
+        if (Vector3.Distance(boss.position, transform.position) <= melee_distance && skill_Bishop_HolyLight.cooldownTimer <= 0 && CanUseOtherSkill())
         {
             skill_Bishop_HolyLight.UseSkill(transform.position, (boss.position - transform.position).normalized, this);
             Debug.Log("Bishop Holy Light");
         }
-        //move towards player if no skill to use
+        //move towards boss to heal
         MoveTowards(melee_distance, 50f, boss);
     }
 

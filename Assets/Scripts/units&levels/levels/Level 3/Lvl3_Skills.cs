@@ -150,14 +150,14 @@ public class Lvl3_Skill_Bishop_HolyLight : Skill
 
 
         //cooldown
-        cooldown = 1f;
+        cooldown = 12f;
         globalCooldown = 2.5f;  //disable skill usage
 
         //load stat modifier
         statModifier = new Lvl3_Guard_Standstill_Modifier(globalCooldown);  //to stop movement
 
         //timers
-        cooldownTimer = 3f;  // seconds before the boss can act
+        cooldownTimer = 0f;  // seconds before the boss can act
         globalCooldownTimer = 0;
     }
 }

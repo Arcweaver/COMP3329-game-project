@@ -4,12 +4,13 @@ using UnityEngine;
 public class Lvl3_Guard_Holy_Skillshot : Skillshot
 {
     public float hitTimer;
-    public int damage = -30;
+    public int damage;
 
     private void Start()
     {
         //skill speed
         speed = 0f;
+        damage = -30;
 
         opponentTag = "Player";
 
@@ -21,6 +22,9 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
     {//orientation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Destory this skillshot when caster is dead
+        if (unit.currentHealth <= 0) Destroy(gameObject);
 
         //update timer
         hitTimer -= Time.deltaTime;
@@ -53,15 +57,10 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
         }
     }
 
-
-
-
     protected override void SkillEffect(UnitTemplate enemy)
     {
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
     }
-
-
 
     //override to avoid unintended behaviour
     void OnTriggerEnter2D(Collider2D obj)
