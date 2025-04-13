@@ -18,6 +18,9 @@ public class Lvl3_Skill_Smite : Skill
         cooldown = 5f;
         globalCooldown = 1f; 
 
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
         //timers
         cooldownTimer = 3f;  // seconds before the boss can act
         globalCooldownTimer = 0;  
@@ -36,10 +39,12 @@ public class Lvl3_Skill_CallGuard : Skill
         skillshotPrefabPath = "Prefabs/lvl3Guard";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
 
-
         //cooldown
         cooldown = 30f;
         globalCooldown = 1f;
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
 
         //timers
         cooldownTimer = 3f;  // seconds before the boss can act
@@ -95,6 +100,9 @@ public class Lvl3_Skill_HolyNova : Skill
         cooldown = 5f;
         globalCooldown = 1f; 
 
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
         //timers
         cooldownTimer = 0f;  // seconds before the boss can act
         globalCooldownTimer = 0;  
@@ -128,6 +136,9 @@ public class Lvl3_Skill_CallBishop : Skill
         //cooldown
         cooldown = 30f;
         globalCooldown = 1f;
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
 
         //timers
         cooldownTimer = 3f;  // seconds before the boss can act

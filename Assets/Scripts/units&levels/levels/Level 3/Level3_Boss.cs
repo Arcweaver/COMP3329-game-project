@@ -86,6 +86,7 @@ public class Level3_Boss : BossTemplate
             skill_Smite.UseSkill(player.position, (player.position - transform.position).normalized, this);
             Debug.Log("Smite");
             skill_interval = 2.0f;
+            UseCastAnimation();
         }
     }
 
@@ -97,6 +98,7 @@ public class Level3_Boss : BossTemplate
             skill_CallGuard.UseSkill(GetSpwanPosition(), (player.position - transform.position).normalized, this);
             Debug.Log("Call Guard");
             skill_interval = 5.0f;
+            UseCastAnimation();
         }
     }
 
@@ -107,6 +109,7 @@ public class Level3_Boss : BossTemplate
             skill_HolyNova.UseSkill(transform.position, (player.position - transform.position).normalized, this);
             Debug.Log("Holy Nova");
             skill_interval = 2.0f;
+            UseCastAnimation();
         }
     }
 
@@ -117,6 +120,7 @@ public class Level3_Boss : BossTemplate
             skill_CallBishop.UseSkill(GetSpwanPosition(), (player.position - transform.position).normalized, this);
             Debug.Log("Call Bishop");
             skill_interval = 5.0f;
+            UseCastAnimation();
         }
     }
 
@@ -131,6 +135,17 @@ public class Level3_Boss : BossTemplate
         float y2 = guardSpwaner.transform.position.y + s;
         Vector2 spawnPoint = new (Random.Range(x1, x2), Random.Range(y1, y2));
         return spawnPoint;
+    }
+
+    // Start the cast animation
+    private void UseCastAnimation()
+    {
+        animator.SetBool("isCast", true);
+    }
+    
+    private void StopCastAnimation()
+    {
+        animator.SetBool("isCast", false);
     }
 
 
