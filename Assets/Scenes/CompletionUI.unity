@@ -1318,8 +1318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageText: {fileID: 983882240}
   resultText: {fileID: 1010679091}
-  actionButton: {fileID: 652628863}
-  actionButtonText: {fileID: 285086182}
   returnToMenuButton: {fileID: 652628863}
   returnToMenuButtonText: {fileID: 285086182}
   nextLevelButton: {fileID: 567225367}

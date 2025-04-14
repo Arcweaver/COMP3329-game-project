@@ -25,12 +25,22 @@ using TMPro;
 
 public class TextAutoScroll : MonoBehaviour
 {
+    // Auto scroll
+    /*
     public float scrollSpeed = 10f; // Speed of scrolling
     public float resetPositionY = -100f; // The position to reset the text
     //public float startPositionY = 500f; // The position to start scrolling again  //depend on the length of story
     private RectTransform rectTransform;
     private TextMeshProUGUI storyText;
     private float startPositionY; // Dynamically set based on text height
+    */
+
+    // Player can control the scroll speed
+    public float scrollSensitivity = 100f; // Pixels per scroll tick (adjust in Inspector)
+    public float minPositionY = -100f;    // Bottom bound (start of text, off-screen)
+    private RectTransform rectTransform;
+    private TextMeshProUGUI storyText;
+    private float maxPositionY;           // Top bound (end of text)
 
     // Story content for each level
     [TextArea(3, 10)]
@@ -68,12 +78,29 @@ public class TextAutoScroll : MonoBehaviour
         // Calculate startPositionY based on text height
         storyText.ForceMeshUpdate(); // Ensure text is rendered to get size
         float textHeight = storyText.preferredHeight;
-        startPositionY = resetPositionY + textHeight + 100f; // Add padding
+        //startPositionY = resetPositionY + textHeight + 100f; // Add padding
+        minPositionY = rectTransform.anchoredPosition.y; // Starting position
+        maxPositionY = minPositionY + textHeight + 100f; // End position with padding
     }
 
     void Update()
     {
+        // Get mouse wheel input
+        float scrollInput = Input.mouseScrollDelta.y;
+
+        if (scrollInput != 0)
+        {
+            // Move text based on scroll direction
+            float scrollAmount = scrollInput * scrollSensitivity;
+            Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(0, scrollAmount);
+
+            // Clamp position to prevent scrolling past bounds
+            newPosition.y = Mathf.Clamp(newPosition.y, minPositionY, maxPositionY);
+            rectTransform.anchoredPosition = newPosition;
+        }
+
         // Move the text upward
+        /*
         rectTransform.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
 
         // Reset position when text scrolls off-screen
@@ -81,5 +108,6 @@ public class TextAutoScroll : MonoBehaviour
         {
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, resetPositionY);
         }
+        */
     }
 }

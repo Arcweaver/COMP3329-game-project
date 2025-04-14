@@ -43,6 +43,7 @@ public class HealthDisplay : MonoBehaviour
         }
         PlayerPrefs.SetInt("PlayerWon", 0); // Player lost
         //PlayerPrefs.SetString("LevelResult", "You were defeated. Try again!");
+        PlayerPrefs.SetInt("PreviousLevelIndex", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.Save(); // Save PlayerPrefs data
         SceneManager.LoadScene("CompletionUI"); // Switch to the game over screen
     }

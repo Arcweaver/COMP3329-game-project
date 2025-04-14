@@ -274,10 +274,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf63b6dc1c0a7443a389fc53a38fdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 25
-  resetPositionY: -100
-  level2Story: The hero ventures deeper into the dark forest...
-  level3Story: The castle looms ahead, filled with danger...
+  scrollSensitivity: 100
+  minPositionY: -100
+  level1Story: "Who am I?\r\n\r\nWhy am I here?\r\n\r\nYou don\u2019t know.\r\n\r\nAt
+    the moment you open your eyes, all you know is that you belong here, the land
+    you are stepping on. The weight of the armor on your shoulders feels familiar,
+    as though it has been a part of you for centuries.\r\n\r\nLost and aimless, you
+    wandered the streets for days\u2014or was it years?\u2014you don't know, until
+    your eyes locked on that weathered notice: \u2018Warriors Wanted.\u2019\r\n\r\nNo
+    fanfare, no explanation. Yet something in your chest burned. The choice wasn\u2019t
+    yours to make. Your heart had already answered.\r\n\r\nThe king is standing in
+    front of the court. His voice is steady as he speaks.\r\n\r\n\u201CKnight.\u201D
+    His fingers tighten around the armrests. \u201CThe surface is a graveyard of
+    our ancestors, defiled by monsters that wear the faces of the dead. My people
+    crowded under the ground, whispering that the sun was cursed. A long time of
+    escape has left my people ignorant of the truth - that the sun has always been
+    ours to claim! But now. We should be brave! We should reclaim our rights to stand
+    under the sun! The people need a hero! We need you!\"\r\n\r\nThough you cannot
+    remember your past, the king's words ignite something deep within you\u2014an
+    unshakable sense of duty. Without hesitation, you kneel before him, pledging
+    your loyalty.\r\n\r\n\"The creatures that roam the surface are relentless, but
+    we believe they are led by three powerful beings. Defeating them will weaken
+    their forces and help us to retake the land. You must not fail.\"\r\n\r\nWith
+    the blessings of the kingdom, you set out on your mission. As you ascend to the
+    surface for the first time, the sight before you is both breathtaking and haunting.
+    The ruins of a once-great civilization stretch endlessly, cloaked in the glow
+    of an unfamiliar sun. The air feels heavy, charged with the remnants of a forgotten
+    tragedy.\r\n\r\nYou start your new journey."
+  level2Story: "The underground city erupts in celebration when you return. Petals
+    rain from the balconies, their sweetness cloying in your nostrils. Children dart
+    through the streets, waving wooden swords and shrieking \"Monster-slayer! Monster-slayer!\"\r\n\r\nYet
+    their cheers feel distant.\r\n\r\nThe cheers washing over you brought no joy\u2014only
+    a slow, creeping fear. Somewhere in the hollow of your ribs, a phantom memory
+    stirred: you had stood like this before, bathed in adoration... and back then,
+    your heart had soared with genuine pride.\" What\u2019s wrong\u2026\r\n\r\nAt
+    the palace gates, the king himself greets you. His voice is booming, full of
+    confidence.\r\n\r\n\"You have done so well, knight. The first of the great monsters
+    has fallen! The people rejoice, and the path to reclaiming the surface grows
+    clearer. Rest now, for your journey is not yet over.\"\r\n\r\nHe places a hand
+    on your shoulder, and though his gesture should feel reassuring, it only leaves
+    you unsettled. You bow and retreat to your quarters, the weight of the pendant
+    in your pocket anchoring your thoughts.\r\n\r\nThat night, in the bedroom provided
+    by the kingdom, you lie in bed meditating. The room is quiet, lit by the faint
+    glow of a single lantern. Outside, the muffled sounds of celebration continue,
+    though they seem to grow quieter with each passing hour.\r\n\r\nYou close your
+    eyes, but sleep does not come. Instead, images of the battle flood your mind\u2014the
+    strange, human-like movements of the first Boss, the sorrow in its eyes as it
+    fell, and the pendant it left behind.\r\n\r\nYou pull the pendant from your pocket
+    and hold it up to the light. The surface is worn, but there are faint markings
+    etched into it. They seem almost familiar, but no matter how hard you try, you
+    cannot place them.\r\n\r\nThe creatures you fought were monsters, of which you
+    are certain. Their twisted forms and savage attacks left no room for doubt. And
+    yet... why did they seem so human? Why did their movements feel like echoes of
+    something you had seen before?\r\n\r\nYou grip the pendant tightly, frustration
+    building in your chest. \u201CWhat is wrong with me? \u201CYou wonder. \u201CWhy
+    do I feel like I\u2019m missing something important?\u201D\r\n\r\nMorning comes,
+    and with it, a renewed sense of purpose\u2014or perhaps a desperate attempt to
+    drown your doubts in action. You place the pendant back into your pocket, don
+    your armor, and prepare for your next journey.\r\n\r\nThe ruins of the ancient
+    temple loom in the distance shrouded in mist. As you draw closer, an unshakable
+    unease settles over you. The air feels colder here, and the silence is deafening.
+    You know the second Boss awaits inside, but something about this place feels...
+    wrong.\r\n\r\nStill, you steel yourself and step forward, ready to face whatever
+    lies ahead. For the kingdom. For the people. For answers.\r\n\r\nThe second battle
+    is about to begin."
+  level3Story: "\"Why\u2026 do you fight us? Do you not remember?\"\r\n\r\nHuman-like
+    eyes under the fur looking at you, asking with despair.\r\n\r\nThe words send
+    a chill down your spine. What does it means?"
   endingStory: With the boss defeated, peace returns...
 --- !u!114 &415906892
 MonoBehaviour:

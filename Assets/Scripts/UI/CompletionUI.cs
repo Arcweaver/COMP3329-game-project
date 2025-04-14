@@ -7,8 +7,8 @@ public class CompletionUI : MonoBehaviour
 {
     public TextMeshProUGUI messageText;  // Displays "Game Over!" or "Victory!"
     public TextMeshProUGUI resultText; // Displays results & objectives achieved
-    public Button actionButton;  // One button (either Proceed or Return)
-    public TextMeshProUGUI actionButtonText; // Text inside the button
+    //public Button actionButton;  // One button (either Proceed or Return)
+    //public TextMeshProUGUI actionButtonText; // Text inside the button
     public Button returnToMenuButton;        // Always active
     public TextMeshProUGUI returnToMenuButtonText;
     public Button nextLevelButton;           // Only active on win
@@ -23,8 +23,11 @@ public class CompletionUI : MonoBehaviour
         string resultInfo = PlayerPrefs.GetString("LevelResult", "No objectives recorded");
 
         // Check if it's the final level
-        bool isFinalLevel = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
-    
+        int previousLevelIndex = PlayerPrefs.GetInt("PreviousLevelIndex", 1); // Default to 1 (Level1)
+        bool isFinalLevel = previousLevelIndex == 3; // Level3 is the final level
+
+        Debug.Log($"PlayerWon: {playerWon}, PreviousLevelIndex: {previousLevelIndex}, isFinalLevel: {isFinalLevel}");
+
         SetupCompletionScreen(playerWon, isFinalLevel, resultInfo);
     }
 
@@ -43,7 +46,7 @@ public class CompletionUI : MonoBehaviour
         {
             messageText.text = "Victory!";
             returnToMenuButtonText.text = "Return to Menu";
-            returnToMenuButton.onClick.AddListener(ReturnToMainMenu);
+            returnToMenuButton.onClick.AddListener(isFinalLevel ? LoadEndingStory : ReturnToMainMenu);
             returnToMenuButton.gameObject.SetActive(true);
 
             // Show Next Level button unless it's the final level
@@ -56,6 +59,7 @@ public class CompletionUI : MonoBehaviour
             else if (nextLevelButton != null)
             {
                 nextLevelButton.gameObject.SetActive(false); // Hide if final level
+                Debug.Log("Next Level button hidden: isFinalLevel = " + isFinalLevel);
             }
         }
         else
@@ -68,19 +72,21 @@ public class CompletionUI : MonoBehaviour
             if (nextLevelButton != null)
             {
                 nextLevelButton.gameObject.SetActive(false);
+                Debug.Log("Next Level button hidden: Player lost");
             }
         }
     }
 
     void ProceedToNextLevel()
     {
-        PlayerPrefs.SetInt("NextLevelIndex", SceneManager.GetActiveScene().buildIndex - 3 + 1); // Adjust for CompletionUI at index 4
+        int previousLevelIndex = PlayerPrefs.GetInt("PreviousLevelIndex", 1);
+        PlayerPrefs.SetInt("NextLevelIndex", previousLevelIndex + 1); // Next level
         SceneManager.LoadScene("StorylineScene");
     }
 
     void LoadEndingStory()
     {
-        PlayerPrefs.SetInt("NextLevelIndex", 4); // Arbitrary value > 3 for ending
+        PlayerPrefs.SetInt("NextLevelIndex", 4); // For ending story
         SceneManager.LoadScene("StorylineScene");
     }
 
