@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf63b6dc1c0a7443a389fc53a38fdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSensitivity: 100
+  scrollSensitivity: 500
   minPositionY: -100
   level1Story: "Who am I?\r\n\r\nWhy am I here?\r\n\r\nYou don\u2019t know.\r\n\r\nAt
     the moment you open your eyes, all you know is that you belong here, the land
