@@ -48,7 +48,6 @@ public class CompletionUI : MonoBehaviour
             returnToMenuButtonText.text = "Return to Menu";
             returnToMenuButton.onClick.AddListener(isFinalLevel ? LoadEndingStory : ReturnToMainMenu);
             returnToMenuButton.gameObject.SetActive(true);
-            Debug.Log(isFinalLevel);
 
             // Show Next Level button unless it's the final level
             if (!isFinalLevel && nextLevelButton != null)

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1236338501479917228}
   - component: {fileID: 1903991702545385759}
   - component: {fileID: 5630479392734349379}
-  - component: {fileID: 8048190107074010138}
   - component: {fileID: 5902215737411201476}
+  - component: {fileID: -8817056153853318783}
   m_Layer: 8
   m_Name: lvl2InfectedSmashPrefab
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 458.0771, y: 8000, z: 1}
+  m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: -916540355
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6529992565953176737, guid: 3aead434eb08a37438f2ccbde329fce4, type: 3}
+  m_Sprite: {fileID: 5087637575639316026, guid: b1dd90b6373b3e342a9cccbc6502190c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.12, y: 0.4}
+  m_Size: {x: 1.94, y: 4.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,8 +117,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8048190107074010138
-BoxCollider2D:
+--- !u!114 &5902215737411201476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279930208442033530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734ced186f296f74a907ea0190bf3b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  direction: {x: 0, y: 0, z: 0}
+  affix: 0
+  unit: {fileID: 0}
+  opponentTag: Enemy
+  hitTimer: 0
+  damage: 20
+--- !u!60 &-8817056153853318783
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,34 +170,23 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.050103016}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.1, y: 0.1}
-    newSize: {x: 0.12, y: 0.4}
+    pivot: {x: 0.5605606, y: 0.003970981}
+    oldSize: {x: 1.94, y: 4.81}
+    newSize: {x: 1.94, y: 4.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.12, y: 0.10015553}
-  m_EdgeRadius: 0
---- !u!114 &5902215737411201476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3279930208442033530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734ced186f296f74a907ea0190bf3b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  direction: {x: 0, y: 0, z: 0}
-  affix: 0
-  unit: {fileID: 0}
-  opponentTag: Enemy
-  hitTimer: 0
-  damage: 20
+  m_Points:
+    m_Paths:
+    - - {x: -1.0853574, y: 4.8218727}
+      - {x: -0.34003657, y: 1.4106162}
+      - {x: -0.2491681, y: 0.94405246}
+      - {x: -0.16625252, y: 0.742707}
+      - {x: 0.017246157, y: -0.018721104}
+      - {x: 0.16714448, y: 0.63239473}
+      - {x: 0.8796163, y: 4.808249}
+  m_UseDelaunayMesh: 0
