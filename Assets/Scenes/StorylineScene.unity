@@ -338,10 +338,83 @@ MonoBehaviour:
     wrong.\r\n\r\nStill, you steel yourself and step forward, ready to face whatever
     lies ahead. For the kingdom. For the people. For answers.\r\n\r\nThe second battle
     is about to begin."
-  level3Story: "\"Why\u2026 do you fight us? Do you not remember?\"\r\n\r\nHuman-like
+  level3Story: "\"Why\u2026 do you fight us? Don\u2019t you remember?\"\r\n\r\nHuman-like
     eyes under the fur looking at you, asking with despair.\r\n\r\nThe words send
-    a chill down your spine. What does it means?"
-  endingStory: With the boss defeated, peace returns...
+    a chill down your spine. Remember what? You don\u2019t understand.\r\n\r\nBut
+    the creature\u2019s chest stills before it can answer.\r\n\r\nYou kneel beside
+    its fallen form, your gauntlet hovering over its face. Its eyes\u2014wide, desperate,
+    achingly human\u2014still stare at nothing. Gently, you close them.\r\n\r\nThen
+    your fingers brush against something cold and metallic beneath its matted fur.\r\n\r\nNo.\r\n\r\nYour
+    breath catches as you pull it free\u2014another pendant, identical to the first.
+    The same silver hawk, wings outstretched in flight.\r\n\r\nThis wasn\u2019t random.
+    This wasn\u2019t a coincidence.\r\n\r\nThey were carrying them deliberately.\r\n\r\nA
+    memory flickers at the edge of your consciousness\u2014a ceremony, a vow, rows
+    of soldiers each wearing this same symbol. But before you can grasp it, the wind
+    howls through the ruins, scattering the thought like ashes.\r\n\r\nYou clutch
+    the pendant in your fist, the metal biting into your palm.\r\n\r\nWhat have I
+    been killing?\r\n\r\nYou burst into the throne room, the pendant burning in your
+    clenched fist\u2014though whether from its own heat or the tension in your grip,
+    you can no longer tell.\r\n\r\nThe king looks up from his wine, a practiced smile
+    already spreading across his face. \"Ah, my champion returns! Congratula\u2014\"\r\n\r\n\"Majesty!\"
+    Your voice cracks like a whip across the marble floors. It\u2019s the first time
+    you\u2019ve ever interrupted him. The first time you\u2019ve ever dared.\r\n\r\n\"Those
+    things we\u2019ve been killing\u2014they\u2019re not mindless beasts! They speak.
+    They remember!\" Your gauntlet trembles as you thrust the pendant forward. \"And
+    they wear this. You know what it means!\u201D\r\n\r\nYou don't know. But you
+    believe him to know.\r\n\r\nThe king\u2019s smile doesn\u2019t waver. But his
+    fingers tighten around his goblet.\r\n\r\n\"Knight,\" he sighs.\r\n\r\n\"War
+    has clouded your judgment. Those monsters stole our home. Because of them, we\u2019ve
+    been forced to live like worms in the dark!\"\r\n\r\n\"Then explain this!\" You
+    shake the pendant, the silver hawk glinting like an accusation.\r\n\r\nA beat
+    of silence. Then\u2014\r\n\r\nThe king laughs.\r\n\r\nIt starts as a low chuckle,
+    then grows\u2014shoulders shaking, crown tilting\u2014until\r\n\r\nthe sound
+    fills the throne room like a swarm of locusts.\r\n\r\n\"Ahhh\u2026 I wondered
+    when you\u2019d notice.\" He wipes a tear from his eye.\r\n\r\n\"Yes, the great
+    invasion was repelled centuries ago. The real monsters were driven back.\"\r\n\r\nYour
+    blood turns to ice.\r\n\r\n\"Then the ones we\u2019ve been killing\u2026?\"\r\n\r\n\"Our
+    beloved defenders!\" The king spreads his arms, goblet flashing crimson in the
+    torchlight. \"The very knights who sacrificed themselves to save us! But look
+    at them now\u2014twisted, rotting things. Should we have welcomed them back?
+    Let them sit at our tables? No.\" His voice drops to a whisper. \"A king\u2019s
+    first duty is to his people\u2019s peace of mind.\"\r\n\r\nThe air grows heavy.
+    The guards along the walls tense.\r\n\r\n\"And you, my dear knight\u2026\" The
+    king takes a sip of wine. \"You\u2019ve been so helpful in clearing away those\u2026
+    We always thank you for it. But now?\" He sighs. \"Well. We can\u2019t have you
+    spreading unpleasant truths, can we?\"\r\n\r\nAs his finger taps the throne\u2019s
+    armrest, the chamber doors slam shut behind you.\r\n\r\n\u201CAll is for the
+    Human Being!\""
+  endingStory: "\u201CI have no choice\u2026 The ignorant people have forgotten their
+    saviors. But what if they return? For the stability of this kingdom, I had no
+    choice\u2026\u201D\r\n\r\n\u201CThe foundation of a nation\u2019s stability has
+    always been built on blood\u2026\u201D\r\n\r\n\u201CFor a regime to remain secure,
+    there can be no place for saviors\u2026\u201D\r\n\r\n\u201CNo.\u201D\r\n\r\nYou
+    speak with less breath.\r\n\r\nIt\u2019s just all because of your selfishness.\r\n\r\nYou
+    don\u2019t remember fleeing the palace. One moment you\u2019re standing before
+    the throne, the next you\u2019re running\u2014through twisting alleys, past cheering
+    crowds\r\n\r\nwho still call you hero\u2014until your boots hit the cracked earth
+    of the surface.\r\n\r\nAnd then you see it.\r\n\r\nThe third boss\u2019s lair.\r\n\r\nPeering
+    inside, your breath catches.\r\n\r\nThe creature\u2019s fur is molting.\r\n\r\nPatches
+    of smooth, human skin glisten beneath. Its posture\u2014once hunched and bestial\u2014now
+    stands straighter, its claws retracting into fingers.\r\n\r\nThey\u2019re healing.\r\n\r\nThe
+    realization crashes over you like a wave:\r\n\r\nThe first boss\u2019s sorrowful
+    eyes.\r\n\r\nThe second boss\u2019s pleading words.\r\n\r\nThe way their bodies
+    grew more human with each defeat.\r\n\r\nGiven time... could they have returned
+    to us?\r\n\r\nYou slip into the cavern, your movements silent. The boss\u2014no,
+    the man\u2014sleeps fitfully, his arms curled around a tattered journal. You
+    gently pry it free.\r\n\r\nThe pages whisper beneath your fingers:\r\n\r\n\"Day
+    217. Drills at dawn. The recruits complain, but the captain says discipline will
+    save our lives.\"\r\n\r\n\"Day 403. The enemy approaches. I swore to protect
+    this kingdom. I will not falter.\"\r\n\r\nThen\u2014the photograph.\r\n\r\nA
+    grinning company of soldiers, their pendants gleaming in the sun. And at their
+    center...\r\n\r\nYou.\r\n\r\nIt\u2019s YOU!!!!!!\r\n\r\nMemories surge\u2014\r\n\r\n\u2014The
+    stench of poison gas on the battlefield.\r\n\r\n\u2014Your men coughing up black
+    blood as their skin bubbled.\r\n\r\n\u2014The king\u2019s voice screaming to
+    seal the tunnels.\r\n\r\nAnd worst of all:\r\n\r\n\r\n\"Captain... promise you\u2019ll
+    lead us home.\"\r\n\r\n\r\nThe journal hits the ground. Your sword\u2014once
+    bright with purpose\u2014is now a dull, blood-caked weight in your hand.\r\n\r\nThe
+    sleeping man stirs. His face, half-human, is familiar.\r\n\r\n\"It\u2019s alright,\"
+    you murmur, resting a hand on his shoulder.\r\n\r\nThe blade flashes in the dim
+    light.\r\n\r\n\"I\u2019ll stay with you this time.\""
 --- !u!114 &415906892
 MonoBehaviour:
   m_ObjectHideFlags: 0
