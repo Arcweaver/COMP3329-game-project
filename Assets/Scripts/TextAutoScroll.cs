@@ -36,6 +36,7 @@ public class TextAutoScroll : MonoBehaviour
     */
 
     // Player can control the scroll speed
+    public float scrollSpeed = 10f; // Speed of auto-scrolling
     public float scrollSensitivity = 100f; // Pixels per scroll tick (adjust in Inspector)
     public float minPositionY = -100f;    // Bottom bound (start of text, off-screen)
     private RectTransform rectTransform;
@@ -85,19 +86,24 @@ public class TextAutoScroll : MonoBehaviour
 
     void Update()
     {
+        // Base auto-scrolling (move text upward)
+        float currentScrollSpeed = scrollSpeed;
+
         // Get mouse wheel input
         float scrollInput = Input.mouseScrollDelta.y;
 
         if (scrollInput != 0)
         {
             // Move text based on scroll direction
-            float scrollAmount = scrollInput * scrollSensitivity;
-            Vector2 newPosition = rectTransform.anchoredPosition + new Vector2(0, scrollAmount);
-
-            // Clamp position to prevent scrolling past bounds
-            newPosition.y = Mathf.Clamp(newPosition.y, minPositionY, maxPositionY);
-            rectTransform.anchoredPosition = newPosition;
+            currentScrollSpeed += -scrollInput * scrollSensitivity;
         }
+
+        // Apply scrolling (auto + mouse wheel)
+        Vector2 newPosition = rectTransform.anchoredPosition + Vector2.up * currentScrollSpeed * Time.deltaTime;
+
+        // Clamp position to prevent scrolling past bounds
+        newPosition.y = Mathf.Clamp(newPosition.y, minPositionY, maxPositionY);
+        rectTransform.anchoredPosition = newPosition;
 
         // Move the text upward
         /*
