@@ -27,6 +27,32 @@ public class Lvl3_Skill_Smite : Skill
     }
 }
 
+public class Lvl3_Skill_BlindingLight : Skill
+{
+    public Lvl3_Skill_BlindingLight()
+    {
+        //skill description
+        skillName = "lvl 3 blinding light";
+        description = "Emit light. After a few seconds, if the player standing still, damage and slow the player.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3BlindingLight";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 5f;
+        globalCooldown = 1f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
 public class Lvl3_Skill_CallGuard : Skill
 {
     public Lvl3_Skill_CallGuard()

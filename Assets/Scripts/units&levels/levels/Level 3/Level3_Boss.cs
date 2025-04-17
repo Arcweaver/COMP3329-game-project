@@ -2,7 +2,6 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
-
 public class Level3_Boss : BossTemplate
 {
     //additional stats
@@ -10,7 +9,7 @@ public class Level3_Boss : BossTemplate
     public int defaultMovespeed = 70;
 
     //skills
-    private Skill skill_Smite, skill_CallGuard, skill_HolyNova, skill_CallBishop;
+    private Skill skill_Smite, skill_BlindingLight, skill_CallGuard, skill_HolyNova, skill_CallBishop;
 
     //custom timer & controller variable
     public float skill_interval = 3.0f;
@@ -26,6 +25,7 @@ public class Level3_Boss : BossTemplate
 
         //set the skills
         skill_Smite = new Lvl3_Skill_Smite();
+        skill_BlindingLight = new Lvl3_Skill_BlindingLight();
         skill_CallGuard = new Lvl3_Skill_CallGuard();
         skill_HolyNova = new Lvl3_Skill_HolyNova();
         skill_CallBishop = new Lvl3_Skill_CallBishop();
@@ -46,6 +46,7 @@ public class Level3_Boss : BossTemplate
 
         // Update cooldown
         skill_Smite.UpdateCooldown();
+        skill_BlindingLight.UpdateCooldown();
         skill_CallGuard.UpdateCooldown();
         skill_HolyNova.UpdateCooldown();
         skill_CallBishop.UpdateCooldown();
@@ -62,6 +63,7 @@ public class Level3_Boss : BossTemplate
         if (skill_interval <= 0 && healthPercent > 0.7)
         {
             UseSmite();
+            UseBlindingLight();
             UseCallBishop();
             return;
         }
@@ -120,6 +122,17 @@ public class Level3_Boss : BossTemplate
         }
     }
 
+    private void UseBlindingLight()
+    {
+        if (skill_BlindingLight.cooldownTimer <= 0 && CanUseOtherSkill())
+        {
+            skill_BlindingLight.UseSkill(transform.position, (player.position - transform.position).normalized, this);
+            Debug.Log("Blinding Light");
+            skill_interval = 3.0f;
+            UseCastAnimation();
+        }
+    }
+
     // Get spwan point for guards
     private Vector2 GetSpwanPosition()
     {
@@ -138,17 +151,11 @@ public class Level3_Boss : BossTemplate
     {
         animator.SetBool("isCast", true);
     }
-    
-    private void StopCastAnimation()
-    {
-        animator.SetBool("isCast", false);
-    }
-
 
     //put all the global cooldown check here
     private bool CanUseOtherSkill()
     {
-        return skill_Smite.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0&& skill_HolyNova.globalCooldownTimer <= 0;
+        return skill_Smite.globalCooldownTimer <= 0 && skill_BlindingLight.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0 && skill_HolyNova.globalCooldownTimer <= 0;
     }
 
 }
