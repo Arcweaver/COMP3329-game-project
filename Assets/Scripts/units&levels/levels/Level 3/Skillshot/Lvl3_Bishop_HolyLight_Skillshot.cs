@@ -10,7 +10,7 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
     {
         //skill speed
         speed = 0f;
-        damage = -30;
+        damage = -200;
 
         opponentTag = "Player";
 

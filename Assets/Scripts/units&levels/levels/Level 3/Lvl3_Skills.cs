@@ -41,7 +41,7 @@ public class Lvl3_Skill_BlindingLight : Skill
 
 
         //cooldown
-        cooldown = 5f;
+        cooldown = 10f;
         globalCooldown = 1f; 
 
         //load stat modifier
@@ -243,6 +243,33 @@ public class Lvl3_Skill_Purge : Skill
         //cooldown
         cooldown = 5f;
         globalCooldown = 1f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
+public class Lvl3_Skill_Cleave : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Cleave()
+    {
+        //skill description
+        skillName = "lvl 3 boss Cleave";
+        description = "melee";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Cleave";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 1f;
+        globalCooldown = 2.5f; 
 
         //load stat modifier
         statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement

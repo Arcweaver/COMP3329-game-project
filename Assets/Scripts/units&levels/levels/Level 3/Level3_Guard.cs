@@ -6,7 +6,7 @@ using System;
 public class Level3_Guard : BossTemplate
 {
     //additional stats
-    public int defaultMaxHealth = 40;
+    public int defaultMaxHealth = 100;
     public int defaultMovespeed = 70;
 
     //skills

@@ -131,7 +131,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   player: {fileID: 0}
-  defaultMaxHealth: 400
+  defaultMaxHealth: 500
   defaultMovespeed: 70
   melee_distance: 60
   deathCount: 0

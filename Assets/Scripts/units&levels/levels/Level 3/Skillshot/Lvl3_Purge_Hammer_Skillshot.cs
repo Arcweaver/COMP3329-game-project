@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lvl3_Purge_Hammer_Skillshot : Skillshot
 {
-    public int damage = 20;
+    public int damage = 5;
 
     private void Start()
     {

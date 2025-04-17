@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 public class Level3_Boss : BossTemplate
 {
     //additional stats
-    public int defaultMaxHealth = 300;
+    public int defaultMaxHealth = 3000;
     public int defaultMovespeed = 70;
 
     //skills
@@ -15,7 +15,8 @@ public class Level3_Boss : BossTemplate
     skill_CallGuard, skill_HolyNova,
     skill_CallBishop,
     skill_AshenHollow,
-    skill_Purge
+    skill_Purge,
+    skill_Cleave
     ;
 
     //custom timer & controller variable
@@ -42,6 +43,7 @@ public class Level3_Boss : BossTemplate
         skill_CallBishop = new Lvl3_Skill_CallBishop();
         skill_AshenHollow = new Lvl3_Skill_AshenHollow();
         skill_Purge = new Lvl3_Skill_Purge();
+        skill_Cleave = new Lvl3_Skill_Cleave();
 
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
@@ -65,6 +67,7 @@ public class Level3_Boss : BossTemplate
         skill_CallBishop.UpdateCooldown();
         skill_AshenHollow.UpdateCooldown();
         skill_Purge.UpdateCooldown();
+        skill_Cleave.UpdateCooldown();
     }
    
     //boss actions
@@ -74,36 +77,40 @@ public class Level3_Boss : BossTemplate
         skill_interval -= Time.deltaTime;
         healthPercent = (float)currentHealth / (float)maxHealth;
 
-        if (skill_interval <= 0)
+        //ability sequence
+        if (skill_interval <= 0 && healthPercent > 0.7)
+        {
+            UseSmite();
+            UseBlindingLight();
+            UseCallBishop();
+            return;
+        }
+        else if (skill_interval <= 0 && healthPercent > 0.3)
+        {
+            UseSmite();
+            UseCallGuard();
+            UseHolyNova();
+            UseCallBishop();
+            return;
+        }
+        else if (skill_interval <= 0)
         {
             OnEnterP3();
             UsePurge();
             UseBlindingLight();
             UseAshenHollow();
         }
-        if (isEnterP3) MoveTowardsPlayer(melee_distance, 180f);
 
-        //ability sequence
-        // if (skill_interval <= 0 && healthPercent > 0.7)
-        // {
-        //     UseSmite();
-        //     UseBlindingLight();
-        //     UseCallBishop();
-        //     return;
-        // }
-        // else if (skill_interval <= 0 && healthPercent > 0.3)
-        // {
-        //     UseSmite();
-        //     UseCallGuard();
-        //     UseHolyNova();
-        //     UseCallBishop();
-        //     return;
-        // }
-        // else if (skill_interval <= 0)
-        // {
-        //     OnEnterP3();
-        //     UseAshenHollow();
-        // }
+        if (isEnterP3) 
+        {
+            if (Vector3.Distance(player.position, transform.position) <= melee_distance && skill_Cleave.cooldownTimer <= 0 && CanUseOtherSkill())
+            {
+                animator.SetBool("isAttack", true);
+                skill_Cleave.UseSkill(transform.position, (player.position - transform.position).normalized, this);
+                Debug.Log("Boss basic attack");
+            }
+            MoveTowardsPlayer(melee_distance, 180f);
+        }
     }
 
     private void UseSmite()
@@ -179,7 +186,7 @@ public class Level3_Boss : BossTemplate
         {
             skill_Purge.UseSkill(player.position, (player.position - transform.position).normalized, this);
             Debug.Log("Purge");
-            skill_interval = 3.0f;
+            skill_interval = 5.0f;
             UseCastAnimation();
         }
     }
@@ -221,7 +228,7 @@ public class Level3_Boss : BossTemplate
     //put all the global cooldown check here
     private bool CanUseOtherSkill()
     {
-        return skill_AshenHollow.globalCooldownTimer <= 0 && skill_Smite.globalCooldownTimer <= 0 && skill_BlindingLight.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0 && skill_HolyNova.globalCooldownTimer <= 0;
+        return skill_Cleave.globalCooldownTimer <= 0 && skill_AshenHollow.globalCooldownTimer <= 0 && skill_Smite.globalCooldownTimer <= 0 && skill_BlindingLight.globalCooldownTimer <= 0 && skill_CallGuard.globalCooldownTimer <= 0 && skill_HolyNova.globalCooldownTimer <= 0;
     }
 
 }

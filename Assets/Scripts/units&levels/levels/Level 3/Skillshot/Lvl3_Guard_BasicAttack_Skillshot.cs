@@ -4,7 +4,7 @@ using UnityEngine;
 public class Lvl3_Guard_BasicAttack_Skillshot : Skillshot
 {
     public float hitTimer;
-    public int damage = 20;
+    public int damage = 10;
 
     private void Start()
     {
