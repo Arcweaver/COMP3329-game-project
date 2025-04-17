@@ -980,7 +980,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   player: {fileID: 2000817141}
-  defaultMaxHealth: 300
+  defaultMaxHealth: 2000
   defaultMovespeed: 100
 --- !u!1 &1954467372
 GameObject:
