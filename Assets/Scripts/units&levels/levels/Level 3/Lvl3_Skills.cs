@@ -198,3 +198,30 @@ public class Lvl3_Skill_Bishop_HolyLight : Skill
         globalCooldownTimer = 0;
     }
 }
+
+public class Lvl3_Skill_AshenHollow : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_AshenHollow()
+    {
+        //skill description
+        skillName = "lvl 3 ashen hollow";
+        description = "Instant kill on enter.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3AshenHollow";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 30f;
+        globalCooldown = 2f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
