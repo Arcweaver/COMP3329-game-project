@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerController : UnitTemplate
 {
-    private Vector2 moveInput; 
+    public Vector2 moveInput; 
     public Skill skill1, skill2, skill3, skill4;
     private Skill weaponAttack;
     public Rigidbody2D rb;

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 344072452392727343}
   - component: {fileID: 2299587258376025138}
   - component: {fileID: 1404163053589632896}
-  - component: {fileID: 7340326202450754729}
+  - component: {fileID: 7044608292522611140}
   m_Layer: 0
-  m_Name: lvl3HolyNovaGround
+  m_Name: lvl3PurgeSmite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.8
---- !u!114 &7340326202450754729
+--- !u!114 &7044608292522611140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1077374864305705584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560623ab122fe3f4dbce6df325cbdbef, type: 3}
+  m_Script: {fileID: 11500000, guid: 6aee62b1b4dcb2343aeaaf434542134e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
@@ -143,6 +143,4 @@ MonoBehaviour:
   unit: {fileID: 0}
   opponentTag: Enemy
   hitTimer: 0
-  durationTimer: 0
-  damageAmp: 0
-  damage: 1
+  damage: 20

@@ -1,30 +1,26 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Lvl3_Guard_Holy_Skillshot : Skillshot
+public class Lvl3_Cleave_Skillshot : Skillshot
 {
     public float hitTimer;
-    public int damage;
+    public int damage = 10;
 
     private void Start()
     {
         //skill speed
         speed = 0f;
-        damage = -200;
 
         opponentTag = "Player";
 
         //skill persists for indication. Triggers hit on timer expiration
-        hitTimer = 10f;
+        hitTimer = 0.5f * 1.7f;
     }
 
     void Update()
     {//orientation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        // Destory this skillshot when caster is dead
-        if (unit.currentHealth <= 0) Destroy(gameObject);
 
         //update timer
         hitTimer -= Time.deltaTime;
@@ -33,17 +29,39 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
         //might need sprite change for "shooting" the skill?
         if (hitTimer < 0f)
         {
-            GameObject boss = GameObject.Find("boss_3");
-            UnitTemplate bossUnit = boss.GetComponent<UnitTemplate>();
-            SkillEffect(bossUnit);
+            CheckPlayerInZone();
             Destroy(gameObject);
         }
     }
+
+    //collision check
+    private void CheckPlayerInZone()
+    {
+        // Find the player GameObject
+        GameObject player = GameObject.FindGameObjectWithTag(opponentTag);
+
+        if (player != null)
+        {
+            // Check if the player is within the bounds of the collider
+            Collider2D playerCollider = player.GetComponent<Collider2D>();
+            if (playerCollider != null && GetComponent<Collider2D>().IsTouching(playerCollider))
+            {
+                UnitTemplate playerUnit = player.GetComponent<UnitTemplate>();
+                SkillEffect(playerUnit);
+                return;
+            }
+        }
+    }
+
+
+
 
     protected override void SkillEffect(UnitTemplate enemy)
     {
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
     }
+
+
 
     //override to avoid unintended behaviour
     void OnTriggerEnter2D(Collider2D obj)

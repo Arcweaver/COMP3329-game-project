@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 125
-  maxHealth: 100
+  maxHealth: 500
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
@@ -131,7 +131,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   player: {fileID: 0}
-  defaultMaxHealth: 40
+  defaultMaxHealth: 300
   defaultMovespeed: 70
   melee_distance: 60
   deathCount: 0

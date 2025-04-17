@@ -27,6 +27,32 @@ public class Lvl3_Skill_Smite : Skill
     }
 }
 
+public class Lvl3_Skill_BlindingLight : Skill
+{
+    public Lvl3_Skill_BlindingLight()
+    {
+        //skill description
+        skillName = "lvl 3 blinding light";
+        description = "Emit light. After a few seconds, if the player standing still, damage and slow the player.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3BlindingLight";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 10f;
+        globalCooldown = 1f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
 public class Lvl3_Skill_CallGuard : Skill
 {
     public Lvl3_Skill_CallGuard()
@@ -170,5 +196,86 @@ public class Lvl3_Skill_Bishop_HolyLight : Skill
         //timers
         cooldownTimer = 0f;  // seconds before the boss can act
         globalCooldownTimer = 0;
+    }
+}
+
+public class Lvl3_Skill_AshenHollow : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_AshenHollow()
+    {
+        //skill description
+        skillName = "lvl 3 ashen hollow";
+        description = "Instant kill on enter.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3AshenHollow";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 30f;
+        globalCooldown = 2f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
+public class Lvl3_Skill_Purge : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Purge()
+    {
+        //skill description
+        skillName = "lvl 3 boss Purge";
+        description = "smite + 3 spiral hammer";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Purge";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 5f;
+        globalCooldown = 1f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
+
+public class Lvl3_Skill_Cleave : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Cleave()
+    {
+        //skill description
+        skillName = "lvl 3 boss Cleave";
+        description = "melee";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Cleave";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 1f;
+        globalCooldown = 2.5f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
     }
 }

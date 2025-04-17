@@ -1063,8 +1063,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1783268601
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 0e3502a80399d164ea01f1868f65acbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 838801646}
   m_Layer: 5
   m_Name: GameUI
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2083,19 +2083,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.x
-      value: 46.867386
+      value: 25.321465
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.y
-      value: 69.90672
+      value: 30.405952
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.x
-      value: -0.22375774
+      value: -0.2237587
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.y
-      value: -0.27855682
+      value: -10.452999
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_IsTrigger
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 125
-  maxHealth: 100
+  maxHealth: 3000
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
@@ -2258,11 +2258,13 @@ MonoBehaviour:
   spriteRenderer: {fileID: 712458874}
   animator: {fileID: 712458875}
   player: {fileID: 1457261115}
-  defaultMaxHealth: 300
+  defaultMaxHealth: 3000
   defaultMovespeed: 70
   skill_interval: 8
   healthPercent: 0
   guardSpwaner: {fileID: 790734976}
+  isEnterP3: 0
+  melee_distance: 0
 --- !u!61 &1418291600
 BoxCollider2D:
   m_ObjectHideFlags: 0

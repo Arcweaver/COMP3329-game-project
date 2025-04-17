@@ -3,11 +3,38 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    /*
     public void StartGame()
     {
         PlayerPrefs.SetInt("NextLevelIndex", 1); // Set for Level 1
         SceneManager.LoadScene("StorylineScene"); // Load Level 1 story
     }
+    */
+
+    public void SelectLevel1()
+    {
+        PlayerPrefs.SetInt("NextLevelIndex", 1);
+        PlayerPrefs.Save();
+        Debug.Log("Selected Level 1, loading StorylineScene");
+        SceneManager.LoadScene("StorylineScene");
+    }
+
+    public void SelectLevel2()
+    {
+        PlayerPrefs.SetInt("NextLevelIndex", 2);
+        PlayerPrefs.Save();
+        Debug.Log("Selected Level 2, loading StorylineScene");
+        SceneManager.LoadScene("StorylineScene");
+    }
+
+    public void SelectLevel3()
+    {
+        PlayerPrefs.SetInt("NextLevelIndex", 3);
+        PlayerPrefs.Save();
+        Debug.Log("Selected Level 3, loading StorylineScene");
+        SceneManager.LoadScene("StorylineScene");
+    }
+
 
     public void LoadNextScene()
     {
@@ -32,6 +59,7 @@ public class SceneLoader : MonoBehaviour
             nextScene = "GameMenu";
         }
 
+        Debug.Log($"Loading next scene: {nextScene} (NextLevelIndex: {nextLevelIndex})");
         SceneManager.LoadScene(nextScene);
     }
 

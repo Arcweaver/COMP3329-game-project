@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lvl3_HolyNova_Skillshot : Skillshot
 {
-    public int damage = 20;
+    public int damage = 10;
 
     private void Start()
     {
