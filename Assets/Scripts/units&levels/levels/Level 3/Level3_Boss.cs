@@ -10,7 +10,13 @@ public class Level3_Boss : BossTemplate
     public int defaultMovespeed = 70;
 
     //skills
-    private Skill skill_Smite, skill_BlindingLight, skill_CallGuard, skill_HolyNova, skill_CallBishop, skill_AshenHollow;
+    private Skill skill_Smite,
+    skill_BlindingLight,
+    skill_CallGuard, skill_HolyNova,
+    skill_CallBishop,
+    skill_AshenHollow,
+    skill_Purge
+    ;
 
     //custom timer & controller variable
     public float skill_interval = 3.0f;
@@ -35,6 +41,7 @@ public class Level3_Boss : BossTemplate
         skill_HolyNova = new Lvl3_Skill_HolyNova();
         skill_CallBishop = new Lvl3_Skill_CallBishop();
         skill_AshenHollow = new Lvl3_Skill_AshenHollow();
+        skill_Purge = new Lvl3_Skill_Purge();
 
         //if you want to disable movement on game start, make a stat modifier and perform modifier appending here
         //AddModifier(yourModifier);
@@ -57,6 +64,7 @@ public class Level3_Boss : BossTemplate
         skill_HolyNova.UpdateCooldown();
         skill_CallBishop.UpdateCooldown();
         skill_AshenHollow.UpdateCooldown();
+        skill_Purge.UpdateCooldown();
     }
    
     //boss actions
@@ -69,6 +77,8 @@ public class Level3_Boss : BossTemplate
         if (skill_interval <= 0)
         {
             OnEnterP3();
+            UsePurge();
+            UseBlindingLight();
             UseAshenHollow();
         }
         if (isEnterP3) MoveTowardsPlayer(melee_distance, 180f);
@@ -158,6 +168,17 @@ public class Level3_Boss : BossTemplate
         {
             skill_AshenHollow.UseSkill(transform.position, (player.position - transform.position).normalized, this);
             Debug.Log("Ashen Hollow");
+            skill_interval = 3.0f;
+            UseCastAnimation();
+        }
+    }
+
+    private void UsePurge()
+    {
+        if (skill_Purge.cooldownTimer <= 0 && CanUseOtherSkill())
+        {
+            skill_Purge.UseSkill(player.position, (player.position - transform.position).normalized, this);
+            Debug.Log("Purge");
             skill_interval = 3.0f;
             UseCastAnimation();
         }

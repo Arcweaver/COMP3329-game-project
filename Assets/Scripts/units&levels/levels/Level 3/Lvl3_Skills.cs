@@ -225,3 +225,30 @@ public class Lvl3_Skill_AshenHollow : Skill
         globalCooldownTimer = 0;  
     }
 }
+
+public class Lvl3_Skill_Purge : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Purge()
+    {
+        //skill description
+        skillName = "lvl 3 boss Purge";
+        description = "smite + 3 spiral hammer";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3Purge";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
+
+
+        //cooldown
+        cooldown = 5f;
+        globalCooldown = 1f; 
+
+        //load stat modifier
+        statModifier = new Lvl3_Boss_Standstill_Modifier(globalCooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 3f;  // seconds before the boss can act
+        globalCooldownTimer = 0;  
+    }
+}
