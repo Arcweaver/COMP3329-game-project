@@ -885,7 +885,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2248707008156725502, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1016599995}
+      addedObject: {fileID: 1016599997}
   m_SourcePrefab: {fileID: 100100000, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
 --- !u!1001 &646532562
 PrefabInstance:
@@ -1627,7 +1627,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2248707008156725502, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
   m_PrefabInstance: {fileID: 537379451}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1016599995
+--- !u!114 &1016599997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1636,15 +1636,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016599993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3c8b43c5738be42925312d9a49e1a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 636d57ce395ec4d4ba91c82902dce350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectivesText: {fileID: 0}
   playerHits: 0
   player: {fileID: 968453070}
-  isHitBySpore: 0
-  isNoSelfDetonateFungi: 1
-  fungiInEveryQuadrant: 0
+  killGuardCount: 0
 --- !u!1 &1053816162
 GameObject:
   m_ObjectHideFlags: 0

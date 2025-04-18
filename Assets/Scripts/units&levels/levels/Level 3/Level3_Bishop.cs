@@ -8,6 +8,7 @@ public class Level3_Bishop : Level3_Guard
     private float explode_distance;
     private float explodeTimer;
 
+    [System.Obsolete]
     private void Start()
     {
         maxHealth = defaultMaxHealth;
@@ -15,9 +16,11 @@ public class Level3_Bishop : Level3_Guard
         moveSpeed = defaultMovespeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         boss = GameObject.Find("boss_3").transform;
+        tracker = FindObjectOfType<Lvl3_ObjTracker>();
         melee_distance = 100f;
         explode_distance = 80f;
         explodeTimer = 5f;
+        killTimer = 10f;
 
         //set the skills
         skill_Bishop_HolyLight = new Lvl3_Skill_Bishop_HolyLight();
@@ -29,18 +32,9 @@ public class Level3_Bishop : Level3_Guard
 
     }
 
-    void Update()
+    // Update cooldown
+    public override void UpdateCooldown()
     {
-        CallOnUpdate();
-        if (currentHealth <= 0) 
-        {
-            animator.SetBool("isDead", true);
-            RemoveAllModifier();
-            Kill();
-        }
-        else HandleSkills();
-        
-        // Update cooldown
         skill_Bishop_HolyLight.UpdateCooldown();
     }
    
