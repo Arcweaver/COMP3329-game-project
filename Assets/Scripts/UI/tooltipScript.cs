@@ -9,9 +9,9 @@ public class Tooltip : MonoBehaviour
         // Make the tooltip follows the mouse and change the pivot so it wont go out of screen
         Vector2 mousePosition = Input.mousePosition;
 
-        float pivotX = mousePosition.x / Screen.width;
-        float pivotY = mousePosition.y / Screen.height;
-        gameObject.GetComponent<RectTransform>().pivot = new Vector2(pivotX, pivotY);
+        //float pivotX = mousePosition.x / Screen.width;
+        //float pivotY = mousePosition.y / Screen.height;
+        //gameObject.GetComponent<RectTransform>().pivot = new Vector2(pivotX, pivotY);
 
         transform.position = mousePosition;
     }
