@@ -48,6 +48,7 @@ public class Level3_Bishop : Level3_Guard
             if (explodeTimer <= 0)
             {
                 skill_Bishop_Explode.UseSkill(transform.position, (boss.position - transform.position).normalized, this);
+                tracker.isBishopExplode = true;
                 Destroy(gameObject);
             }
             MoveTowards(explode_distance, 160f, player);

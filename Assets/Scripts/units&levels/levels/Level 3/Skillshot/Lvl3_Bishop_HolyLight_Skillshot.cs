@@ -5,12 +5,15 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
 {
     public float hitTimer;
     public int damage;
+    private Lvl3_ObjTracker tracker;
 
+    [System.Obsolete]
     private void Start()
     {
         //skill speed
         speed = 0f;
         damage = -200;
+        tracker = FindObjectOfType<Lvl3_ObjTracker>();
 
         opponentTag = "Player";
 
@@ -43,6 +46,7 @@ public class Lvl3_Guard_Holy_Skillshot : Skillshot
     protected override void SkillEffect(UnitTemplate enemy)
     {
         CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
+        tracker.isHealBoss = true;
     }
 
     //override to avoid unintended behaviour
