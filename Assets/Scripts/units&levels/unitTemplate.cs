@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -129,6 +130,22 @@ public class UnitTemplate : MonoBehaviour
     {
         activeModifiers.Remove(modifier);
         //Debug.Log(activeModifiers.Count);
+    }
+
+    public void RemoveAllModifier()
+    {
+        activeModifiers.Clear();
+        //Debug.Log(activeModifiers.Count);
+    }
+
+    public bool ContainModifer(StatModifier modifier)
+    {
+        if (activeModifiers.Count == 0) return false;
+        else if (activeModifiers.Any(i => i.GetType() == modifier.GetType()))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public Vector3 GetDirectionToMouse()

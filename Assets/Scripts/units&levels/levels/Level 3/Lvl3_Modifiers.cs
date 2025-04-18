@@ -101,3 +101,12 @@ public class Lvl3_BlindingLight_Speed_Modifer : StatModifier
         stat.moveSpeed *= speedBonus;
     }
 }
+
+public class Lvl3_IgnoreHolyNova_Modifer : StatModifier
+{
+    public Lvl3_IgnoreHolyNova_Modifer(float dura)
+    {
+        duration = dura;
+        timer = duration;
+    }
+}

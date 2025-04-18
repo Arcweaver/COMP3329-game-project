@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tricksters_gambit_high_roll_0: 4351129231343182358
+      tricksters_gambit_high_roll_1: 7545971482876622155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

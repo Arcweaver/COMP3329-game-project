@@ -199,6 +199,33 @@ public class Lvl3_Skill_Bishop_HolyLight : Skill
     }
 }
 
+public class Lvl3_Skill_Bishop_Explode : Skill
+{
+    // Skill properties
+    public Lvl3_Skill_Bishop_Explode()
+    {
+        //skill description
+        skillName = "lvl 3 bishop explode";
+        description = "Explode.";
+
+        //load prefab
+        skillshotPrefabPath = "Prefabs/lvl3BishopExplode";
+        skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //skillshot
+
+
+        //cooldown
+        cooldown = 12f;
+        globalCooldown = 2.5f;  //disable skill usage
+
+        //load stat modifier
+        statModifier = new Lvl3_Bishop_Standstill_Modifier(cooldown);  //to stop movement
+
+        //timers
+        cooldownTimer = 0f;  // seconds before the boss can act
+        globalCooldownTimer = 0;
+    }
+}
+
 public class Lvl3_Skill_AshenHollow : Skill
 {
     // Skill properties
