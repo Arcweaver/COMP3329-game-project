@@ -1643,6 +1643,8 @@ MonoBehaviour:
   playerHits: 0
   player: {fileID: 968453070}
   killGuardCount: 0
+  isHealBoss: 0
+  isBishopExplode: 0
 --- !u!1 &1053816162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,19 +2083,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.x
-      value: 25.321465
+      value: 29.357178
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.y
-      value: 30.405952
+      value: 53.611244
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.x
-      value: -0.2237587
+      value: -1.232666
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.y
-      value: -10.452999
+      value: 1.1496458
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_IsTrigger
@@ -2246,7 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 125
-  maxHealth: 3000
+  maxHealth: 4500
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
@@ -2256,7 +2258,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 712458874}
   animator: {fileID: 712458875}
   player: {fileID: 1457261115}
-  defaultMaxHealth: 3000
+  defaultMaxHealth: 4500
   defaultMovespeed: 70
   skill_interval: 8
   healthPercent: 0
@@ -2293,11 +2295,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.7919235, y: -34.801613}
+  m_Offset: {x: -2.234848, y: -41.35963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2307,7 +2309,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 26.532333, y: 46.106133}
+  m_Size: {x: 48.7287, y: 99.579185}
   m_EdgeRadius: 0
 --- !u!50 &1418291601
 Rigidbody2D:

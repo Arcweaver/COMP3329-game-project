@@ -135,7 +135,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   opponentTag: Enemy
   hitTimer: 0
-  damage: 20
+  damage: 15
 --- !u!58 &2887769963261641576
 CircleCollider2D:
   m_ObjectHideFlags: 0

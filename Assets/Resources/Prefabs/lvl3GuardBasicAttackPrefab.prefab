@@ -181,4 +181,4 @@ MonoBehaviour:
   unit: {fileID: 0}
   opponentTag: Enemy
   hitTimer: 0
-  damage: 20
+  damage: 10

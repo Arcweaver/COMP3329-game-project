@@ -123,7 +123,7 @@ public class Lvl3_Skill_HolyNova : Skill
 
 
         //cooldown
-        cooldown = 5f;
+        cooldown = 10f;
         globalCooldown = 1f; 
 
         //load stat modifier
@@ -263,7 +263,7 @@ public class Lvl3_Skill_Purge : Skill
         description = "smite + 3 spiral hammer";
 
         //load prefab
-        skillshotPrefabPath = "Prefabs/lvl3Purge";
+        skillshotPrefabPath = "Prefabs/lvl3PurgeSmite";
         skillshotPrefab = Resources.Load<GameObject>(skillshotPrefabPath); //enemy
 
 

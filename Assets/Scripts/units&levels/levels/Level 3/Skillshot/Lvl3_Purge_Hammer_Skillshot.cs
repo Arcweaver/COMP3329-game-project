@@ -12,10 +12,7 @@ public class Lvl3_Purge_Hammer_Skillshot : Skillshot
         opponentTag = "Player";
     }
 
-    void Update()
-    {
-        transform.position += direction * speed * Time.deltaTime;
-    }
+    
 
     protected override void SkillEffect(UnitTemplate enemy)
     {

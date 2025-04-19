@@ -170,5 +170,4 @@ MonoBehaviour:
   affix: 0
   unit: {fileID: 0}
   opponentTag: Enemy
-  hitTimer: 0
-  damage: 10
+  damage: 30
