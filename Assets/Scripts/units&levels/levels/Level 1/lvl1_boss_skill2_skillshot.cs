@@ -3,7 +3,7 @@ using UnityEngine;
 // template skillshot class
 public class lvl1_boss_skill2_skillshot : Skillshot
 {
-    private GameObjectiveTracker tracker;
+    private lvl1_ObjTracker tracker;
     public int damage = 20;
 
     [System.Obsolete]
@@ -13,7 +13,7 @@ public class lvl1_boss_skill2_skillshot : Skillshot
 
         opponentTag = "Player";
 
-        tracker = FindObjectOfType<GameObjectiveTracker>();
+        tracker = FindObjectOfType<lvl1_ObjTracker>();
     }
 
 
@@ -24,7 +24,7 @@ public class lvl1_boss_skill2_skillshot : Skillshot
 
         if (tracker != null)
         {
-            tracker.PlayerTakesDamage(damage); // Updated to match GameObjectiveTracker
+            tracker.isHitBySkill = true; 
         }
     }
 

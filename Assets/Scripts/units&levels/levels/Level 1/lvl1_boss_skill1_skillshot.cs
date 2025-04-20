@@ -5,7 +5,7 @@ public class lvl1_boss_skill1_skillshot : Skillshot
 {
     public float hitTimer;
     public int damage = 20;
-    private GameObjectiveTracker tracker;
+    private lvl1_ObjTracker tracker;
 
     [System.Obsolete]
     private void Start()
@@ -18,7 +18,7 @@ public class lvl1_boss_skill1_skillshot : Skillshot
         //skill persists for indication. Triggers hit on timer expiration
         hitTimer = 2f;
 
-        tracker = FindObjectOfType<GameObjectiveTracker>();
+        tracker = FindObjectOfType<lvl1_ObjTracker>();
     }
 
     void Update()
@@ -74,7 +74,7 @@ public class lvl1_boss_skill1_skillshot : Skillshot
         // Update the objective tracker
         if (tracker != null)
         {
-            tracker.PlayerTakesDamage(damage); // Updated to match GameObjectiveTracker
+            tracker.isHitBySkill = true;
         }
     }
 

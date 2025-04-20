@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1236338501479917228}
   - component: {fileID: 1903991702545385759}
   - component: {fileID: 5630479392734349379}
-  - component: {fileID: 8048190107074010138}
   - component: {fileID: 9109978512616033850}
+  - component: {fileID: 5573576191042177616}
   m_Layer: 8
   m_Name: lvl2BasicAttackPrefab
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 500, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -916540355
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6529992565953176737, guid: 3aead434eb08a37438f2ccbde329fce4, type: 3}
+  m_Sprite: {fileID: -2003499908125766781, guid: 1b4714b11f882be43ab8f173a6d37c08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,8 +117,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8048190107074010138
-BoxCollider2D:
+--- !u!114 &9109978512616033850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279930208442033530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c8e0c759d3f8449b7233c367a4af1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  direction: {x: 0, y: 0, z: 0}
+  affix: 0
+  unit: {fileID: 0}
+  opponentTag: Enemy
+  hitTimer: 0
+  damage: 20
+--- !u!60 &5573576191042177616
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,34 +170,22 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00030743517, y: 0.050103016}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.1, y: 0.1}
+    oldSize: {x: 0.55, y: 0.56}
     newSize: {x: 0.12, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.10155369, y: 0.10155368}
-  m_EdgeRadius: 0
---- !u!114 &9109978512616033850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3279930208442033530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c8e0c759d3f8449b7233c367a4af1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  direction: {x: 0, y: 0, z: 0}
-  affix: 0
-  unit: {fileID: 0}
-  opponentTag: Enemy
-  hitTimer: 0
-  damage: 20
+  m_Points:
+    m_Paths:
+    - - {x: -0.2719546, y: 0.3661843}
+      - {x: -0.27850848, y: 0.0003771186}
+      - {x: 0.21499997, y: 0.0039244127}
+      - {x: 0.26810777, y: 0.4886153}
+      - {x: 0.2675671, y: 0.54699343}
+      - {x: -0.12780058, y: 0.52689224}
+  m_UseDelaunayMesh: 0
