@@ -19,7 +19,7 @@ public class Level3_Bishop : Level3_Guard
         tracker = FindObjectOfType<Lvl3_ObjTracker>();
         melee_distance = 100f;
         explode_distance = 80f;
-        explodeTimer = 5f;
+        explodeTimer = 15f;
         killTimer = 10f;
 
         //set the skills
