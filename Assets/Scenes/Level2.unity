@@ -3113,6 +3113,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 968453073}
+    - target: {fileID: 3360717769343032503, guid: abd2af22549de9848ad8b916061dc756, type: 3}
+      propertyPath: defaultMaxHealth
+      value: 6500
+      objectReference: {fileID: 0}
     - target: {fileID: 4567797537575434236, guid: abd2af22549de9848ad8b916061dc756, type: 3}
       propertyPath: m_LocalScale.x
       value: 130
