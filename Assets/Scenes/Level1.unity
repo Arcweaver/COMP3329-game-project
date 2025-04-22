@@ -1168,6 +1168,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683395986874897686, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
+      propertyPath: staminaRegenRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5199678719598977860, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -286

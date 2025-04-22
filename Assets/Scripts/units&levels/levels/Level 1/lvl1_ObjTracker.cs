@@ -40,9 +40,11 @@ public class lvl1_ObjTracker : GameObjectiveTracker
 
         }
 
+        string ratingStr = player.currentHealth <= 0 ? "" : $"Rating: {rating}\n";
+
         return $"Player Hits: {playerHits}\n" +
             $"Player HP: {player.currentHealth}/{player.maxHealth}\n" +
             $"Don't get hit by any abilities: {!isHitBySkill}\n" +
-            $"Rating: {rating}\n";
+            ratingStr;
     }
 }

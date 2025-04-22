@@ -41,11 +41,13 @@ public class Lvl3_ObjTracker : GameObjectiveTracker
 
         }
 
+        string ratingStr = player.currentHealth <= 0 ? "" : $"Rating: {rating}\n";
+
         return $"Player Hits: {playerHits}\n" +
             $"Player HP: {player.currentHealth}/{player.maxHealth}\n" +
             $"Kill 3 living guards/bishops within 10 sec: {IsKillThreeGuard()}\n" +
             $"No heal boss: {!isHealBoss}\n" +
             $"No exploding bishop: {!isBishopExplode}\n" +
-            $"Rating: {rating}\n";
+            ratingStr;
     }
 }

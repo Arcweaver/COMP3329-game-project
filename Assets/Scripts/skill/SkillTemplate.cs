@@ -87,7 +87,7 @@ public class Skill
         }
         else
         {
-            Debug.Log($"{skillName} is on cooldown or during global cooldown.");
+            Debug.Log($"{skillName} is on cooldown or during global cooldown. Cooldown: {cooldownTimer}, Global cooldown: {globalCooldownTimer}");
         }
     }
 

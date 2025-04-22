@@ -53,11 +53,13 @@ public class lvl2_ObjTracker : GameObjectiveTracker
 
         }
 
+        string ratingStr = player.currentHealth <= 0 ? "" : $"Rating: {rating}\n";
+
         return $"Player Hits: {playerHits}\n" +
             $"Player HP: {player.currentHealth}/{player.maxHealth}\n" +
             $"Don't get hit by spores: {!isHitBySpore}\n" +
             $"Don't let any fungus detonate automatically: {isNoSelfDetonateFungi}\n" +
             $"Spawn a fungus in each section of the arena: {fungiInEveryQuadrant}\n" +
-            $"Rating: {rating}\n";
+            ratingStr;
     }
 }
