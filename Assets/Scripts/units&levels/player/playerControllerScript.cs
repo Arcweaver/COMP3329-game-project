@@ -32,6 +32,13 @@ public class PlayerController : UnitTemplate
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         // Get animator
         animator = GetComponentInChildren<Animator>();
+
+
+        //set skill cd to 0
+        skill1.cooldownTimer = 0;
+        skill2.cooldownTimer = 0;
+        skill3.cooldownTimer = 0;
+        skill4.cooldownTimer = 0;
     }
 
     void Update()
