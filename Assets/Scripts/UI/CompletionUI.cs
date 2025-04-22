@@ -45,14 +45,14 @@ public class CompletionUI : MonoBehaviour
         if (playerWon)
         {
             messageText.text = "Victory!";
-            returnToMenuButtonText.text = "Return to Menu";
+            returnToMenuButtonText.text = "";
             returnToMenuButton.onClick.AddListener(isFinalLevel ? LoadEndingStory : ReturnToMainMenu);
             returnToMenuButton.gameObject.SetActive(true);
 
             // Show Next Level button unless it's the final level
             if (!isFinalLevel && nextLevelButton != null)
             {
-                nextLevelButtonText.text = "Next Level";
+                nextLevelButtonText.text = "";
                 nextLevelButton.onClick.AddListener(ProceedToNextLevel);
                 nextLevelButton.gameObject.SetActive(true);
             }
@@ -65,7 +65,7 @@ public class CompletionUI : MonoBehaviour
         else
         {
             messageText.text = "Game Over!";
-            returnToMenuButtonText.text = "Return to Menu";
+            returnToMenuButtonText.text = "";
             returnToMenuButton.onClick.AddListener(ReturnToMainMenu);
             returnToMenuButton.gameObject.SetActive(true);
 

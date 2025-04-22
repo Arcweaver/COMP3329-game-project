@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8213aaded21636b4c82db901bb34de0f
+guid: 13ff37a87328ab647a9d3935f07a85da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4414030808070315393
-    second: holy_judgement 1_0
+      213: -8054772275981960324
+    second: returnToMenuButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: holy_judgement 1_0
+      name: returnToMenuButton_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 250
-        height: 185
+        y: 0
+        width: 2982
+        height: 946
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f72a659dd563eb2c0800000000000000
-      internalID: -4414030808070315393
+      spriteID: c7b3e6f7a43b73090800000000000000
+      internalID: -8054772275981960324
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      holy_judgement 1_0: -4414030808070315393
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
