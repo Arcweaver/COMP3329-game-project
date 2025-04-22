@@ -15,13 +15,20 @@ public class Level3_Guard : BossTemplate
     //custom timer & controller variable
     public float melee_distance = 60f;
     public float deathCount = 0;
+    public bool isDead = false;
+    public Lvl3_ObjTracker tracker;
+    public float killTimer;
 
+
+    [Obsolete]
     private void Start()
     {
         maxHealth = defaultMaxHealth;
         currentHealth = maxHealth;
         moveSpeed = defaultMovespeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        tracker = FindObjectOfType<Lvl3_ObjTracker>();
+        killTimer = 10f;
 
         //set the skills
         skill_Guard_BasicAttack = new Lvl3_Skill_Gurad_BasicAttack();
@@ -34,16 +41,19 @@ public class Level3_Guard : BossTemplate
 
     void Update()
     {
-        if (currentHealth <= 0 && deathCount >= 1) Destroy(gameObject);
+        CallOnUpdate();
+        UpdateCooldown();
+        killTimer -= Time.deltaTime;
         if (currentHealth <= 0) 
         {
-            animator.SetBool("isDead", true);
-            return;
+            OnDeath();
         }
-        CallOnUpdate();
-        HandleSkills();
+        else HandleSkills();
+    }
 
-        // Update cooldown
+    // Update cooldown
+    public virtual void UpdateCooldown()
+    {
         skill_Guard_BasicAttack.UpdateCooldown();
     }
    
@@ -60,13 +70,29 @@ public class Level3_Guard : BossTemplate
         MoveTowardsPlayer(melee_distance, 160f);
     }
 
+    // Handle death
+    public void OnDeath()
+    {
+        if (!isDead) 
+        {
+            if (deathCount == 0 && killTimer > 0) tracker.killGuardCount++;
+            animator.SetBool("isDead", true);
+            RemoveAllModifier();
+            Kill();
+            isDead = true;
+        }
+    }
+
     // Revive the corpse
     public void Revive()
     {
         if (currentHealth > 0) return;
         currentHealth = maxHealth;
         deathCount++;
+        RemoveAllModifier();
         animator.SetBool("isDead", false);
+        animator.SetBool("isAttack", false);
+        isDead = false;
     }
 
     // Apply speed buff
@@ -75,10 +101,16 @@ public class Level3_Guard : BossTemplate
         AddModifier(new Lvl3_Guard_Speed_Modifer(1));
     }
 
+    // Kill the unit
+    public virtual void Kill()
+    {
+        if (deathCount >= 1) Destroy(gameObject, 1f);
+    }
+
+
     //put all the global cooldown check here
     private Boolean CanUseOtherSkill()
     {
         return skill_Guard_BasicAttack.globalCooldownTimer <= 0;
     }
-
 }

@@ -3,13 +3,16 @@ using UnityEngine;
 public class Lvl3_HolyNova_Skillshot : Skillshot
 {
     public int damage = 10;
+    public Lvl3_IgnoreHolyNova_Modifer ignoreHolyNova;
 
     private void Start()
     {
         //skill speed
         speed = 100f;
+        ignoreHolyNova = new Lvl3_IgnoreHolyNova_Modifer(2);
 
         opponentTag = "Player";
+
     }
 
     protected override void SkillEffect(UnitTemplate enemy)
@@ -38,10 +41,11 @@ public class Lvl3_HolyNova_Skillshot : Skillshot
         {
             UnitTemplate playerUnit = collidedObject.GetComponent<UnitTemplate>();
             // collision/damange logic
-            if (playerUnit != null)
+            if (playerUnit != null && !playerUnit.ContainModifer(ignoreHolyNova))
             {
                 Destroy(gameObject);
                 SkillEffect(playerUnit);
+                playerUnit.AddModifier(ignoreHolyNova);
                 GenerateSanctifiedGround();
             }
         }
@@ -56,11 +60,12 @@ public class Lvl3_HolyNova_Skillshot : Skillshot
                 return;
             }
             // Speed buff or revive for guards
-            else if (guardUnit != null)
+            else if (guardUnit != null && !guardUnit.ContainModifer(ignoreHolyNova))
             {
                 Destroy(gameObject);
                 guardUnit.Revive();
                 guardUnit.ApplySpeedBuff();
+                guardUnit.AddModifier(ignoreHolyNova);
                 GenerateSanctifiedGround();
             }
         }

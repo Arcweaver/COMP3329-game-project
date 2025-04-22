@@ -3,6 +3,7 @@ using UnityEngine;
 public class Lvl3_AshenHollow_Skillshot : Skillshot
 {
     public int damage = 2000;
+    public float activeTimer;
 
     private void Start()
     {
@@ -10,16 +11,25 @@ public class Lvl3_AshenHollow_Skillshot : Skillshot
         speed = 0f;
 
         opponentTag = "Player";
+
+        //custom timer
+        activeTimer = 2f;
     }
 
     void Update()
     {
-        
+        if (activeTimer > 0f)
+        {
+            activeTimer -= Time.deltaTime;
+        }
     }
 
     protected override void SkillEffect(UnitTemplate enemy)
     {
-        CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
+        if ( activeTimer <= 0)
+        {
+            CombatParser.CombatParsing(unit, unit.GetModifiedStats(), 0, enemy, enemy.GetModifiedStats(), damage);
+        }
     }
 
 

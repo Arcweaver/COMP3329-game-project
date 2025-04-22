@@ -25,10 +25,39 @@ public class lvl2_ObjTracker : GameObjectiveTracker
 
     public override string ParseObjectiveText()
     {
+
+        int score = 0;
+        string rating;
+        if (!isHitBySpore) score += 20;
+        if (isNoSelfDetonateFungi) score += 20;
+        if (fungiInEveryQuadrant) score += 30;
+        score += player.currentHealth;
+
+        switch (score)
+        {
+            case >= 150:
+                rating = "S";
+                break;
+            case >= 130:
+                rating = "A";
+                break;
+            case >= 100:
+                rating = "B";
+                break;
+            case >= 70:
+                rating = "C";
+                break;
+            default:
+                rating = "D";
+                break;
+
+        }
+
         return $"Player Hits: {playerHits}\n" +
             $"Player HP: {player.currentHealth}/{player.maxHealth}\n" +
             $"Don't get hit by spores: {!isHitBySpore}\n" +
             $"Don't let any fungus detonate automatically: {isNoSelfDetonateFungi}\n" +
-            $"Spawn a fungus in each section of the arena: {fungiInEveryQuadrant}";
+            $"Spawn a fungus in each section of the arena: {fungiInEveryQuadrant}\n" +
+            $"Rating: {rating}\n";
     }
 }

@@ -218,9 +218,16 @@ public class Level3_Boss : BossTemplate
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
-                if (enemy.name != "boss_3") Destroy(enemy);
+                if (enemy.TryGetComponent<Level3_Guard>(out var enemyUnit)) 
+                {
+                    enemyUnit.deathCount = 2;
+                    enemyUnit.currentHealth = 0;
+                }
             }
             animator.SetBool("isRun", true);
+            animator.SetBool("isCast", false);
+            animator.SetBool("isAttack", false);
+            RemoveAllModifier();
             isEnterP3 = true;
         }
     }

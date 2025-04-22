@@ -3015,6 +3015,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5019280800713225261, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 60db792f826c53245bfa75670a0bd2ab, type: 3}
+    - target: {fileID: 5019280800713225261, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60db792f826c53245bfa75670a0bd2ab, type: 3}
     - target: {fileID: 8707893679929631202, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
       propertyPath: m_Name
       value: Audio Source
@@ -3113,6 +3121,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 968453073}
+    - target: {fileID: 3360717769343032503, guid: abd2af22549de9848ad8b916061dc756, type: 3}
+      propertyPath: defaultMaxHealth
+      value: 6500
+      objectReference: {fileID: 0}
     - target: {fileID: 4567797537575434236, guid: abd2af22549de9848ad8b916061dc756, type: 3}
       propertyPath: m_LocalScale.x
       value: 130

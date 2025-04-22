@@ -885,7 +885,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2248707008156725502, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1016599995}
+      addedObject: {fileID: 1016599997}
   m_SourcePrefab: {fileID: 100100000, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
 --- !u!1001 &646532562
 PrefabInstance:
@@ -1627,7 +1627,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2248707008156725502, guid: 5494e2595fb09f44d8a3395f1b5d13bf, type: 3}
   m_PrefabInstance: {fileID: 537379451}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1016599995
+--- !u!114 &1016599997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1636,15 +1636,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016599993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3c8b43c5738be42925312d9a49e1a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 636d57ce395ec4d4ba91c82902dce350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectivesText: {fileID: 0}
   playerHits: 0
   player: {fileID: 968453070}
-  isHitBySpore: 0
-  isNoSelfDetonateFungi: 1
-  fungiInEveryQuadrant: 0
+  killGuardCount: 0
+  isHealBoss: 0
+  isBishopExplode: 0
 --- !u!1 &1053816162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,19 +2083,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.x
-      value: 25.321465
+      value: 29.357178
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Size.y
-      value: 30.405952
+      value: 53.611244
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.x
-      value: -0.2237587
+      value: -1.232666
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_Offset.y
-      value: -10.452999
+      value: 1.1496458
       objectReference: {fileID: 0}
     - target: {fileID: 8707152787783755673, guid: 743299f24041d6e47b7a934084f7bd6d, type: 3}
       propertyPath: m_IsTrigger
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 125
-  maxHealth: 3000
+  maxHealth: 4500
   currentHealth: 0
   criticalChance: 0.2
   criticalModifier: 2
@@ -2258,7 +2258,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 712458874}
   animator: {fileID: 712458875}
   player: {fileID: 1457261115}
-  defaultMaxHealth: 3000
+  defaultMaxHealth: 4500
   defaultMovespeed: 70
   skill_interval: 8
   healthPercent: 0
@@ -2295,11 +2295,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.7919235, y: -34.801613}
+  m_Offset: {x: -2.234848, y: -41.35963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2309,7 +2309,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 26.532333, y: 46.106133}
+  m_Size: {x: 48.7287, y: 99.579185}
   m_EdgeRadius: 0
 --- !u!50 &1418291601
 Rigidbody2D:
@@ -3247,6 +3247,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5019280800713225261, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 60db792f826c53245bfa75670a0bd2ab, type: 3}
+    - target: {fileID: 5019280800713225261, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60db792f826c53245bfa75670a0bd2ab, type: 3}
     - target: {fileID: 8707893679929631202, guid: 7d9a0f63719380e45b5b434f5ec7375e, type: 3}
       propertyPath: m_Name
       value: Audio Source
