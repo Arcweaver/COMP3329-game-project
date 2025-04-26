@@ -9,7 +9,8 @@ public class UIManager : MonoBehaviour
     {
         MainMenu,
         LevelSelector,
-        CustomizationMenu
+        CustomizationMenu,
+        Tutorial
     }
 
     public List<GameObject> uiCanvases; 
@@ -42,6 +43,9 @@ public class UIManager : MonoBehaviour
                 break;
             case UIName.CustomizationMenu:
                 uiCanvases[(int)UIName.CustomizationMenu].SetActive(true);
+                break;
+            case UIName.Tutorial:
+                uiCanvases[(int)UIName.Tutorial].SetActive(true);
                 break;
         }
     }

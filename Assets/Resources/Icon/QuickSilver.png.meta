@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 539d75dfb791c754b838dd9decdf8e1d
+guid: b6e06cc7d7c217b4d9ad458517c1d169
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2639768606449493150
-    second: QuickSilver_0
+      213: -2590598223730451712
+    second: qs_icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: QuickSilver_0
+      name: qs_icon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 300
-        height: 300
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26b99534078ad5bd0800000000000000
-      internalID: -2639768606449493150
+      spriteID: 00bd9ce14a85c0cd0800000000000000
+      internalID: -2590598223730451712
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      QuickSilver_0: -2639768606449493150
+      qs_icon_0: -2590598223730451712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

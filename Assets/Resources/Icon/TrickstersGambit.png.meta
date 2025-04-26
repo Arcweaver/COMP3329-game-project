@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6e374c6214cb2ec4b80c3d9836572c14
+guid: 630ca27ed6c5a884e93327537dec26b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8809282700461219622
-    second: TrickstersGambit_0
+      213: -4679743406640096083
+    second: tg_icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TrickstersGambit_0
+      name: tg_icon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 300
-        height: 300
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62f1cf641fbd04a70800000000000000
-      internalID: 8809282700461219622
+      spriteID: dac9d3f7a263e0fb0800000000000000
+      internalID: -4679743406640096083
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TrickstersGambit_0: 8809282700461219622
+      tg_icon_0: -4679743406640096083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
