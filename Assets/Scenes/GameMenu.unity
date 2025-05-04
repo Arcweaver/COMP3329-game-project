@@ -879,8 +879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: -135}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 246}
+  m_SizeDelta: {x: 137.0584, y: 36.7187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240631818
 MonoBehaviour:
@@ -2307,8 +2307,8 @@ Transform:
   m_GameObject: {fileID: 746337260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14, y: 10.5, z: 1}
+  m_LocalPosition: {x: 1.7324, y: -1.7323, z: 0}
+  m_LocalScale: {x: 54.361515, y: 54.66494, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1816026054}
@@ -2357,7 +2357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5999202674334026692, guid: a0f13897ebfa4b74aa2b9f60c7b92a43, type: 3}
+  m_Sprite: {fileID: -685251316396858376, guid: 2899103a97b7f9649bff47315790da76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
